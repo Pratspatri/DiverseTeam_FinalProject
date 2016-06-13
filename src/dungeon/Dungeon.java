@@ -57,7 +57,7 @@ public class Dungeon
 	{
 		if (row < cells.length && col < cells[row].length) 
 		{
-			entity.setLocaleXY(row, col);
+			entity.setLocation(row, col);
 			return cells[row][col].addLifeForm(entity);
 		} 
 		else 
@@ -78,7 +78,7 @@ public class Dungeon
 			LifeForm temp = cells[row][col].removeLifeForm();
 			if (temp != null) 
 			{
-				temp.removeLocaleXY();
+				temp.removeLocation();
 			}
 			return temp;
 		} 
@@ -155,11 +155,11 @@ public class Dungeon
 	 */
 	public int getDistance(LifeForm lifeform1, LifeForm lifeform2) 
 	{
-		if (lifeform1.getRowTrack() != -1 && lifeform1.getColTrack() != -1 && lifeform2.getRowTrack() != -1
-				&& lifeform2.getColTrack() != -1)
+		if (lifeform1.getRow() != -1 && lifeform1.getCol() != -1 && lifeform2.getRow() != -1
+				&& lifeform2.getCol() != -1)
 		{
-			double temp = Math.pow((lifeform2.getRowTrack() - lifeform1.getRowTrack()), 2);
-			temp += Math.pow((lifeform2.getColTrack() - lifeform1.getColTrack()), 2);
+			double temp = Math.pow((lifeform2.getRow() - lifeform1.getRow()), 2);
+			temp += Math.pow((lifeform2.getCol() - lifeform1.getCol()), 2);
 			temp = Math.sqrt(temp);
 			temp *= 5;
 			return (int) temp;
