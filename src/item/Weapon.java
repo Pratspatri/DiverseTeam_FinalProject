@@ -68,10 +68,4 @@ public abstract class Weapon extends GenericItem
 		{
 			
 		}
-
-		public int getMaxRange() 
-		{
-			return 0;
-		}
-
 }
