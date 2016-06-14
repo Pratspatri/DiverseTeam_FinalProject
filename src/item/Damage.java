@@ -11,6 +11,6 @@ public  interface  Damage
 	/**
 	 * Calculate damage for each weapon 
 	 */
-public int calculateDamage(int distance,int maxRange,int bseDamage);
+public int calculateDamage(int distance,float maxRange,float baseDamage);
 
 }

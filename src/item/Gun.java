@@ -17,18 +17,20 @@ public class Gun extends Weapon
 	 * @param damage
 	 */
 	public Gun(Damage damage)
-	{
+	{  
+		baseDamage=15;
+	    maxRange=30;
 		this.damage=damage;
 		description="gun";
 	}
 	
 	/**
-	 * calculate damage based on behavior damage
+	 * calculate damage based on behavior of damage
 	 * @param distance
 	 */
 	public void calculateDamage(int distance)
 	{
-		damage.calculateDamage(distance, distance, distance);
+		damage.calculateDamage(distance, maxRange, baseDamage);
 	}
 
 }

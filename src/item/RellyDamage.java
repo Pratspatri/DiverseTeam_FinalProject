@@ -10,6 +10,7 @@ public class RellyDamage implements Damage
 	float rate_of_Fire;
 	float max_Ammo;
 	float actual_ammo;
+	float damage;
 	
 	/**
 	 * Constructor
@@ -82,9 +83,10 @@ public class RellyDamage implements Damage
 		}
 	}
 	@Override
-	public int calculateDamage(int distance, int maxRange, int bseDamage) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int calculateDamage(int distance,float maxRange,float baseDamage) 
+	{
+		damage=baseDamage*(distance/maxRange);
+		return (int) damage;
 	}
 
 

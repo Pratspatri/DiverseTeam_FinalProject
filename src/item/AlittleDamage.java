@@ -10,15 +10,15 @@ public class AlittleDamage implements Damage
     /**
      * Store damage result
      */
-	public int damage;
+	public float damage;
 	/**
 	 * calculate damage for sword and spear weapon
 	 */
 	@Override
-	public int calculateDamage(int distance, int maxRange, int baseDamage) 
+	public int calculateDamage(int distance,float maxRange,float baseDamage) 
 	{
 	    damage=baseDamage*(distance+5);
-		return damage;
+		return (int) damage;
 	}
 
 

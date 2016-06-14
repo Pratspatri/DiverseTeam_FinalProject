@@ -17,7 +17,9 @@ public class Sword extends Weapon
 	 * @param damage
 	 */
 	public Sword(Damage damage)
-	{
+	{   
+		 baseDamage=9;
+		 maxRange=3;
 		this.damage=damage;
 		description="sword";
 	}
@@ -28,6 +30,6 @@ public class Sword extends Weapon
 	 */
 	public void calculateDamage(int distance)
 	{
-		damage.calculateDamage(distance, distance, distance);
+		damage.calculateDamage(distance, maxRange, baseDamage);
 	}
 }
