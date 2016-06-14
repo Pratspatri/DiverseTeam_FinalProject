@@ -13,6 +13,12 @@ public abstract class Armor extends GenericItem
     public int armorPoints;
     
     /**
+	 * set description for a armor
+	 * @param description
+	 */
+	public String description;
+    
+    /**
      * set the points to armor
      * @param armorPoints
      */
@@ -30,7 +36,24 @@ public abstract class Armor extends GenericItem
     	return armorPoints;
     }
     /**
+     * set description for a armor
+     * @param description
+     */
+    public void setDescription(String description)
+    {
+    	this.description=description;
+    }
+
+    /**
+     * get description for a armor
+     * @return description
+     */
+    public String getDescription()
+    {
+    	return description;
+    }
+    /**
      * There different use for the armor
      */
-    public abstract void useArmor();
+    public abstract void useArmor(int distance);
 }
