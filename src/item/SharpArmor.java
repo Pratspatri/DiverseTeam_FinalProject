@@ -10,6 +10,7 @@ public class SharpArmor extends SpecialArmor
 	/**
 	 * Constructor
 	 */
+	
 	public SharpArmor()
 	{
 		description="sharpArmor";
