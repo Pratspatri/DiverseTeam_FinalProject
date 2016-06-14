@@ -2,7 +2,7 @@ package item;
 
 /**
  * It is one of special armor type 
- * @author Malak
+ * @author Malak 
  *
  */
 public class PowerArmor extends SpecialArmor 
