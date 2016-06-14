@@ -1,6 +1,6 @@
 package item;
 
-public class Weapon 
+public abstract class Weapon 
 {
 
 	public static int fire(int distance) 
