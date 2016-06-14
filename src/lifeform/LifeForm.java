@@ -1,8 +1,6 @@
 package lifeform;
 
 import gameplay.TimerObserver;
-import inventory.Inventory;
-import item.Item;
 import item.Weapon;
 
 public class LifeForm implements TimerObserver
@@ -20,22 +18,15 @@ public class LifeForm implements TimerObserver
 	private int trackCol;
 	
 	private Weapon weapon;
-
-	private Inventory bag;
 	
-	public LifeForm(String name, int life)
+	public LifeForm(String name, int life, int strength)
 	{
 		this.name = name;
 		lifePoints = (life >= 0) ? life : 0;
-		strength = 0;
+		this.strength = (strength >= 0) ? strength : 0;
 		hitPoints = 0;
 		trackRow = -1;
 		trackCol = -1;
-	}
-	public LifeForm(String name, int life, int strength)
-	{
-		this(name, life);
-		this.strength = (strength >= 0) ? strength : 0;
 	}
 
 	public String getName()
@@ -80,28 +71,7 @@ public class LifeForm implements TimerObserver
 		this.strength = (strength >= 0) ? strength : 0;
 	}
 	
-	public void addToInventory(Item item)
-	{
-		this.bag = bag.addItem(item);
-	}
 	
-	public Item removeFromInventory(Item item)
-	{
-		Item temp;
-		temp = item;
-		this.bag = bag.removeItem(item);
-		return temp;
-	}
-	
-	public boolean useItem(Item item)
-	{
-		if(item != null)
-		{
-			bag.use(item);
-			return true;
-		}
-		return false;
-	}
 	/*//TODO  check why it is distance < 10 check how to do for sword n spear
  	public void attack(LifeForm lifeForm2)
 	{
