@@ -122,8 +122,9 @@ public class LifeForm implements TimerObserver
 	{
 		weapon = null;
 	}
-
+	//TODO for the gun weapon. it needs reload and max ammo etc.
 	/**
+	 *
 	 * Reloads the weapon the lifeForm has.
 	 */
 	public void weaponReloaded()
@@ -162,14 +163,14 @@ public class LifeForm implements TimerObserver
 	{
 		return this.trackCol;
 	}
-	
+	//TODO check why 5
 	/**
 	 * Gets the number of Cell that the LifeForm can attach other LifeForm through.
 	 * @return
 	 */
 	public int getAttackDistance()
 	{
-		return (weapon==null)?0:weapon.getMaxRange()/5;
+		return (int) ((weapon==null)?0:weapon.getMaxrRange()/5);
 	}
 	
 }
