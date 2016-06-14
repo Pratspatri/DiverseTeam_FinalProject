@@ -28,6 +28,6 @@ public class Spear extends Weapon
 	 */
 	public void calculateDamage(int distance)
 	{
-		damage.calculateDamage(distance);
+		damage.calculateDamage(distance, distance, distance);
 	}
 }

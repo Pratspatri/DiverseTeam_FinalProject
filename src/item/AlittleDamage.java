@@ -5,12 +5,22 @@ package item;
  * @author Malak
  *
  */
-public class AlittleDamage implements Damage {
-
+public class AlittleDamage implements Damage 
+{
+    /**
+     * Store damage result
+     */
+	public int damage;
+	/**
+	 * calculate damage for sword and spear weapon
+	 */
 	@Override
-	public void calculateDamage(int distance) {
-		// TODO Auto-generated method stub
-
+	public int calculateDamage(int distance, int maxRange, int baseDamage) 
+	{
+	    damage=baseDamage*(distance+5);
+		return damage;
 	}
+
+
 
 }

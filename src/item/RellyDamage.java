@@ -11,7 +11,18 @@ public class RellyDamage implements Damage
 	float max_Ammo;
 	float actual_ammo;
 	
-	
+	/**
+	 * Constructor
+	 * @param rate_of_Fire
+	 * @param max_Ammo
+	 * @param actual_ammo
+	 */
+	public RellyDamage(float rate_of_Fire,float max_Ammo,float actual_ammo)
+	{
+		 this.rate_of_Fire=rate_of_Fire;
+		 this.max_Ammo=max_Ammo;
+		 this.actual_ammo=max_Ammo;
+	}
 	/**
 	 * implement setMaxAmmo() to set max ammo
 	 */
@@ -70,11 +81,12 @@ public class RellyDamage implements Damage
 		actual_ammo--;
 		}
 	}
-
 	@Override
-	public void calculateDamage(int distance) {
+	public int calculateDamage(int distance, int maxRange, int bseDamage) {
 		// TODO Auto-generated method stub
-
+		return 0;
 	}
+
+
 
 }
