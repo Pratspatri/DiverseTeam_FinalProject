@@ -4,7 +4,6 @@ import gameplay.TimerObserver;
 import inventory.Inventory;
 import item.Item;
 import item.Weapon;
-import dungeon.Dungeon;
 
 public class LifeForm implements TimerObserver
 {
@@ -22,8 +21,6 @@ public class LifeForm implements TimerObserver
 	
 	private Weapon weapon;
 
-	private Item item;
-	
 	private Inventory bag;
 	
 	public LifeForm(String name, int life)
@@ -59,19 +56,60 @@ public class LifeForm implements TimerObserver
 			lifePoints = (lifePoints >= 0) ? lifePoints : 0;
 		}
 	}
+	
+	public int getHitPoints()
+	{
+		return hitPoints;
+	}
 
+	public void setHitPoints(int hit)
+	{
+		if(hit > 0)
+		{
+			this.hitPoints = hit;
+		}
+	}
+	
 	public int getStrength()
 	{
 		return strength;
 	}
-	//TODO  check why it is distance < 10
+	
+	public void setStrength(int strength)
+	{
+		this.strength = (strength >= 0) ? strength : 0;
+	}
+	
+	public void addToInventory(Item item)
+	{
+		this.bag = bag.addItem(item);
+	}
+	
+	public Item removeFromInventory(Item item)
+	{
+		Item temp;
+		temp = item;
+		this.bag = bag.removeItem(item);
+		return temp;
+	}
+	
+	public boolean useItem(Item item)
+	{
+		if(item != null)
+		{
+			bag.use(item);
+			return true;
+		}
+		return false;
+	}
+	/*//TODO  check why it is distance < 10 check how to do for sword n spear
  	public void attack(LifeForm lifeForm2)
 	{
 		Dungeon dun = Dungeon.getDungeonInstance();
 		int distance = dun.getDistance(this, lifeForm2);
 		if (getLifePoints() > 0)
 		{
-			if (weapon == null || Weapon.getActualAmmo() == 0)
+			if (weapon == null || RellyDamage.getActualAmmo() == 0)
 			{
 				if (distance <= 10)
 				{
@@ -83,7 +121,7 @@ public class LifeForm implements TimerObserver
 				lifeForm2.takeHit(Weapon.fire(distance));
 			}
 		}
-	}
+	}*/
 
 	/**
 	 * When the time is changed the timer notifies this method of the Observer.
@@ -121,15 +159,6 @@ public class LifeForm implements TimerObserver
 	public void dropWeapon()
 	{
 		weapon = null;
-	}
-	//TODO for the gun weapon. it needs reload and max ammo etc.
-	/**
-	 *
-	 * Reloads the weapon the lifeForm has.
-	 */
-	public void weaponReloaded()
-	{
-		weapon.reload();
 	}
 	/**
 	 * Sets the locale with respect to coordinates
