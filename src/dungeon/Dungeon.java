@@ -22,11 +22,12 @@ public class Dungeon
 	private Dungeon(int row, int col)
 	{
 		cells = new Cell[row][col];
+		CellFactory factory = new CellFactory();
 		for (int i = 0; i < row; i++) 
 		{
 			for (int j = 0; j < col; j++) 
 			{
-				cells[i][j] = new Cell();
+				cells[i][j] = factory.getCell();//get the cell with canWalkThrough State.
 			}
 		}
 	}
@@ -226,6 +227,7 @@ public class Dungeon
 	}
 	//TODO update this method accordingly after Jixiang's
 	/**
+	 * 
 	 * To set the state of the dungeon
 	 * @param row
 	 * @param col
@@ -233,7 +235,14 @@ public class Dungeon
 	 */
 	public void setState(int row, int col, State state)
 	{
-		
+		try
+		{
+			cells[row][col].setState(state);
+		}
+		catch(ArrayIndexOutOfBoundsException ex)
+		{
+			
+		}
 	}
 	//TODO update this method accordingly after Jixiang's
 	/**
@@ -244,7 +253,14 @@ public class Dungeon
 	 */
 	public State getState(int row, int col)
 	{
-		return null;
+		try
+		{			
+			return cells[row][col].getState();
+		}
+		catch(ArrayIndexOutOfBoundsException ex)
+		{
+			return null;
+		}
 		
 	}
 }

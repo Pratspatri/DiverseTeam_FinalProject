@@ -3,50 +3,63 @@ package dungeon;
 import item.Item;
 import lifeform.LifeForm;
 
+/**
+ * 
+ * @author Jixiang Lu
+ *
+ */
 public class Cell
 {
-	//TODO please add lifeForm items to the cell. Each cell can only have at most 5 items.
-	// For that reason only, am passing position in get and set methods.
+	private State state;
 	
-//TODO
+	public Cell()
+	{
+		this(new CanWalkThroughState());
+	}
+	
+	public Cell(State state)
+	{
+		this.state = state;
+	}
+
 	public boolean addItem(Item item, int position) 
 	{
-		return false;
+		return state.addItem(item, position);
 	}
-//TODO
+
 	public Item removeItem(int position) 
 	{
-		return null;
+		return state.removeItem(position);
 	}
-//TODO
+
 	public Item getItem(int position) 
 	{
-		return null;
+		return state.getItem(position);
 	}
-//TODO
+
 	public void setState(State state)
 	{
-		
+		this.state = state;
 	}
-//TODO
+
 	public State getState()
 	{
-		return null;
+		return state;
 		
 	}
-//TODO
+
 	public LifeForm getLifeForm() 
 	{
-		return null;
+		return state.getLifeForm();
 	}
-//TODO
+
 	public boolean addLifeForm(LifeForm entity) 
 	{
-		return false;
+		return state.addLifeForm(entity);
 	}
-//TODO
+
 	public LifeForm removeLifeForm() 
 	{
-		return null;
+		return state.removeLifeForm();
 	}
 }
