@@ -1,5 +1,9 @@
 package ability;
-
+/**
+ * Class for poison ability
+ * @author Prathyusha Akshintala
+ *
+ */
 public class Poison extends Ability
 {
 
@@ -8,12 +12,18 @@ public class Poison extends Ability
 		super(name, life, strength);
 	}
 
+	/**
+	 * gets the description
+	 */
 	@Override
 	public String getDescription() 
 	{
 		return "Poison";
 	}
 
+	/**
+	 * calculates damage
+	 */
 	@Override
 	public int calculateDamage(int damage) 
 	{

@@ -4,15 +4,11 @@ package lifeform;
  * @author - Prathyusha Akshintala
  */
 import ability.Poison;
-import ability.Poke;
 import inventory.Inventory;
 import inventory.PlayerInventoryFactory;
 import item.Armor;
 import item.ImmunePoison;
 import item.Item;
-import item.NormalArmor;
-import item.PowerArmor;
-import item.SharpArmor;
 
 public class Player extends LifeForm 
 {
@@ -27,7 +23,8 @@ public class Player extends LifeForm
 	
 	private String health;
 
-	private Player(String name, int life, int strength) 				// Singleton pattern - private constructor
+	// Singleton pattern - private constructor
+	private Player(String name, int life, int strength) 				
 	{
 		super(name, life, strength);
 		PlayerInventoryFactory factory = new PlayerInventoryFactory();
@@ -52,12 +49,18 @@ public class Player extends LifeForm
 	{
 		thePlayer = null;
 	}
-	
+	/**
+	 * sets the health parameter
+	 * @param myhealth
+	 */
 	public void setHealth(String myhealth)
 	{
 		this.health = myhealth;
 	}
-	
+	/**
+	 * get the health status
+	 * @return
+	 */
 	public String getHealth()
 	{
 		return health;
@@ -121,7 +124,9 @@ public class Player extends LifeForm
 	{
 		return bag.use(index);
 	}
-	
+	/**
+	 * Take hit method to calculate how much damage it takes
+	 */
 	@Override
 	public void takeHit(LifeForm lifeform, int damage) 
 	{

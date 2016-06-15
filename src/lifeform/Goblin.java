@@ -24,7 +24,9 @@ public class Goblin extends Creature
 	{
 		super(name, life, strength, rec, rateOfRecovery);
 	}
-	
+	/**
+	 * gets the description of creature
+	 */
 	@Override
 	public String getDescription() 
 	{

@@ -1,6 +1,5 @@
 package lifeform;
 
-import ability.Ability;
 import exception.RecoveryException;
 import recovery.Recovery;
 
@@ -11,27 +10,29 @@ import recovery.Recovery;
  */
 public abstract class Creature extends LifeForm
 {
-	private int maxLife;
+	private int maxLife;											// maximum life points for creature
 	
-	protected String description;
+	protected String description;									// description of creature
 	
-	protected Recovery recoveryBehavior;
+	protected Recovery recoveryBehavior;							// recovery behavior - None & Linear
 	
-	private int rateOfRecovery;
-		
+	private int rateOfRecovery;										// rate of recovery for creature
+	
+	// Constructor
 	public Creature(String name, int life, int strength) 
 	{
 		super(name, life, strength);
 		recoveryBehavior = null;
 		maxLife = lifePoints;
+		rateOfRecovery = 0;
 	}
-	
+	//Constructor with recovery
 	public Creature(String name, int life, int strength, Recovery rec)
 	{
 		super(name, life, strength);
 		recoveryBehavior = rec;
 	}
-
+	//Constructor with rate of recovery and throws exception
 	public Creature(String name, int life, int strength, Recovery rec, int rateOfRecovery) throws RecoveryException
 	{
 		this(name, life, strength, rec);
@@ -44,9 +45,12 @@ public abstract class Creature extends LifeForm
 			throw new RecoveryException("Recovery Rate can not be less than 0");
 		}
 	}	
-	
+	// Abstract method for subclasses to implement and get description
 	public abstract String getDescription();
-	
+	/**
+	 * Sets current life points
+	 * @param lifePoints
+	 */
 	public void setCurrentLife(int lifePoints)
 	{
 		if (lifePoints < maxLife)
@@ -54,17 +58,25 @@ public abstract class Creature extends LifeForm
 			this.lifePoints = (lifePoints >= 0) ? lifePoints : 0;
 		}
 	}
+	/**
+	 * gets Max life points
+	 * @return
+	 */
 	public int getMaxLife() 
 	{
 		return maxLife;
 	}
-
+	/**
+	 * sets max life points
+	 * @param maxLife
+	 */
 	public void setMaxLife(int maxLife) 
 	{
 		this.maxLife = maxLife;
 	}
-	
-	
+	/**
+	 * recover method for creature 
+	 */
 	public void recover()
 	{
 		if (recoveryBehavior != null)
@@ -73,12 +85,19 @@ public abstract class Creature extends LifeForm
 			setCurrentLife(life);
 		}
 	}
-
+	/**
+	 * gets recovery rate
+	 * @return
+	 */
 	public int getRecoveryRate()
 	{
 		return rateOfRecovery;
 	}
-
+	/**
+	 * sets recovery rate - none or linear
+	 * @param recoveryRate
+	 * @throws RecoveryException
+	 */
 	public void setRecoveryRate(int recoveryRate) throws RecoveryException
 	{
 		if (recoveryRate >= 0)
@@ -90,7 +109,9 @@ public abstract class Creature extends LifeForm
 			throw new RecoveryException("Recovery Rate can not be less than 0");
 		}
 	}
-
+	/**
+	 * take hit method for creature
+	 */
 	@Override
 	public void takeHit(LifeForm lifeform, int damage) 
 	{
@@ -100,7 +121,6 @@ public abstract class Creature extends LifeForm
 				lifePoints=(lifePoints<0)?0:lifePoints;
 		}
 	}
-
 	/**
 	 * When the time is changed the timer notifies this method.
 	 * @param time : updated time
@@ -113,7 +133,10 @@ public abstract class Creature extends LifeForm
 			recover();
 		}
 	}
-	
+	/**
+	 * calculates damage for the creature
+	 * @return
+	 */
 	public int calculateDamage()
 	{
 		return strength;

@@ -9,6 +9,7 @@ import exception.RecoveryException;
  */
 public class Mummy extends Creature 
 {
+	// Because it extends creature, constructors and unimplemented methods are added here
 	public Mummy(String name, int life, int strength) 
 	{
 		super(name, life, strength);
@@ -23,7 +24,9 @@ public class Mummy extends Creature
 	{
 		super(name, life, strength, rec, rateOfRecovery);
 	}
-	
+	/**
+	 * Gets the description of creature
+	 */
 	@Override
 	public String getDescription() 
 	{

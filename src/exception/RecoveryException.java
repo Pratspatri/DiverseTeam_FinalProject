@@ -6,8 +6,10 @@ package exception;
  */
 public class RecoveryException extends Exception
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
-	 * 
+	 * Exception message 
 	 */
 	public RecoveryException(String message)
 	{

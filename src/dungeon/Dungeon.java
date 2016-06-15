@@ -111,8 +111,6 @@ public class Dungeon
 	{
 		theDungeon = null;
 	}
-	// Each cell should have at most 5 items
-	//TODO update this method accordingly after Malak's
 	/**
 	 * To add the item into the particular position, row and column
 	 * @param row
@@ -132,7 +130,6 @@ public class Dungeon
 			return false;
 		}
 	}
-	//TODO update this method accordingly after Malak's
 	/**
 	 * This removes the item from that row, column and position
 	 * @param row
@@ -170,7 +167,6 @@ public class Dungeon
 		}
 		return -1;
 	}
-	//TODO update this method accordingly after Malak's
 	/**
 	 * To get the item present in that row and column of the dungeon
 	 * @param row
@@ -228,9 +224,7 @@ public class Dungeon
 
 		return location;
 	}
-	//TODO update this method accordingly after Jixiang's
 	/**
-	 * 
 	 * To set the state of the dungeon
 	 * @param row
 	 * @param col
@@ -247,7 +241,6 @@ public class Dungeon
 			
 		}
 	}
-	//TODO update this method accordingly after Jixiang's
 	/**
 	 * To get the state of the dungeon
 	 * @param row
