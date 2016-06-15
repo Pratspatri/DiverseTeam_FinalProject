@@ -32,5 +32,4 @@ class NormalArmor extends Armor
 		}
 		return damage;
 	}
-
 }

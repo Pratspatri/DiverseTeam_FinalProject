@@ -17,11 +17,19 @@ public class PowerArmor extends SpecialArmor
 	}
 
 	@Override
-	public int useArmor(int distance) 
+	public int useArmor(int hit_damage) 
 	{
-		return damage;
-		// TODO Auto-generated method stub
+		 int diff=0;
+			if(armorPoints<hit_damage)
+			{
+			    diff=hit_damage-armorPoints;
+			    if(diff>=0)
+			    	  damage=diff;
+			    else damage=0;
+			      
+			}
+			return damage;
+		}
 
-	}
+  }
 
-}
