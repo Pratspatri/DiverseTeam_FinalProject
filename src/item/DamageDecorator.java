@@ -1,16 +1,23 @@
 package item;
 
 /**
- * Interface to define beahivor damage for weapon either really or little 
+ * Abstract to decorate all weapon types 
  * @author Malak
  *
  */
-public abstract class DamageDecorator 
-{
+public abstract class DamageDecorator extends Weapon
+{     /**
+       *Defin which will be decorated
+       */
 	  protected Weapon weapon;
+	  /**
+		 * Describe the type of decorator
+		 */
+	    String description;
 	/**
 	 * Calculate damage for each weapon 
 	 */
 public abstract int calculateDamage(int distance);
+public abstract String getDescription();
 
 }
