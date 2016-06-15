@@ -54,24 +54,17 @@ public class Player extends LifeForm
 	// TODO Do we need to send it as an array list or just item
 	public void addToInventory(Item item)
 	{
-		this.bag = bag.addItem(item);
+		bag.addItem(item);
 	}
 	// TODO do we need to send a position?
 	public Item removeFromInventory(Item item)
 	{
-		Item temp;
-		temp = item;
-		this.bag = bag.removeItem(item);
+		Item temp = bag.removeItem(item);
 		return temp;
 	}
 	
-	public boolean useItem(Item item)
+	public boolean useItem(int index)
 	{
-		if(item != null)
-		{
-			bag.use(item);
-			return true;
-		}
-		return false;
+		return bag.use(index);
 	}
 }
