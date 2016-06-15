@@ -11,6 +11,7 @@ public class RellyDamage extends DamageDecorator
      * Calculate damage
      */
     float damage;
+    
 	
 /**
  * Make the damage four time
@@ -22,6 +23,11 @@ public class RellyDamage extends DamageDecorator
 		return (int) damage;
 	}
 
-
+@Override
+public String getDescription()
+{
+	description="really damage";
+	return description;
+}
 
 }
