@@ -37,17 +37,6 @@ public class PlayerInventory implements Inventory
 		}
 	}
 
-	@Override
-	public Item removeItem(Item item)
-	{
-		if(items.contains(item))
-		{
-			items.remove(item);
-			return item;	
-		}
-		else
-			return null;
-	}
 	
 	@Override
 	public Item removeItem(int index)
@@ -128,6 +117,13 @@ public class PlayerInventory implements Inventory
 		else
 			this.actualSize = size;
 		
+	}
+
+	@Override
+	public int index(Item item) 
+	{
+
+		return items.indexOf(item);
 	}
 
 

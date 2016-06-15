@@ -7,7 +7,7 @@ package item;
  */
 public abstract class DamageDecorator extends Weapon
 {     /**
-       *Defin which will be decorated
+       *Define which will be decorated
        */
 	  protected Weapon weapon;
 	  /**

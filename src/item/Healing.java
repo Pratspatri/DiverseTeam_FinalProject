@@ -19,16 +19,13 @@ public class Healing extends Potions
 	}
 
 	/**
-	 * override the taken to increase the ability of player
+	 * Override the taken to increase the ability of player
 	 * Increase the ability of player by decreasing the hitpoints and increase strength and Experience point by the amount which the player drinks
 	 */
 	@Override
 	public void taken() 
 	{
-		Player.getPlayerInstance().setHitPoints(Player.getPlayerInstance().getHitPoints()-amount);
 		Player.getPlayerInstance().setStrength(Player.getPlayerInstance().getStrength()+amount);
-		((Player) Player.getPlayerInstance()).setExpPoints(((Player) Player.getPlayerInstance()).getExpPoints()+amount);
-
 	}
 
 }

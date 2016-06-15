@@ -12,6 +12,7 @@ public class Gun extends Weapon
 	float max_Ammo;
 	float actual_ammo;
 	float damage;
+	
 	/**
 	 * Constructor send the damage behavior
 	 * @param damage

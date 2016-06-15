@@ -8,19 +8,19 @@ package item;
  */
 public abstract class GenericItem implements Item
 {
-String name;
-/**
- * Set what is the name for item
- */
+	String name;
+	/**
+	 * Set what is the name for item
+	 */
 	@Override
 	public void setItem(String name)
 	{
 		this.name=name;
 		
 	}
-/**
- * Get name for item
- */
+	/**
+	 * Get name for item
+	 */
 	@Override
 	public String getItem() 
 	{

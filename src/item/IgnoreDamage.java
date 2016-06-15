@@ -1,5 +1,7 @@
 package item;
 
+import lifeform.Player;
+
 /**
  * This class will decorator the armor, so player can ignore damage,so
  * playe's armor points will remain unchanged
@@ -15,10 +17,14 @@ public class IgnoreDamage extends AbilityArmor
 	{
 		description="ignore";
 	}
+	/**
+	 * Use Armor to ignore Damage
+	 */
 	@Override
-	public void useArmor(int distance) 
+	public int useArmor(int hit_damage) 
 	{
-		// TODO Auto-generated method stub
+		damage=0;
+		return damage;
 
 	}
 }
