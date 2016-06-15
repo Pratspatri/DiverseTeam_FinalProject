@@ -21,9 +21,10 @@ public class IgnoreDamage extends AbilityArmor
 	 * Use Armor to ignore Damage
 	 */
 	@Override
-	public void useArmor(int distance) 
+	public int useArmor(int hit_damage) 
 	{
-		Player.getPlayerInstance().setLifePoints(Player.getPlayerInstance().getLifePoints());
+		damage=0;
+		return damage;
 
 	}
 }

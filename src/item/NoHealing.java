@@ -23,10 +23,7 @@ public class NoHealing extends Potions
 	@Override
 	public void taken() 
 	{
-		Player.getPlayerInstance().setHitPoints(Player.getPlayerInstance().getHitPoints()-amount);
 		Player.getPlayerInstance().setStrength(Player.getPlayerInstance().getStrength()+amount);
-		((Player) Player.getPlayerInstance()).setExpPoints(((Player) Player.getPlayerInstance()).getExpPoints()+amount);
-
 	}
 
 }

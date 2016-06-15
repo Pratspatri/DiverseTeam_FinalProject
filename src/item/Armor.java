@@ -13,6 +13,11 @@ public abstract class Armor extends GenericItem
     public int armorPoints;
     
     /**
+	 * Calculate Damage
+	 */
+       public int damage;
+    
+    /**
 	 * set description for a armor
 	 * @param description
 	 */
@@ -55,5 +60,5 @@ public abstract class Armor extends GenericItem
     /**
      * There different use for the armor
      */
-    public abstract void useArmor(int distance);
+    public abstract int useArmor(int hit_damage);
 }

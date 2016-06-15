@@ -1,5 +1,7 @@
 package item;
 
+import lifeform.Player;
+
 /**
  * This class will decorator the armor, so player can immune from poison
  * @author Malak
@@ -14,10 +16,14 @@ public class ImmunePoison extends AbilityArmor
 	{
 		description="immunepoison";
 	}
+	/**
+	 * Use Armor to ignore Damage
+	 */
 	@Override
-	public void useArmor(int distance) 
+	public int useArmor(int hit_damage) 
 	{
-		// TODO Auto-generated method stub
+         damage=0;
+		return damage;
 
 	}
 
