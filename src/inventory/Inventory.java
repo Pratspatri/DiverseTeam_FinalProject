@@ -6,7 +6,6 @@ public interface Inventory
 {
 
 	public boolean addItem(Item item);
-	public Item removeItem(Item item);
 	public Item removeItem(int index);
 	public boolean use(int index);
 	public boolean drop(int index);
@@ -17,5 +16,5 @@ public interface Inventory
 	public int getActualSize();
 	public void setMaxSize(int size);
 	public void setActualSize(int size);
-	public Item index(Item item);
+	public int index(Item item);
 }
