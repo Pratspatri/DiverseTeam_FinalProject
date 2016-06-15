@@ -8,7 +8,7 @@ package item;
 public abstract class Potions extends GenericItem 
 {
     /**
-     * define amount of potions
+     * define amount of potions which how much the player takes
      */
 	public int amount;
 	
