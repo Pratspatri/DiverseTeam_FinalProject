@@ -5,7 +5,7 @@ public abstract class Weapon extends GenericItem
 	float baseDamage;
 	float maxRange;
     String description;
-    protected Damage damage;
+  
 	
 	public void setBaseDamge(float base_Damage)
 	{
@@ -52,20 +52,23 @@ public abstract class Weapon extends GenericItem
 	}
 	
 	/**
-	 * Prathyusha
-	*/
-		public static int fire(int distance) 
-		{
-			return 0;
-		}
+	 * Calculate damage for each weapon 
+	 */
+	
+	public abstract int calculateDamage(int distance);
+	
+//	/**
+//	 * Prathyusha
+//	*/
+//		public static int fire(int distance) 
+//		{
+//			return 0;
+//		}
+//
+//		public static int getActualAmmo() 
+//		{
+//			return 0;
+//		}
 
-		public static int getActualAmmo() 
-		{
-			return 0;
-		}
-
-		public void reload() 
-		{
-			
-		}
+	
 }

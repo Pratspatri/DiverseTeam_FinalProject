@@ -5,19 +5,20 @@ package item;
  * @author Malak
  *
  */
-public class AlittleDamage implements Damage 
+public class AlittleDamage extends DamageDecorator 
 {
-    /**
-     * Store damage result
-     */
-	public float damage;
 	/**
-	 * calculate damage for sword and spear weapon
+     * Calculate damage
+     */
+    float damage;
+    
+	/**
+	 * calculate damage to make it double
 	 */
 	@Override
-	public int calculateDamage(int distance,float maxRange,float baseDamage) 
+	public int calculateDamage(int distance) 
 	{
-	    damage=baseDamage*(distance+5);
+	    damage=weapon.calculateDamage(distance)*2;
 		return (int) damage;
 	}
 

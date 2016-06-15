@@ -5,87 +5,20 @@ package item;
  * @author Malak
  *
  */
-public class RellyDamage implements Damage 
+public class RellyDamage extends DamageDecorator
 {
-	float rate_of_Fire;
-	float max_Ammo;
-	float actual_ammo;
-	float damage;
+	/**
+     * Calculate damage
+     */
+    float damage;
 	
-	/**
-	 * Constructor
-	 * @param rate_of_Fire
-	 * @param max_Ammo
-	 * @param actual_ammo
-	 */
-	public RellyDamage(float rate_of_Fire,float max_Ammo,float actual_ammo)
-	{
-		 this.rate_of_Fire=rate_of_Fire;
-		 this.max_Ammo=max_Ammo;
-		 this.actual_ammo=max_Ammo;
-	}
-	/**
-	 * implement setMaxAmmo() to set max ammo
-	 */
-	public void setMaxAmmo(float maxAmmo)
-	{
-		 max_Ammo=maxAmmo;
-		
-	}
-	/**
-	 * implement setActualAmmo() to set actual
-	 */
-	public void setActualAmmo(float ammo)
-	{
-		actual_ammo = ammo;
-	}
-	/**
-	 * implement setRateofFire set rate of fire
-	 */
-	public void setRateofFire(float rateFire)
-	{
-		rate_of_Fire=rateFire;
-	}
-	
-	/**
-	 * implement getMaxAmmo() to get max ammo
-	 */
-	public float getMaxAmmo()
-	{
-		return max_Ammo;	
-	}
-	/**
-	 * implement getActualAmmo() to get actual ammo
-	 */
-	public float getActualAmmo()
-	{
-		return actual_ammo;
-	}
-	/**
-	 * Implement reload()for reload the ammo
-	 */
-	public void reload()
-	{
-	if(actual_ammo==0)
-		setActualAmmo(max_Ammo);
-	
-	}
-	/**
-	 * Implement RateOfFire() to manage the rate of fire in each round
-	 */
-
-	public void fire()
-	{
-	if(rate_of_Fire>0)
-		{
-		rate_of_Fire--;
-		actual_ammo--;
-		}
-	}
+/**
+ * Make the damage four time
+ */
 	@Override
-	public int calculateDamage(int distance,float maxRange,float baseDamage) 
+	public int calculateDamage(int distance) 
 	{
-		damage=baseDamage*(distance/maxRange);
+		damage=weapon.calculateDamage(distance)*4;
 		return (int) damage;
 	}
 

@@ -5,12 +5,12 @@ package item;
  * @author Malak
  *
  */
-public  interface  Damage 
+public abstract class DamageDecorator 
 {
-	
+	  protected Weapon weapon;
 	/**
 	 * Calculate damage for each weapon 
 	 */
-public int calculateDamage(int distance,float maxRange,float baseDamage);
+public abstract int calculateDamage(int distance);
 
 }
