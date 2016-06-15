@@ -1,5 +1,7 @@
-package dungeon;
+package dungeon.cell;
 
+import dungeon.cell.state.CanWalkThroughState;
+import dungeon.cell.state.State;
 import item.Item;
 import lifeform.LifeForm;
 

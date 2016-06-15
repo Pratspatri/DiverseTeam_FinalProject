@@ -1,5 +1,8 @@
 package dungeon;
 
+import dungeon.cell.Cell;
+import dungeon.cell.CellFactory;
+import dungeon.cell.state.State;
 import lifeform.LifeForm;
 import item.Item;
 

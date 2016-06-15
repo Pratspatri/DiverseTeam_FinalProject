@@ -1,4 +1,8 @@
-package dungeon;
+package dungeon.cell;
+
+import dungeon.cell.state.CanWalkThroughState;
+import dungeon.cell.state.DoorState;
+import dungeon.cell.state.NoWalkThroughState;
 
 public class CellFactory
 {

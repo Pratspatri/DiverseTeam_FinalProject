@@ -1,4 +1,4 @@
-package dungeon;
+package dungeon.cell.state;
 
 import item.Item;
 import lifeform.LifeForm;
