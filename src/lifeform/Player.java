@@ -3,8 +3,11 @@ package lifeform;
  * Player class which extends LifeForm
  * @author - Prathyusha Akshintala
  */
+import ability.Poison;
 import inventory.Inventory;
 import inventory.PlayerInventoryFactory;
+import item.Armor;
+import item.ImmunePoison;
 import item.Item;
 
 public class Player extends LifeForm 
@@ -12,11 +15,13 @@ public class Player extends LifeForm
 
 	private int expPoints;												// How many points the player has
 	
-	private String armor;												// What type of armor
+	private Armor armor;												// What type of armor
 	
 	private Inventory bag;												// Inventory to hold everything
 	
-	private static LifeForm thePlayer;									
+	private static LifeForm thePlayer;		
+	
+	private String health;
 
 	private Player(String name, int life, int strength) 				// Singleton pattern - private constructor
 	{
@@ -43,6 +48,16 @@ public class Player extends LifeForm
 	{
 		thePlayer = null;
 	}
+	
+	public void setHealth(String myhealth)
+	{
+		this.health = myhealth;
+	}
+	
+	public String getHealth()
+	{
+		return health;
+	}
 	/**
 	 * Gets exp points
 	 * @return
@@ -63,7 +78,7 @@ public class Player extends LifeForm
 	 * Gets the armor
 	 * @return
 	 */
-	public String getArmor() 
+	public Armor getArmor() 
 	{
 		return armor;
 	}
@@ -71,8 +86,7 @@ public class Player extends LifeForm
 	 * Sets the armor from different types
 	 * @param armor
 	 */
-	//TODO check how to set armor according to the type
-	public void setArmor(String armor) 
+	public void setArmor(Armor armor) 
 	{
 		this.armor = armor;
 	}
@@ -80,7 +94,6 @@ public class Player extends LifeForm
 	 * Add to the inventory whatever item the player comes across
 	 * @param item
 	 */
-	// TODO Do we need to send it as an array list or just item
 	public void addToInventory(Item item)
 	{
 		bag.addItem(item);
@@ -90,7 +103,6 @@ public class Player extends LifeForm
 	 * @param item
 	 * @return
 	 */
-	// TODO do we need to send a position? and position is needed here? because there are 2 remove items
 	public Item removeFromInventory(Item item)
 	{
 		Item temp = bag.removeItem(bag.index(item));
@@ -104,5 +116,31 @@ public class Player extends LifeForm
 	public boolean useItem(int index)
 	{
 		return bag.use(index);
+	}
+	@Override
+	public void takeHit(LifeForm lifeform, int damage) 
+	{
+		Creature creature = (Creature) lifeform;
+		if(damage > 0)
+		{
+			if(getArmor() == null)
+			{
+				lifePoints -= damage;
+			}
+			else 
+			{
+				if(getArmor() instanceof ImmunePoison && creature instanceof Poison)
+				{
+					return;
+				}
+				else if(getArmor() instanceof )
+				{
+					
+				}
+				
+			}
+			
+			
+		}
 	}
 }

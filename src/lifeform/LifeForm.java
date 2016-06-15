@@ -22,7 +22,7 @@ public abstract class LifeForm implements TimerObserver
 	private int trackCol;								// tracks col coordinate
 	
 	private Weapon weapon;								// weapon for the lifeform
-	
+		
 	public LifeForm(String name, int life, int strength)// constructor
 	{
 		this.name = name;
@@ -60,14 +60,7 @@ public abstract class LifeForm implements TimerObserver
 	 * How much damage can a lifeform take
 	 * @param damage
 	 */
-	public void takeHit(int damage)
-	{
-		if (damage > 0)
-		{
-			lifePoints -= damage;
-			lifePoints = (lifePoints >= 0) ? lifePoints : 0;
-		}
-	}
+	public abstract void takeHit(LifeForm lifeform, int damage);
 	/**
 	 * Gets the hit points
 	 * @return
@@ -111,16 +104,17 @@ public abstract class LifeForm implements TimerObserver
 	{
 		Dungeon dun = Dungeon.getDungeonInstance();
 		int distance = dun.getDistance(this, lifeForm2);
+		
 		if (getLifePoints() > 0)
 		{
 			if (weapon == null)
 			{
 				int damage = weapon.calculateDamage(distance);
-				lifeForm2.takeHit(damage);
+				lifeForm2.takeHit(this,damage);
 			}
 			else
 			{
-				lifeForm2.takeHit(getStrength());
+				lifeForm2.takeHit(this,getStrength());
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 package lifeform;
 
+import ability.Ability;
 import exception.RecoveryException;
 import recovery.Recovery;
 
@@ -17,7 +18,7 @@ public abstract class Creature extends LifeForm
 	protected Recovery recoveryBehavior;
 	
 	private int rateOfRecovery;
-	
+		
 	public Creature(String name, int life, int strength) 
 	{
 		super(name, life, strength);
@@ -44,6 +45,8 @@ public abstract class Creature extends LifeForm
 		}
 	}	
 	
+	public abstract String getDescription();
+	
 	public void setCurrentLife(int lifePoints)
 	{
 		if (lifePoints < maxLife)
@@ -60,5 +63,59 @@ public abstract class Creature extends LifeForm
 	{
 		this.maxLife = maxLife;
 	}
+	
+	
+	public void recover()
+	{
+		if (recoveryBehavior != null)
+		{
+			int life = recoveryBehavior.calculateRecovery(lifePoints, maxLife);
+			setCurrentLife(life);
+		}
+	}
 
+	public int getRecoveryRate()
+	{
+		return rateOfRecovery;
+	}
+
+	public void setRecoveryRate(int recoveryRate) throws RecoveryException
+	{
+		if (recoveryRate >= 0)
+		{
+			this.rateOfRecovery = recoveryRate;
+		}
+		else
+		{
+			throw new RecoveryException("Recovery Rate can not be less than 0");
+		}
+	}
+
+	@Override
+	public void takeHit(LifeForm lifeform, int damage) 
+	{
+		if(damage > 0)
+		{
+				lifePoints -= damage;
+				lifePoints=(lifePoints<0)?0:lifePoints;
+		}
+	}
+
+	/**
+	 * When the time is changed the timer notifies this method.
+	 * @param time : updated time
+	 */
+	@Override
+	public void updateTime(int time)
+	{
+		if (rateOfRecovery != 0 && (time) % rateOfRecovery == 0)
+		{
+			recover();
+		}
+	}
+	
+	public int calculateDamage()
+	{
+		return strength;
+	}
 }
