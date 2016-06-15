@@ -22,6 +22,14 @@ public class AlittleDamage extends DamageDecorator
 		return (int) damage;
 	}
 
+	@Override
+	public String getDescription()
+	{
+		description="really damage";
+		return description;
+	}
+
+
 
 
 }
