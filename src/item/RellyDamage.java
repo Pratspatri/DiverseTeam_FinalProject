@@ -13,21 +13,23 @@ public class RellyDamage extends DamageDecorator
     float damage;
     
 	
-/**
- * Make the damage four time
- */
+	/**
+	 * Make the damage four time
+	 */
 	@Override
 	public int calculateDamage(int distance) 
 	{
 		damage=weapon.calculateDamage(distance)*4;
 		return (int) damage;
 	}
-
-@Override
-public String getDescription()
-{
-	description="really damage";
-	return description;
-}
+	/**
+     * get description 
+     */
+	@Override
+	public String getDescription()
+	{
+		description="really damage";
+		return description;
+	}
 
 }

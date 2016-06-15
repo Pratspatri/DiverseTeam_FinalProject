@@ -21,11 +21,13 @@ public class AlittleDamage extends DamageDecorator
 	    damage=weapon.calculateDamage(distance)*2;
 		return (int) damage;
 	}
-
+     /**
+      * get description 
+      */
 	@Override
 	public String getDescription()
 	{
-		description="really damage";
+		description="Alittle damage";
 		return description;
 	}
 

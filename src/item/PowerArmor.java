@@ -35,6 +35,5 @@ public class PowerArmor extends SpecialArmor
 			}
 			return damage;
 		}
-
   }
 
