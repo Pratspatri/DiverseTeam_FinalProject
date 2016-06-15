@@ -48,6 +48,14 @@ public abstract class LifeForm implements TimerObserver
 	{
 		return lifePoints;
 	}
+	
+	public void setLifePoints(int life)
+	{
+		if(life > 0)
+		{
+			this.lifePoints = life;
+		}
+	}
 	/**
 	 * How much damage can a lifeform take
 	 * @param damage

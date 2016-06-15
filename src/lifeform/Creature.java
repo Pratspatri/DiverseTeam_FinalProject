@@ -44,6 +44,13 @@ public abstract class Creature extends LifeForm
 		}
 	}	
 	
+	public void setCurrentLife(int lifePoints)
+	{
+		if (lifePoints < maxLife)
+		{
+			this.lifePoints = (lifePoints >= 0) ? lifePoints : 0;
+		}
+	}
 	public int getMaxLife() 
 	{
 		return maxLife;

@@ -93,7 +93,7 @@ public class Player extends LifeForm
 	// TODO do we need to send a position? and position is needed here? because there are 2 remove items
 	public Item removeFromInventory(Item item)
 	{
-		Item temp = bag.removeItem(item);
+		Item temp = bag.removeItem(bag.index(item));
 		return temp;
 	}
 	/**

@@ -17,4 +17,5 @@ public interface Inventory
 	public int getActualSize();
 	public void setMaxSize(int size);
 	public void setActualSize(int size);
+	public Item index(Item item);
 }
