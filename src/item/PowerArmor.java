@@ -13,11 +13,13 @@ public class PowerArmor extends SpecialArmor
 	public PowerArmor()
 	{
 		description="powerArmor";
+		armorPoints=40;
 	}
 
 	@Override
-	public void useArmor(int distance) 
+	public int useArmor(int distance) 
 	{
+		return damage;
 		// TODO Auto-generated method stub
 
 	}
