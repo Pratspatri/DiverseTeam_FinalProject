@@ -1,6 +1,7 @@
 package lifeform;
 
 import inventory.Inventory;
+import inventory.PlayerInventoryFactory;
 import item.Item;
 
 public class Player extends LifeForm 
@@ -15,6 +16,8 @@ public class Player extends LifeForm
 	private Player(String name, int life, int strength) 
 	{
 		super(name, life, strength);
+		PlayerInventoryFactory factory = new PlayerInventoryFactory();
+		bag = factory.getPlayerInventory();
 	}
 	
 	public static LifeForm getPlayerInstance() 
