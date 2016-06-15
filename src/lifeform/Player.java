@@ -8,7 +8,9 @@ public class Player extends LifeForm
 {
 
 	private int expPoints;
+	
 	private String armor;
+	
 	private Inventory bag;
 	
 	private static LifeForm thePlayer;
@@ -24,7 +26,7 @@ public class Player extends LifeForm
 	{
 		if (thePlayer == null) 
 		{
-			thePlayer = new LifeForm("Mario", 100, 10);
+			thePlayer = new Player("Mario", 100, 10);
 		}
 		return thePlayer;
 	}
@@ -59,7 +61,7 @@ public class Player extends LifeForm
 	{
 		bag.addItem(item);
 	}
-	// TODO do we need to send a position?
+	// TODO do we need to send a position? and position is needed here? because there are 2 remove items
 	public Item removeFromInventory(Item item)
 	{
 		Item temp = bag.removeItem(item);

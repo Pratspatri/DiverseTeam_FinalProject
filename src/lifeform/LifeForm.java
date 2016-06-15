@@ -1,25 +1,29 @@
 package lifeform;
-
+/**
+ * LifeForm class which implements TimerObserver
+ * @author - Prathyusha Akshintala
+ */
+import dungeon.Dungeon;
 import gameplay.TimerObserver;
 import item.Weapon;
 
-public class LifeForm implements TimerObserver
+public abstract class LifeForm implements TimerObserver
 {
-	private String name;
+	private String name;								// Name of the Player or Creature
 	
-	protected int lifePoints;
+	protected int lifePoints;							// current life points for both player and creature
 	
-	protected int strength;
+	protected int strength;								// strength indicates how much damage can it do
 	
-	protected int hitPoints;
+	protected int hitPoints;							// hitPoints indicates how much damage it can take
 	
-	private int trackRow;
+	private int trackRow;								// tracks row coordinate
 	
-	private int trackCol;
+	private int trackCol;								// tracks col coordinate
 	
-	private Weapon weapon;
+	private Weapon weapon;								// weapon for the lifeform
 	
-	public LifeForm(String name, int life, int strength)
+	public LifeForm(String name, int life, int strength)// constructor
 	{
 		this.name = name;
 		lifePoints = (life >= 0) ? life : 0;
@@ -28,17 +32,26 @@ public class LifeForm implements TimerObserver
 		trackRow = -1;
 		trackCol = -1;
 	}
-
-	public String getName()
+	/**
+	 * Gets the name 
+	 * @return name
+	 */
+	public String getName()							
 	{
 		return name;
 	}
-	
+	/**
+	 * Gets the life points
+	 * @return LifePoints
+	 */
 	public int getLifePoints()
 	{
 		return lifePoints;
 	}
-
+	/**
+	 * How much damage can a lifeform take
+	 * @param damage
+	 */
 	public void takeHit(int damage)
 	{
 		if (damage > 0)
@@ -47,12 +60,18 @@ public class LifeForm implements TimerObserver
 			lifePoints = (lifePoints >= 0) ? lifePoints : 0;
 		}
 	}
-	
+	/**
+	 * Gets the hit points
+	 * @return
+	 */
 	public int getHitPoints()
 	{
 		return hitPoints;
 	}
-
+	/**
+	 * Set the hit points
+	 * @param hit
+	 */
 	public void setHitPoints(int hit)
 	{
 		if(hit > 0)
@@ -60,38 +79,43 @@ public class LifeForm implements TimerObserver
 			this.hitPoints = hit;
 		}
 	}
-	
+	/**
+	 * Get the strength
+	 * @return
+	 */
 	public int getStrength()
 	{
 		return strength;
 	}
-	
+	/**
+	 * Sets the strength
+	 * @param strength
+	 */
 	public void setStrength(int strength)
 	{
 		this.strength = (strength >= 0) ? strength : 0;
 	}
-	
-	
-	/*//TODO  check why it is distance < 10 check how to do for sword n spear
+	/**
+	 * When one LifeForm attacks another
+	 * @param lifeForm2
+	 */
  	public void attack(LifeForm lifeForm2)
 	{
 		Dungeon dun = Dungeon.getDungeonInstance();
 		int distance = dun.getDistance(this, lifeForm2);
 		if (getLifePoints() > 0)
 		{
-			if (weapon == null || RellyDamage.getActualAmmo() == 0)
+			if (weapon == null)
 			{
-				if (distance <= 10)
-				{
-					lifeForm2.takeHit(getStrength());
-				}
+				int damage = weapon.calculateDamage(distance);
+				lifeForm2.takeHit(damage);
 			}
 			else
 			{
-				lifeForm2.takeHit(Weapon.fire(distance));
+				lifeForm2.takeHit(getStrength());
 			}
 		}
-	}*/
+	}
 
 	/**
 	 * When the time is changed the timer notifies this method of the Observer.
@@ -162,7 +186,6 @@ public class LifeForm implements TimerObserver
 	{
 		return this.trackCol;
 	}
-	//TODO check why 5
 	/**
 	 * Gets the number of Cell that the LifeForm can attach other LifeForm through.
 	 * @return
@@ -170,6 +193,5 @@ public class LifeForm implements TimerObserver
 	public int getAttackDistance()
 	{
 		return (int) ((weapon==null)?0:weapon.getMaxrRange()/5);
-	}
-	
+	}	
 }
