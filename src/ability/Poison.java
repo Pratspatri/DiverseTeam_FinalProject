@@ -3,6 +3,11 @@ package ability;
 public class Poison extends Ability
 {
 
+	public Poison(String name, int life, int strength) 
+	{
+		super(name, life, strength);
+	}
+
 	@Override
 	public String getDescription() 
 	{

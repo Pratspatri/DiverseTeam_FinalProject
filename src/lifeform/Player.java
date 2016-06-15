@@ -4,11 +4,15 @@ package lifeform;
  * @author - Prathyusha Akshintala
  */
 import ability.Poison;
+import ability.Poke;
 import inventory.Inventory;
 import inventory.PlayerInventoryFactory;
 import item.Armor;
 import item.ImmunePoison;
 import item.Item;
+import item.NormalArmor;
+import item.PowerArmor;
+import item.SharpArmor;
 
 public class Player extends LifeForm 
 {
@@ -117,6 +121,7 @@ public class Player extends LifeForm
 	{
 		return bag.use(index);
 	}
+	
 	@Override
 	public void takeHit(LifeForm lifeform, int damage) 
 	{
@@ -133,14 +138,12 @@ public class Player extends LifeForm
 				{
 					return;
 				}
-				else if(getArmor() instanceof )
+				else 
 				{
-					
-				}
-				
+					damage = getArmor().useArmor(damage);
+					lifePoints -= damage;
+				}				
 			}
-			
-			
 		}
 	}
 }

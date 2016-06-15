@@ -5,7 +5,7 @@ package item;
  * @author Malak
  *
  */
-class NormalArmor extends Armor 
+public class NormalArmor extends Armor 
 {
 	/**
 	 * Constructor
