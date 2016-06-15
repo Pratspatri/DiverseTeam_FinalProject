@@ -14,15 +14,17 @@ public class SharpArmor extends SpecialArmor
 	public SharpArmor()
 	{
 		description="sharpArmor";
-		 armorPoints=30;
+		 armorPoints=20;
 	}
 	  /**
 	 	 * Use Armor to check if take hit is greater or less than armor points
 	 	 * Armor points absorb damage if take hit is less than armor points
+	 	 * decrease hit point by 3;
 	 	 */
 	@Override
 	public int useArmor(int hit_damage) 
 	{   int diff=0;
+	    hit_damage-=3;
 		if(armorPoints<hit_damage)
 		{
 		    diff=hit_damage-armorPoints;
