@@ -8,11 +8,6 @@ package item;
 public class Spear extends Weapon 
 {
 	/**
-     * calculate damage
-     */
-    public float damage;
-	
-	/**
 	 * Constructor send the damage behavior
 	 * @param damage
 	 */
@@ -28,8 +23,12 @@ public class Spear extends Weapon
 	 * @param distance
 	 */
 	public int calculateDamage(int distance)
-	{
-		damage=baseDamage*(distance+10);
+	{    
+		if(distance<=maxRange)
+		{
+			damage=baseDamage*(distance+10);
+			setDamage(damage);
+		}
 		return (int) damage;
 		
 	}

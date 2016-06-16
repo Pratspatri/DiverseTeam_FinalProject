@@ -26,6 +26,7 @@ public class TestWeapon
      *  Test setDescribtion() and gettDescribtion
      *  Test setBaseDamge() and getBaseDamge
      *  Test setMaxrRange() and getMaxrRange()
+     *  Test setDamage() and getDamage()
      */
 	@Test
 	public void TestConcertMethods() 
@@ -34,9 +35,11 @@ public class TestWeapon
 		mock.setDescribtion("Gun");
 		mock.setBaseDamge(15);
         mock.setMaxrRange(40);
+        mock.setDamage(5);
         assertEquals("Gun",mock.getDescribtion());
         assertEquals(15,mock.getBaseDamge(),.1);
         assertEquals(40,mock.getMaxrRange(),.1);
+        assertEquals(5,mock.getDamage());
       
 		
 	}

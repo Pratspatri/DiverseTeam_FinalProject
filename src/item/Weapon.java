@@ -21,6 +21,11 @@ public abstract class Weapon extends GenericItem
 	 * Define description to weapon
 	 */
     String description;
+    
+    /**
+     * Calculate damage
+     */
+    float damage;
   
     /**
 	 * Allowed to get max range
@@ -70,6 +75,21 @@ public abstract class Weapon extends GenericItem
 		return description;
 	}
 	
+	/**
+	 * Set Damge 
+	 */
+	public void setDamage(float damages)
+	{
+		damage=damages;
+	}
+	
+	/**
+	 * Set Damge 
+	 */
+	public int getDamage()
+	{
+		return (int) damage;
+	}
 	/**
 	 * Calculate damage for each weapon 
 	 */
