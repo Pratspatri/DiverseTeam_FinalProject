@@ -24,6 +24,7 @@ public class ImmunePoison extends AbilityArmor
 	public int useArmor(int hit_damage) 
 	{
          damage=0;
+         ((Player) Player.getPlayerInstance()).setHealth("Immune the poison");
 		return damage;
 
 	}

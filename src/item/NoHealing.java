@@ -24,6 +24,7 @@ public class NoHealing extends Potions
 	public void taken() 
 	{
 		Player.getPlayerInstance().setStrength(Player.getPlayerInstance().getStrength()+amount);
+		((Player) Player.getPlayerInstance()).setHealth("Not Healed");
 	}
 
 }
