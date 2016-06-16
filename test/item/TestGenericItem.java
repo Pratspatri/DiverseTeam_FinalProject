@@ -4,8 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestGenericItem {
-
+/**
+ * Test all concert methods in Item class
+ * @author Malak
+ *
+ */
+public class TestGenericItem 
+{
 	/**
 	 * Test Initialization
 	 * set and  name of item 
@@ -13,9 +18,11 @@ public class TestGenericItem {
 	@Test
 	public void TestInitialization() 
 	{
-		MockItem item=new MockItem();
-		item.setItem("Armor");
+		MockItem item=new MockItem("Armor");
 		assertEquals("Armor",item.getItem());
+		item.setItem("Weapon");
+		assertEquals("Weapon",item.getItem());
+		
 	}
 
 }

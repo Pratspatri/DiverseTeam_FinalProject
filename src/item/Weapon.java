@@ -1,19 +1,37 @@
 package item;
 
+/**
+ * This class which is an abstract is related to the weapon item which include
+ * common methods and variables in all weapon type
+ * @author Malak
+ *
+ */
 public abstract class Weapon extends GenericItem
-{
+{   /**
+     *Define base Damage
+     */
 	float baseDamage;
+	
+	/**
+	 * Define max range
+	 */
 	float maxRange;
+	
+	/**
+	 * Define description to weapon
+	 */
     String description;
   
-	
+    /**
+	 * Allowed to get max range
+	 */
 	public void setBaseDamge(float base_Damage)
 	{
 		baseDamage=base_Damage;
 	}
 	
 	/**
-	 * implement setMaxrRange() set max range
+	 * Allowed to set max range
 	 */ 
 	public void setMaxrRange(float max_Range)
 	{
@@ -21,22 +39,23 @@ public abstract class Weapon extends GenericItem
 	}
 	
 	/**
-	 * implement getBaseDamge() to get base damage
+	 * Allowed to get base damage
 	 */
 	public float getBaseDamge()
 	{
 		return baseDamage;
 		
 	}
+	
 	/**
-	 * implement getMaxrRange() to get max range
+	 * Allowed to get max range
 	 */
 	public float getMaxrRange()
 	{
 		return maxRange;
 	}
 	/**
-	 * Set description to weapon 
+	 * Allowed to set description to weapon 
 	 */
 	public void setDescribtion (String description)
 	{
@@ -44,7 +63,7 @@ public abstract class Weapon extends GenericItem
 	}
 	
 	/**
-	 * Set description to weapon 
+	 * Allowed to set description to weapon 
 	 */
 	public String getDescribtion ()
 	{
