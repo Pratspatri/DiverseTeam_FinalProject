@@ -79,7 +79,10 @@ public class Player extends LifeForm
 	 */
 	public void setExpPoints(int exp) 
 	{
-		expPoints = exp;
+		if(exp >= 0)
+		{
+			expPoints = exp;
+		}
 	}
 	/**
 	 * Gets the armor

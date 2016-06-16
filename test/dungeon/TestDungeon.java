@@ -182,7 +182,6 @@ public class TestDungeon
 		assertNull(dungeon.removeItem(9, 8, 1));
 		assertNull(dungeon.removeItem(8, 9, 2));
 		assertNull(dungeon.removeItem(9, 9, 1));
-	}
-	
+	} 
 	//TODO tests for set and get states - check with jixiang
 }
