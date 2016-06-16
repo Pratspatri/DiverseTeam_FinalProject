@@ -12,9 +12,10 @@ public class ImmunePoison extends AbilityArmor
 	/**
 	 * Constructor
 	 */
-	public ImmunePoison()
+	public ImmunePoison(SpecialArmor specialArmor)
 	{
 		description="immunepoison";
+		super.specialArmor=specialArmor;
 	}
 	/**
 	 * Use Armor to ignore Damage

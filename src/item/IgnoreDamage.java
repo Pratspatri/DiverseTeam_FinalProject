@@ -13,9 +13,10 @@ public class IgnoreDamage extends AbilityArmor
 	/**
 	 * Constructor
 	 */
-	public IgnoreDamage()
+	public IgnoreDamage(SpecialArmor specialArmor)
 	{
 		description="ignore";
+		super.specialArmor=specialArmor;
 	}
 	/**
 	 * Use Armor to ignore Damage

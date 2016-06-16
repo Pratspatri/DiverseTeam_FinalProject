@@ -57,18 +57,4 @@ public abstract class Weapon extends GenericItem
 	
 	public abstract int calculateDamage(int distance);
 	
-//	/**
-//	 * Prathyusha
-//	*/
-//		public static int fire(int distance) 
-//		{
-//			return 0;
-//		}
-//
-//		public static int getActualAmmo() 
-//		{
-//			return 0;
-//		}
-
-	
 }

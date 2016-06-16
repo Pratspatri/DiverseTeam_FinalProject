@@ -12,6 +12,13 @@ public class AlittleDamage extends DamageDecorator
      */
     float damage;
     
+    /**
+     * Constructor
+     */
+    public AlittleDamage(Weapon weapon)
+    {
+    	super.weapon=weapon;
+    }
 	/**
 	 * calculate damage to make it double
 	 */

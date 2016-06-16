@@ -12,7 +12,14 @@ public class RellyDamage extends DamageDecorator
      */
     float damage;
     
-	
+    /**
+     * Constructor
+     */
+    public RellyDamage(Weapon weapon)
+    {
+    	super.weapon=weapon;
+    }
+    
 	/**
 	 * Make the damage four time
 	 */

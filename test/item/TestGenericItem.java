@@ -6,6 +6,10 @@ import org.junit.Test;
 
 public class TestGenericItem {
 
+	/**
+	 * Test Initialization
+	 * set and  name of item 
+	 */
 	@Test
 	public void TestInitialization() 
 	{
