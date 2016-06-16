@@ -42,10 +42,17 @@ public class Dungeon
 	 */
 	public LifeForm getLifeForm(int row, int col) 
 	{
-		if (row < cells.length && col < cells[row].length) 
+		if(row >= 0 && col >= 0)
 		{
-			return cells[row][col].getLifeForm();
-		} else 
+			if (row < cells.length && col < cells[row].length) 
+			{
+				return cells[row][col].getLifeForm();
+			} else 
+			{
+				return null;
+			}
+		}
+		else
 		{
 			return null;
 		}
@@ -59,15 +66,19 @@ public class Dungeon
 	 */
 	public boolean addLifeForm(int row, int col, LifeForm entity)
 	{
-		if (row < cells.length && col < cells[row].length) 
+		if(row >= 0 && col >= 0)
 		{
-			entity.setLocation(row, col);
-			return cells[row][col].addLifeForm(entity);
-		} 
-		else 
-		{
-			return false;
+			if (row < cells.length && col < cells[row].length) 
+			{
+				entity.setLocation(row, col);
+				return cells[row][col].addLifeForm(entity);
+			} 
+			else 
+			{
+				return false;
+			}
 		}
+		return false;
 	}
 	/**
 	 * Remove the lifeForm from the particular row and column
@@ -77,16 +88,23 @@ public class Dungeon
 	 */
 	public LifeForm removeLifeForm(int row, int col) 
 	{
-		if (row < cells.length && col < cells[row].length)
+		if(row >=0 && col >=0)
 		{
-			LifeForm temp = cells[row][col].removeLifeForm();
-			if (temp != null) 
+			if (row < cells.length && col < cells[row].length)
 			{
-				temp.removeLocation();
+				LifeForm temp = cells[row][col].removeLifeForm();
+				if (temp != null) 
+				{
+					temp.removeLocation();
+				}
+				return temp;
+			} 
+			else 
+			{
+				return null;
 			}
-			return temp;
-		} 
-		else 
+		}
+		else
 		{
 			return null;
 		}
