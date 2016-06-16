@@ -9,9 +9,10 @@ import org.junit.Test;
  * @author Malak
  *
  */
-public class TestArmor {
+public class TestArmor 
+{
 	
-	 /**
+	/**
      * Test Initialization to create an object from MockArmor
      */
 	@Test
