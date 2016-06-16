@@ -24,10 +24,37 @@ public class TestGun
 		 equals(gun instanceof Gun );
 		 assertEquals(15,gun.getBaseDamge(),.1);
 		 assertEquals(30,gun.getMaxrRange(),.1);
+		 assertEquals(15,gun.getBaseDamge(),.1);
+		 assertEquals(40,((Gun) gun).getMaxAmmo(),.1);
+		 assertEquals(40,((Gun) gun).getActualAmmo(),.1);
+		 assertEquals(4,((Gun) gun).gettRateofFire(),.1);
 		 assertEquals("gun",gun.getDescribtion());
-		 gun.setMaxrRange(10);
 		 ((Gun) gun).setActualAmmo(10);
-		 ((Gun) gun).setRateofFire(3);
+		 assertEquals(10,((Gun) gun).getActualAmmo(),.1);
 	}
 
+	/**
+	 * Test Calculate Damage
+	 * In distance in the range and out of the range
+	 */
+	@Test
+	public void TestCalculateDamage() 
+	{
+		Weapon gun = new Gun();
+		// 0<=distance between the range<=30
+		gun.calculateDamage(20);
+		assertEquals(10,gun.getDamage());
+		assertEquals(3,((Gun) gun).gettRateofFire(),.1);
+		assertEquals(39,((Gun) gun).getActualAmmo(),.1);
+		//distance out of the range
+		gun.calculateDamage(50);
+		assertEquals(10,gun.getDamage());
+		assertEquals(2,((Gun) gun).gettRateofFire(),.1);
+		assertEquals(38,((Gun) gun).getActualAmmo(),.1);
+		 //reload when actual ammo is 0
+		((Gun) gun).setActualAmmo(0);
+	    ((Gun) gun).reload();
+		assertEquals(40,((Gun) gun).getActualAmmo(),.1);
+		
+	}
 }

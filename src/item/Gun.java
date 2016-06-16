@@ -11,7 +11,6 @@ public class Gun extends Weapon
 	float rate_of_Fire;
 	float max_Ammo;
 	float actual_ammo;
-	float damage;
 	
 	/**
 	 * Constructor send the damage behavior
@@ -21,6 +20,9 @@ public class Gun extends Weapon
 	{  
 		baseDamage=15;
 	    maxRange=30;
+	    rate_of_Fire=4;
+	    max_Ammo=40;
+	    actual_ammo=max_Ammo;
 		description="gun";
 	}
 	
@@ -47,6 +49,13 @@ public class Gun extends Weapon
 		rate_of_Fire=rateFire;
 	}
 	
+	/**
+	 * GetRateofFire set rate of fire
+	 */
+	public float gettRateofFire()
+	{
+	    return	rate_of_Fire;
+	}
 	/**
 	 * getMaxAmmo() to get max ammo
 	 */
@@ -91,8 +100,13 @@ public class Gun extends Weapon
 	 * @param distance
 	 */
 	public int calculateDamage(int distance)
-	{
-		damage=baseDamage*(distance/maxRange);
+	{   
+		if(distance<=maxRange && actual_ammo>0)
+		{
+			damage=baseDamage*(distance/maxRange);
+			setDamage(damage);
+		}
+		fire();
 		return (int) damage;
 	}
     
