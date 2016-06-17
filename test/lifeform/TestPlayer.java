@@ -7,6 +7,9 @@ import item.MockArmor;
 import org.junit.After;
 import org.junit.Test;
 
+import ability.Ability;
+import ability.MockAbility;
+
 public class TestPlayer 
 {
 	@After
@@ -92,6 +95,22 @@ public class TestPlayer
 		Creature creature = new MockCreature("dobby", 80, 5); 
 		mario.takeHit(creature, 15);
 		assertEquals(85,mario.getLifePoints());
-		// Do other conditions
+		// When the damage is invalid there is no change in the lifePoints
+		mario.takeHit(creature, -15);
+		assertEquals(85,mario.getLifePoints());
+		// Using an armor and testing for takeHit method
+		Armor sharp = new MockArmor("SharpArmor");
+		mario.setArmor(sharp);
+		Creature winky = new MockCreature("Winky", 80, 5);
+		mario.takeHit(winky, 20);
+		// TODO check with malak for useArmor methods - should return hit damage not damage
+		assertEquals(83,mario.getLifePoints());
+		// When armor is an instance of immune poison and creature is an instance of poison
+		Player mario1 = (Player) Player.getPlayerInstance();
+		Creature bella = new MockCreature("Bella", 60, 5);
+		Armor immpoi = new MockArmor("ImmunePoison");
+		mario.setArmor(immpoi);
+		// Ability poi = new MockAbility("Poison", 30, 10);
+		// TODO assign ability to creature
 	}
 }
