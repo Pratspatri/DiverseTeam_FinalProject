@@ -17,6 +17,8 @@ public class Player extends LifeForm
 	
 	private Armor armor;												// What type of armor
 	
+	private Item item;
+	
 	private Inventory bag;												// Inventory to hold everything
 	
 	private static LifeForm thePlayer;		
@@ -104,9 +106,18 @@ public class Player extends LifeForm
 	 * Add to the inventory whatever item the player comes across
 	 * @param item
 	 */
-	public void addToInventory(Item item)
+	public boolean addToInventory(Item item)
 	{
-		bag.addItem(item);
+		if(item!= null)
+		{
+			bag.addItem(item);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
 	}
 	/**
 	 * Remove the item from inventory
@@ -117,6 +128,11 @@ public class Player extends LifeForm
 	{
 		Item temp = bag.removeItem(bag.index(item));
 		return temp;
+	}
+	
+	public Item getItem()
+	{
+		return item; 
 	}
 	/**
 	 * Use the item

@@ -21,7 +21,7 @@ public class TestLifeForm
 	 
 	    LifeForm robb = new MockLifeForm("Robb", -40, 0); 
 	    assertEquals("Robb", robb.getName()); 
-	    // LifeForm can not have negative life points so it should have 0. 
+	    // LifeForm can not have negative life points so it should have 0.
 	    assertEquals(0, robb.getLifePoints()); 
 	}
 	

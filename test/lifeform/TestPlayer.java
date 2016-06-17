@@ -44,7 +44,7 @@ public class TestPlayer
 		mario.setExpPoints(100);
 		assertEquals(100, mario.getExpPoints());
 		mario.setExpPoints(-5);
-		//assertNull(mario.getExpPoints()); check this with sameer TODO 
+		//assertNull(mario.getExpPoints()); check this TODO 
 	}
 	
 	@Test
@@ -55,10 +55,43 @@ public class TestPlayer
 		mario.setArmor(sharp);
 		assertEquals(sharp,mario.getArmor());
 	}
-
+	//TODO check with Jixiang if this is ok!
 	@Test
 	public void testAddToInventory()
 	{
+		Player mario = (Player) Player.getPlayerInstance();
+		Armor sharp = new MockArmor("SharpArmor");
+		boolean success = mario.addToInventory(sharp);
+		assertTrue(success);
 		
+		boolean fail = mario.addToInventory(null);
+		assertFalse(fail);
+	}
+	
+	@Test
+	public void testRemoveFromInventory()
+	{
+		Player mario = (Player) Player.getPlayerInstance();
+		Armor sharp = new MockArmor("SharpArmor");
+		mario.addToInventory(sharp);
+		mario.removeFromInventory(sharp);
+		// TODO how to check if that is being returned?
+		assertNull(mario.getItem());
+	}
+	//TODO after checking with Jixiang about how to assign array of items and positions
+	@Test
+	public void testUseItem()
+	{
+		
+	}
+	
+	@Test
+	public void testTakeHit()
+	{
+		Player mario = (Player) Player.getPlayerInstance();
+		Creature creature = new MockCreature("dobby", 80, 5); 
+		mario.takeHit(creature, 15);
+		assertEquals(85,mario.getLifePoints());
+		// Do other conditions
 	}
 }

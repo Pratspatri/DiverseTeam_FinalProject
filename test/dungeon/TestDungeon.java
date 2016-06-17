@@ -145,11 +145,10 @@ public class TestDungeon
 		Dungeon dungeon = Dungeon.getDungeonInstance();
 		Armor a1 = new MockArmor("SharpArmor");
 		Potions p2 = new MockPotions(5);
-		dungeon.addItem(1, 1, a1, 1);
-		dungeon.addItem(2, 1, p2, 2);
-		assertEquals(a1, dungeon.getItem(1, 1, 1));
-		//TODO check with others for why this is failing
-		assertEquals(p2, dungeon.getItem(1, 1, 2));
+		dungeon.addItem(1, 1, a1, 0);
+		dungeon.addItem(1, 1, p2, 1);
+		assertEquals(a1, dungeon.getItem(1, 1, 0));
+		assertEquals(p2, dungeon.getItem(1, 1, 1));
 	}
 	
 	@Test
@@ -158,12 +157,11 @@ public class TestDungeon
 		Dungeon dungeon = Dungeon.getDungeonInstance();
 		Weapon w1 = new MockWeapon("Spear");
 		Armor a2 = new MockArmor("ImmunePoison");
-		assertTrue(dungeon.addItem(1, 2, w1, 1));
-		// TODO check here for the same above reason
-		assertTrue(dungeon.addItem(1, 2, a2, 2));
+		assertTrue(dungeon.addItem(1, 2, w1, 0));
+		assertTrue(dungeon.addItem(1, 2, a2, 1));
 
 		assertFalse(dungeon.addItem(9, 8, w1, 1));
-		assertFalse(dungeon.addItem(8, 9, a2, 2));
+		assertFalse(dungeon.addItem(8, 9, a2, 0));
 		assertFalse(dungeon.addItem(9, 9, w1, 1));
 	}
 
@@ -173,14 +171,13 @@ public class TestDungeon
 		Dungeon dungeon = Dungeon.getDungeonInstance();
 		Weapon w1 = new MockWeapon("Spear");
 		Armor a2 = new MockArmor("ImmunePoison");
-		dungeon.addItem(1, 2, w1, 1);
-		dungeon.addItem(1, 2, a2, 2);
-		assertEquals(w1, dungeon.removeItem(1, 2, 1));
-		//TODO same as above - check for position
-		assertEquals(a2, dungeon.removeItem(1, 2, 2));
+		dungeon.addItem(1, 2, w1, 0);
+		dungeon.addItem(1, 2, a2, 1);
+		assertEquals(w1, dungeon.removeItem(1, 2, 0));
+		assertEquals(a2, dungeon.removeItem(1, 2, 1));
 		
 		assertNull(dungeon.removeItem(9, 8, 1));
-		assertNull(dungeon.removeItem(8, 9, 2));
+		assertNull(dungeon.removeItem(8, 9, 0));
 		assertNull(dungeon.removeItem(9, 9, 1));
 	} 
 	//TODO tests for set and get states - check with jixiang
