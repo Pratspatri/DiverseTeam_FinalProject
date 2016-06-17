@@ -76,7 +76,7 @@ public abstract class Weapon extends GenericItem
 	}
 	
 	/**
-	 * Set Damge 
+	 * Set Damage 
 	 */
 	public void setDamage(float damages)
 	{
@@ -84,7 +84,7 @@ public abstract class Weapon extends GenericItem
 	}
 	
 	/**
-	 * Set Damge 
+	 * get Damge 
 	 */
 	public int getDamage()
 	{

@@ -5,17 +5,12 @@ package item;
  * @author Malak
  *
  */
-public class RellyDamage extends DamageDecorator
+public class ReallyDamage extends DamageDecorator
 {
-	/**
-     * Calculate damage
-     */
-    float damage;
-    
     /**
      * Constructor
      */
-    public RellyDamage(Weapon weapon)
+    public ReallyDamage(Weapon weapon)
     {
     	super.weapon=weapon;
     }
@@ -24,9 +19,19 @@ public class RellyDamage extends DamageDecorator
 	 * Make the damage four time
 	 */
 	@Override
-	public int calculateDamage(int distance) 
-	{
-		damage=weapon.calculateDamage(distance)*4;
+	public int calculateDamage(int distance)
+	{   
+		if(weapon.getDamage() == 0)
+	   {
+		 damage=weapon.calculateDamage(distance)*4;
+		 weapon.setDamage( damage);
+	   }
+	  else 
+	  {
+		    damage=weapon.getDamage()*4;
+		    weapon.setDamage(damage);
+	  }
+		
 		return (int) damage;
 	}
 	/**

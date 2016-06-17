@@ -7,11 +7,6 @@ package item;
  */
 public class AlittleDamage extends DamageDecorator 
 {
-	/**
-     * Calculate damage
-     */
-    float damage;
-    
     /**
      * Constructor
      */
@@ -23,9 +18,19 @@ public class AlittleDamage extends DamageDecorator
 	 * calculate damage to make it double
 	 */
 	@Override
-	public int calculateDamage(int distance) 
-	{
-	    damage=weapon.calculateDamage(distance)*2;
+	public int calculateDamage(int distance)
+	{   
+		if(weapon.getDamage() == 0)
+	   {
+		 damage=weapon.calculateDamage(distance)*2;
+		 weapon.setDamage( damage);
+	   }
+	  else 
+	  {
+		    damage=weapon.getDamage()*2;
+		    weapon.setDamage(damage);
+	  }
+		
 		return (int) damage;
 	}
      /**
