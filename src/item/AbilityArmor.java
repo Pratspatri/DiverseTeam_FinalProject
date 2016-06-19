@@ -15,6 +15,10 @@ public abstract class AbilityArmor extends SpecialArmor
 	 */
 	protected SpecialArmor specialArmor;
 	
+	/**
+	 * Save the healthy state after uding the armor
+	 */
+	 public String healthState;
 	 /**
      * set description for a armor
      * @param description
@@ -34,5 +38,20 @@ public abstract class AbilityArmor extends SpecialArmor
 		return description;
 	}
 	
-
+	/**
+	 * set healthy state to player
+	 */
+	 public void setHealthState(String state)
+	 {
+		 healthState=state; 
+	 }
+     
+	 /**
+      * get healthy state to player
+	  */
+	   public String getHealthState()
+	   {
+		  return healthState; 
+	    }
+	 
 }

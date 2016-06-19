@@ -23,17 +23,23 @@ public class SharpArmor extends SpecialArmor
 	 	 */
 	@Override
 	public int useArmor(int hit_damage) 
-	{   int diff=0;
+	{   
+		int diff=0;
 	    hit_damage-=3;
 		if(armorPoints<hit_damage)
 		{
 		    diff=hit_damage-armorPoints;
 		    if(diff>=0)
-		    	  damage=diff;
-		    else damage=0;
-		      
+		    	  {
+		    	    damage=diff;
+		    	    setDamageArmor( damage);
+		    	  }
+		    else 
+		    	{
+		    	 damage=0;
+		    	  setDamageArmor(damage);
+		    	}   
 		}
 		return damage;
 	}
-
 }

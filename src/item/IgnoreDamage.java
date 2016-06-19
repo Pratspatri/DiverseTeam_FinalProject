@@ -24,9 +24,9 @@ public class IgnoreDamage extends AbilityArmor
 	@Override
 	public int useArmor(int hit_damage) 
 	{
-		damage=0;
-        ((Player) Player.getPlayerInstance()).setHealth("Protected");
-
+		damage=specialArmor.useArmor(hit_damage);
+		setDamageArmor(damage);
+		setHealthState("Protected");
 		return damage;
 
 	}

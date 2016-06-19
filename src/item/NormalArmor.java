@@ -26,8 +26,15 @@ public class NormalArmor extends Armor
 		{
 		    diff=hit_damage-armorPoints;
 		    if(diff>=0)
-		    	  damage=diff;
-		    else damage=0;
+		    	  {
+		    	    damage=diff;
+		    	    setDamageArmor(damage);
+		    	  }
+		    else 
+		    	{
+		    	  damage=0;
+		    	  setDamageArmor(damage);
+		    	}
 		      
 		}
 		return damage;

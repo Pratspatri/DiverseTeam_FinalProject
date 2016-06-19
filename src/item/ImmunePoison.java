@@ -23,10 +23,10 @@ public class ImmunePoison extends AbilityArmor
 	@Override
 	public int useArmor(int hit_damage) 
 	{
-         damage=0;
-         ((Player) Player.getPlayerInstance()).setHealth("Immune the poison");
+		damage=specialArmor.useArmor(hit_damage);
+		setDamageArmor(damage);
+		setHealthState("Immune");
 		return damage;
-
 	}
 
 }

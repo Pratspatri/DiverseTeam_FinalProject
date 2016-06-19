@@ -22,7 +22,10 @@ public abstract class Armor extends GenericItem
 	 * @param description
 	 */
 	public String description;
-    
+	/**
+	 * Damage after using armor
+	 */
+     public int damageArmor;
     /**
      * set the points to armor
      * @param armorPoints
@@ -56,6 +59,20 @@ public abstract class Armor extends GenericItem
     public String getDescription()
     {
     	return description;
+    }
+    /**
+     * set damage after using armor
+     */
+    public void setDamageArmor(int damages)
+    {
+    	damageArmor=damages;
+    }
+    /**
+     * get damage after using armor
+     */
+    public int  getDamageArmor()
+    {
+    	return damageArmor;
     }
     /**
      * There different use for the armor
