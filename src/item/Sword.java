@@ -26,7 +26,7 @@ public class Sword extends Weapon
 	{   
 		if(distance<=maxRange)
 		{
-			damage=baseDamage*(distance+10);
+			damage=baseDamage+(distance+10);
 			setDamage(damage);
 		}
 		

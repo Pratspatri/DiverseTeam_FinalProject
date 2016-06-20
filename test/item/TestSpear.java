@@ -37,10 +37,10 @@ public class TestSpear
 		Weapon spear= new Spear();
 		// 0<=distance between the range<=5
 		spear.calculateDamage(4);
-		assertEquals(98,spear.getDamage());
+		assertEquals(18,spear.getDamage());
 		//distance out of the range
 		spear.calculateDamage(10);
-		assertEquals(98,spear.getDamage());
+		assertEquals(18,spear.getDamage());
 		
 	}
 }

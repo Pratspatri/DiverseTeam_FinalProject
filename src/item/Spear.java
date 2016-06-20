@@ -26,7 +26,7 @@ public class Spear extends Weapon
 	{    
 		if(distance<=maxRange)
 		{
-			damage=baseDamage*(distance+10);
+			damage=baseDamage+(distance+7);
 			setDamage(damage);
 		}
 		return (int) damage;

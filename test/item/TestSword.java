@@ -37,10 +37,10 @@ public class TestSword
 		Weapon sword =new Sword();
 		// 0<=distance between the range<=3
 		sword.calculateDamage(2);
-		assertEquals(108,sword.getDamage());
+		assertEquals(21,sword.getDamage());
 		//distance out of the range
 		sword.calculateDamage(10);
-		assertEquals(108,sword.getDamage());
+		assertEquals(21,sword.getDamage());
 		
 	}
 }
