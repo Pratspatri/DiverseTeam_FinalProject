@@ -1,14 +1,18 @@
 package lifeform;
-
+/**
+ * Test for Player class
+ * @author - Prathyusha Akshintala
+ */
 import static org.junit.Assert.*;
 import item.Armor;
+import item.ImmunePoison;
 import item.MockArmor;
+import item.SharpArmor;
 
 import org.junit.After;
 import org.junit.Test;
 
-import ability.Ability;
-import ability.MockAbility;
+import ability.Poison;
 
 public class TestPlayer 
 {
@@ -17,12 +21,16 @@ public class TestPlayer
 	{
 		Player.resetInstance();
 	}
-	
+	/**
+	 * Resets the player
+	 */
 	public static void resetPlayer()
 	{
 		Player.resetInstance();
 	}
-	
+	/**
+	 * Initialization test
+	 */
 	@Test
 	public void testInitialization() 
 	{
@@ -31,7 +39,9 @@ public class TestPlayer
 		LifeForm elyse = Player.getPlayerInstance();
 		assertEquals(mario, elyse);
 	}
-	
+	/**
+	 * Test for set and get health status
+	 */
 	@Test
 	public void testSetAndGetHealth()
 	{
@@ -39,7 +49,9 @@ public class TestPlayer
 		mario.setHealth("safe");
 		assertEquals("safe",mario.getHealth());
 	}
-	
+	/**
+	 * Test for set and get exp points
+	 */
 	@Test
 	public void testSetAndGetExpPoints()
 	{
@@ -47,9 +59,11 @@ public class TestPlayer
 		mario.setExpPoints(100);
 		assertEquals(100, mario.getExpPoints());
 		mario.setExpPoints(-5);
-		//assertNull(mario.getExpPoints()); check this TODO 
+		assertEquals(0,mario.getExpPoints());  
 	}
-	
+	/**
+	 * Test for set and get armor to the player
+	 */
 	@Test
 	public void testSetAndGetArmor()
 	{
@@ -59,6 +73,9 @@ public class TestPlayer
 		assertEquals(sharp,mario.getArmor());
 	}
 	//TODO check with Jixiang if this is ok!
+	/**
+	 * Test to add an item to the inventory
+	 */
 	@Test
 	public void testAddToInventory()
 	{
@@ -70,7 +87,9 @@ public class TestPlayer
 		boolean fail = mario.addToInventory(null);
 		assertFalse(fail);
 	}
-	
+	/**
+	 * Test to remove an item from the inventory
+	 */
 	@Test
 	public void testRemoveFromInventory()
 	{
@@ -82,12 +101,17 @@ public class TestPlayer
 		assertNull(mario.getItem());
 	}
 	//TODO after checking with Jixiang about how to assign array of items and positions
+	/**
+	 * Test to use an item from the inventory
+	 */
 	@Test
 	public void testUseItem()
 	{
 		
 	}
-	
+	/**
+	 * Test for take hit method
+	 */
 	@Test
 	public void testTakeHit()
 	{
@@ -99,18 +123,18 @@ public class TestPlayer
 		mario.takeHit(creature, -15);
 		assertEquals(85,mario.getLifePoints());
 		// Using an armor and testing for takeHit method
-		Armor sharp = new MockArmor("SharpArmor");
+		Armor sharp = new SharpArmor();
 		mario.setArmor(sharp);
-		Creature winky = new MockCreature("Winky", 80, 5);
+		Creature winky = new Goblin("Winky", 80, 5);
 		mario.takeHit(winky, 20);
-		// TODO check with malak for useArmor methods - should return hit damage not damage
 		assertEquals(83,mario.getLifePoints());
 		// When armor is an instance of immune poison and creature is an instance of poison
 		Player mario1 = (Player) Player.getPlayerInstance();
-		Creature bella = new MockCreature("Bella", 60, 5);
-		Armor immpoi = new MockArmor("ImmunePoison");
-		mario.setArmor(immpoi);
-		// Ability poi = new MockAbility("Poison", 30, 10);
-		// TODO assign ability to creature
+		Creature bella = new Goblin("Bella", 60, 5);
+		bella = new Poison(bella);
+		// Armor immpoi = new ImmunePoison(new SharpArmor());
+		// mario1.setArmor(immpoi);
+		mario1.takeHit(bella, 20);
+		assertEquals(85,mario.getLifePoints());
 	}
 }

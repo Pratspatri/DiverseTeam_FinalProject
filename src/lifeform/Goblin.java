@@ -9,7 +9,7 @@ import recovery.Recovery;
  */
 public class Goblin extends Creature 
 {
-
+	// Goblin extends creature. Therefore its constructors have to be implemented.
 	public Goblin(String name, int life, int strength) 
 	{
 		super(name, life, strength);

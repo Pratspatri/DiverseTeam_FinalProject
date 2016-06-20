@@ -25,7 +25,7 @@ public abstract class LifeForm implements TimerObserver
 	
 	private String Direction;                             //To set and get dierction of life form
 		
-	public LifeForm(String name, int life, int strength)// constructor
+	public LifeForm(String name, int life, int strength)  // constructor
 	{
 		this.name = name;
 		lifePoints = (life >= 0) ? life : 0;
@@ -109,7 +109,7 @@ public abstract class LifeForm implements TimerObserver
 		
 		if (getLifePoints() > 0)
 		{
-			if (weapon == null)
+			if (weapon != null)
 			{
 				int damage = weapon.calculateDamage(distance);
 				lifeForm2.takeHit(this,damage);

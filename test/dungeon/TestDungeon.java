@@ -1,5 +1,8 @@
 package dungeon;
-
+/**
+ * Test for dungeon class
+ * @author - Prathyusha Akshintala
+ */
 import static org.junit.Assert.*;
 import item.Armor;
 import item.MockArmor;
@@ -15,18 +18,21 @@ import org.junit.Test;
 
 public class TestDungeon 
 {
-
 	@After
 	public void after() 
 	{
 		Dungeon.resetInstance();
 	}
-	
+	/**
+	 * Resets the dungeon
+	 */
 	public static void resetDungeon()
 	{
 		Dungeon.resetInstance();
 	}
-	
+	/**
+	 * Initialization tests
+	 */
 	@Test
 	public void testInitialization() 
 	{
@@ -39,7 +45,9 @@ public class TestDungeon
 		Dungeon dungeon2 = Dungeon.getDungeonInstance();
 		assertEquals(dungeon1, dungeon2);
 	}
-	
+	/**
+	 * Test for adding a life form
+	 */
 	@Test
 	public void testAddLifeForm()
 	{
@@ -77,7 +85,9 @@ public class TestDungeon
 		success = dungeon.addLifeForm(8, -2, mon);
 		assertFalse(success);
 	}
-	
+	/**
+	 * tests to remove lifeform
+	 */
 	@Test
 	public void testRemovelifeForm()
 	{
@@ -104,9 +114,10 @@ public class TestDungeon
 		
 		// LifeForm is not added to (0,0) so it should return null 
 		assertNull(dungeon.removeLifeForm(0, 0));
-		
 	}
-	
+	/**
+	 * Test to get row and column numbers
+	 */
 	@Test
 	public void testGetRowAndColNumbers()
 	{
@@ -114,7 +125,9 @@ public class TestDungeon
 		assertEquals(8,dungeon.getNumberOfRow());
 		assertEquals(8,dungeon.getNumberOfCol());
 	}
-	
+	/**
+	 * Test for getting distance between two lifeforms.
+	 */
 	@Test
 	public void testDistance() 
 	{
@@ -138,7 +151,9 @@ public class TestDungeon
 		assertEquals(-1, dungeon.getDistance(james, sirius));
 		assertEquals(-1, dungeon.getDistance(sirius, remus));
 	}
-	
+	/**
+	 * Test for get item from the dungeon from a particular cell and position
+	 */
 	@Test
 	public void testGetItem() 
 	{
@@ -150,7 +165,9 @@ public class TestDungeon
 		assertEquals(a1, dungeon.getItem(1, 1, 0));
 		assertEquals(p2, dungeon.getItem(1, 1, 1));
 	}
-	
+	/**
+	 * Test to add item to dungeon to a particular cell and position
+	 */
 	@Test
 	public void testAddItem() 
 	{
@@ -165,6 +182,9 @@ public class TestDungeon
 		assertFalse(dungeon.addItem(9, 9, w1, 1));
 	}
 
+	/**
+	 * Test to remove item from dungeon from a particular cell and position
+	 */
 	@Test
 	public void testRemoveItem() 
 	{
