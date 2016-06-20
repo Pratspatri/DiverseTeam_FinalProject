@@ -180,7 +180,7 @@ public class Dungeon
 			double temp = Math.pow((lifeform2.getRow() - lifeform1.getRow()), 2);
 			temp += Math.pow((lifeform2.getCol() - lifeform1.getCol()), 2);
 			temp = Math.sqrt(temp);
-			temp *= 5;
+			//temp *= 5;
 			return (int) temp;
 		}
 		return -1;

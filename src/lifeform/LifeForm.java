@@ -109,7 +109,7 @@ public abstract class LifeForm implements TimerObserver
 		
 		if (getLifePoints() > 0)
 		{
-			if (weapon == null)
+			if (weapon != null)
 			{
 				int damage = weapon.calculateDamage(distance);
 				lifeForm2.takeHit(this,damage);

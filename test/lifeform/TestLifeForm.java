@@ -1,7 +1,11 @@
 package lifeform;
 
 import static org.junit.Assert.*;
+import item.Armor;
 import item.MockWeapon;
+import item.PowerArmor;
+import item.SharpArmor;
+import item.Sword;
 import item.Weapon;
 import gameplay.TimerObserver;
 
@@ -39,28 +43,61 @@ public class TestLifeForm
 	    LifeForm cedric = new MockLifeForm("Cedric", 40, 10); 
 	    assertTrue(cedric instanceof TimerObserver); 
 	}
-	// check with Malak for equations of swords as it exceeds the life points
-	/*@Test 
+
+	@Test 
 	  public void testAttack() 
 	  { 
 		Dungeon dungeon = Dungeon.getDungeonInstance();
-	    LifeForm jamie = new MockLifeForm("Jamie", 30, 5); 
-	    LifeForm cersei = new MockLifeForm("Cersei", 40, 10); 
-	    Weapon sword = new MockWeapon("Sword");
+	    LifeForm jamie = new Goblin("Jamie", 30, 5); 
+	    LifeForm cersei = new Mummy("Cersei", 40, 10); 
+	    Weapon sword = new Sword();
 	    dungeon.addLifeForm(1, 1, jamie);
 	    dungeon.addLifeForm(1, 3, cersei);
 	    dungeon.addItem(1, 1, sword, 1);
 	    jamie.pickUpWeapon(sword);
-	    
+	    // Only when there is weapon
 	    jamie.attack(cersei); 
-	    assertEquals(35, cersei.getLifePoints()); 
+	    assertEquals(19, cersei.getLifePoints()); 
 	 
 	    jamie.lifePoints = 0; 
 	 
 	    jamie.attack(cersei); 
-	    // lifeForm2 remains 20 as lifeForm1 id dead. 
-	    assertEquals(35, cersei.getLifePoints()); 
-	} */
+	    // lifeForm2 remains 19 as lifeForm1 is dead. 
+	    assertEquals(19, cersei.getLifePoints()); 
+	    
+	    // When there is weapon and armor involved
+	    Dungeon dungeon1 = Dungeon.getDungeonInstance();
+	    Player mario = (Player) Player.getPlayerInstance(); 
+	    LifeForm bran = new Mummy("Bran", 40, 10); 
+	    Weapon sword1 = new Sword();
+	    dungeon1.addLifeForm(2, 1, mario);
+	    dungeon1.addLifeForm(2, 3, bran);
+	    dungeon1.addItem(1, 1, sword1, 1);
+	    bran.pickUpWeapon(sword1);
+	    Armor sharp = new SharpArmor();
+	    mario.setArmor(sharp);
+	    bran.attack(mario);
+	    /**
+	     * No change in the life points because player has sharp armor and that reduces
+	     * damage by 3 points. And then it gets checked if the armor points pertaining
+	     * to that armor is > or < the damage and reduces accordingly.
+	     * If armor points are < damage, then those points are subtracted from damage and
+	     * the remaining damage is returned to takeHit method. If it is > then, no damage
+	     * is done. 
+	     */
+	    assertEquals(100,mario.getLifePoints());
+	    /**
+	     * Another case - we remove the creature from one cell and place in another.
+	     * Then we add another armor and test accordingly
+	     */
+	    dungeon1.removeLifeForm(2, 3);
+	    dungeon1.addLifeForm(2, 4, bran);
+	    Armor power  = new PowerArmor();
+	    mario.setArmor(power);
+	    bran.attack(mario);
+	    assertEquals(100,mario.getLifePoints());
+	    
+	} 
 	
 	@Test
 	public void testSetAndGetHitPoints()

@@ -3,12 +3,10 @@ package lifeform;
 import static org.junit.Assert.*;
 import item.Armor;
 import item.MockArmor;
+import item.SharpArmor;
 
 import org.junit.After;
 import org.junit.Test;
-
-import ability.Ability;
-import ability.MockAbility;
 
 public class TestPlayer 
 {
@@ -99,11 +97,10 @@ public class TestPlayer
 		mario.takeHit(creature, -15);
 		assertEquals(85,mario.getLifePoints());
 		// Using an armor and testing for takeHit method
-		Armor sharp = new MockArmor("SharpArmor");
+		Armor sharp = new SharpArmor();
 		mario.setArmor(sharp);
-		Creature winky = new MockCreature("Winky", 80, 5);
+		Creature winky = new Goblin("Winky", 80, 5);
 		mario.takeHit(winky, 20);
-		// TODO check with malak for useArmor methods - should return hit damage not damage
 		assertEquals(83,mario.getLifePoints());
 		// When armor is an instance of immune poison and creature is an instance of poison
 		Player mario1 = (Player) Player.getPlayerInstance();
