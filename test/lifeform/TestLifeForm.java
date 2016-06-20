@@ -68,13 +68,13 @@ public class TestLifeForm
 	    jamie.pickUpWeapon(sword);
 	    // Only when there is weapon
 	    jamie.attack(cersei); 
-	    assertEquals(19, cersei.getLifePoints()); 
+	    assertEquals(18, cersei.getLifePoints()); 
 	 
 	    jamie.lifePoints = 0; 
 	 
 	    jamie.attack(cersei); 
 	    // lifeForm2 remains 19 as lifeForm1 is dead. 
-	    assertEquals(19, cersei.getLifePoints()); 
+	    assertEquals(18, cersei.getLifePoints()); 
 	    
 	    // When there is weapon and armor involved
 	    Dungeon dungeon1 = Dungeon.getDungeonInstance();
@@ -107,7 +107,6 @@ public class TestLifeForm
 	    mario.setArmor(power);
 	    bran.attack(mario);
 	    assertEquals(100,mario.getLifePoints());
-	    // TODO other cases after Malak is done changing
 	} 
 	/**
 	 * Test to get and set hit points
