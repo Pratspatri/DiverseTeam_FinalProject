@@ -13,7 +13,7 @@ public class Sword extends Weapon
 	 */
 	public Sword()
 	{   
-		 baseDamage=9;
+		 baseDamage=10;
 		 maxRange=3;
 		description="sword";
 	}
