@@ -1,5 +1,7 @@
 package lifeform;
-
+/**
+ * Test class for LifeForm
+ */
 import static org.junit.Assert.*;
 import item.Armor;
 import item.MockWeapon;
@@ -16,6 +18,9 @@ import dungeon.Dungeon;
 public class TestLifeForm 
 {
 
+	/**
+	 * Initialization test
+	 */
 	@Test
 	public void testInitialize()
 	{
@@ -28,7 +33,9 @@ public class TestLifeForm
 	    // LifeForm can not have negative life points so it should have 0.
 	    assertEquals(0, robb.getLifePoints()); 
 	}
-	
+	/**
+	 * Test to get and set strength
+	 */
 	@Test
 	public void testSetAndGetStrength()
 	{
@@ -36,14 +43,18 @@ public class TestLifeForm
 		sansa.setStrength(10);
 		assertEquals(10,sansa.getStrength());
 	}
-	
+	/**
+	 * Test to track time
+	 */
 	@Test 
 	  public void testTrackTime() 
 	  { 
 	    LifeForm cedric = new MockLifeForm("Cedric", 40, 10); 
 	    assertTrue(cedric instanceof TimerObserver); 
 	}
-
+	/**
+	 *	Test for attach method and its various cases 
+	 */
 	@Test 
 	  public void testAttack() 
 	  { 
@@ -96,9 +107,11 @@ public class TestLifeForm
 	    mario.setArmor(power);
 	    bran.attack(mario);
 	    assertEquals(100,mario.getLifePoints());
-	    
+	    // TODO other cases after Malak is done changing
 	} 
-	
+	/**
+	 * Test to get and set hit points
+	 */
 	@Test
 	public void testSetAndGetHitPoints()
 	{
@@ -106,7 +119,9 @@ public class TestLifeForm
 		jamie.setHitPoints(10);
 		assertEquals(10,jamie.getHitPoints());
 	}
-	
+	/**
+	 * Test for pick and drop of a weapon
+	 */
 	@Test
 	public void testPickAndDropWeapon()
 	{

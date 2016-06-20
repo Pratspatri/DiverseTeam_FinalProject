@@ -25,7 +25,7 @@ public abstract class LifeForm implements TimerObserver
 	
 	private String Direction;                             //To set and get dierction of life form
 		
-	public LifeForm(String name, int life, int strength)// constructor
+	public LifeForm(String name, int life, int strength)  // constructor
 	{
 		this.name = name;
 		lifePoints = (life >= 0) ? life : 0;

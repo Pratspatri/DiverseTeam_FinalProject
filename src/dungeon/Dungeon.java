@@ -14,8 +14,8 @@ import item.Item;
 public class Dungeon 
 {
 
-	private Cell cells[][];
-	private static Dungeon theDungeon;
+	private Cell cells[][];												// cells which hold everything
+	private static Dungeon theDungeon;									// static variable
 
 	/**
 	 * Private constructor because we used Singleton Pattern

@@ -1,4 +1,7 @@
 package ability;
+
+import lifeform.Creature;
+
 /**
  * Class for poison ability
  * @author Prathyusha Akshintala
@@ -6,10 +9,10 @@ package ability;
  */
 public class Poison extends Ability
 {
-
-	public Poison(String name, int life, int strength) 
+	// Poison also extends ability which extends creature
+	public Poison(Creature creature) 
 	{
-		super(name, life, strength);
+		super(creature);
 	}
 
 	/**
