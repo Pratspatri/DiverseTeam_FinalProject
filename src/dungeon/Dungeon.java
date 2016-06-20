@@ -277,4 +277,80 @@ public class Dungeon
 		}
 		
 	}
+	
+	
+	public boolean move (int row, int col)
+	{
+		LifeForm movedLife = cells[row][col].getLifeForm();
+		if (movedLife != null) 
+		{
+
+			if (movedLife.getDirection().compareToIgnoreCase("North") == 0) 
+			{
+
+				int currentRow = row;
+				int aboveRow = currentRow - 1;
+				
+					if (aboveRow >= 0 && cells[aboveRow][col].getLifeForm() == null) 
+					{
+						removeLifeForm(currentRow, col);
+						addLifeForm(aboveRow, col, movedLife);
+						currentRow = aboveRow;
+					}
+					aboveRow -= 1;
+				
+				return !(currentRow == row);
+			} else if (movedLife.getDirection().compareToIgnoreCase("South") == 0) 
+			{
+				int currentRow = row;
+				int underRow = currentRow + 1;
+				
+					if (underRow >= 0 && cells[underRow][col].getLifeForm() == null) 
+					{
+						removeLifeForm(currentRow, col);
+						addLifeForm(underRow, col, movedLife);
+						currentRow = underRow;
+					}
+					underRow += 1;
+				
+				return !(currentRow == row);
+			} 
+			else if (movedLife.getDirection().compareToIgnoreCase("East") == 0) 
+			{
+				int currentCol = col;
+				int rightCol = currentCol + 1;
+				
+					if (rightCol >= 0 && cells[row][rightCol].getLifeForm() == null) 
+					{
+						removeLifeForm(row, currentCol);
+						addLifeForm(row, rightCol, movedLife);
+						currentCol = rightCol;
+					}
+					rightCol += 1;
+				
+				return !(currentCol == col);
+			} 
+			else if (movedLife.getDirection().compareToIgnoreCase("West") == 0) 
+			{
+				int currentCol = col;
+				int leftCol = currentCol - 1;
+				
+					if (leftCol >= 0 && cells[row][leftCol].getLifeForm() == null) 
+					{
+						removeLifeForm(row, currentCol);
+						addLifeForm(row, leftCol, movedLife);
+						currentCol = leftCol;
+					}
+					leftCol -= 1;
+				
+				return !(currentCol == col);
+			} 
+			else 
+			{
+				return false;
+			}
+		} 
+		else
+			return false;
+	}
 }

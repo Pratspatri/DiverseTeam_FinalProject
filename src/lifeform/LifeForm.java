@@ -22,6 +22,8 @@ public abstract class LifeForm implements TimerObserver
 	private int trackCol;								// tracks col coordinate
 	
 	private Weapon weapon;								// weapon for the lifeform
+	
+	private String Direction;                             //To set and get dierction of life form
 		
 	public LifeForm(String name, int life, int strength)// constructor
 	{
@@ -196,4 +198,14 @@ public abstract class LifeForm implements TimerObserver
 	{
 		return (int) ((weapon==null)?0:weapon.getMaxrRange()/5);
 	}	
+	
+	public void SetDirection (String newDirection)
+	{
+		this.Direction = newDirection ; 
+	}
+	
+	public String getDirection ()
+	{
+		return Direction ; 
+	}
 }
