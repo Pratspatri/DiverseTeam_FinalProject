@@ -42,13 +42,13 @@ public class TestGun
 	{
 		Weapon gun = new Gun();
 		// 0<=distance between the range<=30
-		gun.calculateDamage(20);
-		assertEquals(10,gun.getDamage());
+		gun.calculateDamage(10);
+		assertEquals(15,gun.getDamage());
 		assertEquals(3,((Gun) gun).gettRateofFire(),.1);
 		assertEquals(39,((Gun) gun).getActualAmmo(),.1);
 		//distance out of the range
 		gun.calculateDamage(50);
-		assertEquals(10,gun.getDamage());
+		assertEquals(15,gun.getDamage());
 		assertEquals(2,((Gun) gun).gettRateofFire(),.1);
 		assertEquals(38,((Gun) gun).getActualAmmo(),.1);
 		 //reload when actual ammo is 0

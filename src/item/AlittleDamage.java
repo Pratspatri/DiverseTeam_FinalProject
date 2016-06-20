@@ -22,12 +22,12 @@ public class AlittleDamage extends DamageDecorator
 	{   
 		if(weapon.getDamage() == 0)
 	   {
-		 damage=weapon.calculateDamage(distance)*2;
+		 damage=weapon.calculateDamage(distance)+2;
 		 weapon.setDamage( damage);
 	   }
 	  else 
 	  {
-		    damage=weapon.getDamage()*2;
+		    damage=weapon.getDamage()+2;
 		    weapon.setDamage(damage);
 	  }
 		

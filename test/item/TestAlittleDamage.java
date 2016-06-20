@@ -20,8 +20,8 @@ public class TestAlittleDamage
 	{
 		Weapon gun = new Gun();
 		AlittleDamage damage= new AlittleDamage(gun);
-		damage.calculateDamage(20);
-		assertEquals(20,damage.getDamage());
+		damage.calculateDamage(10);
+		assertEquals(17,damage.getDamage());
 	}
 
 	/**
@@ -33,10 +33,10 @@ public class TestAlittleDamage
 		Gun gun = new Gun();
 		AlittleDamage damage= new AlittleDamage(gun);
 		AlittleDamage damage2= new AlittleDamage(gun);
-		damage.calculateDamage(20);
-		damage2.calculateDamage(20);
-		assertEquals(20,damage.getDamage());
-		assertEquals(40,damage2.getDamage());
+		damage.calculateDamage(10);
+		damage2.calculateDamage(10);
+		assertEquals(17,damage.getDamage());
+		assertEquals(19,damage2.getDamage());
 	}
 	/**
      * Test default when weapon decorator twice by one ReallyDamage and one AlittleDamage 
@@ -47,9 +47,9 @@ public class TestAlittleDamage
 		Gun gun = new Gun();
 		ReallyDamage damage= new ReallyDamage(gun);
 		AlittleDamage damage2= new AlittleDamage(gun);
-		damage.calculateDamage(20);
-		damage2.calculateDamage(20);
-		assertEquals(40,damage.getDamage());
-		assertEquals(80,damage2.getDamage());
+		damage.calculateDamage(10);
+		damage2.calculateDamage(10);
+		assertEquals(19,damage.getDamage());
+		assertEquals(21,damage2.getDamage());
 	}
 }
