@@ -29,13 +29,14 @@ public abstract class GenericState implements State
 	
 	/**
 	 * Remove the LifeForm from its location.
-	 * @return the LifeForm has been removed. Or null if the LifeForm was removed successfully
-	 * 			or there is nothing in its location.
+	 * @return the LifeForm has been removed. Or null if there is nothing in its location.
 	 */
 	@Override
 	public LifeForm removeLifeForm()
 	{
-		return life;
+		LifeForm temp = this.life;
+		this.life = null;
+		return temp;
 	}
 
 	/**

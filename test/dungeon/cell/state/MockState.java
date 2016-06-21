@@ -4,13 +4,17 @@ import item.Item;
 import lifeform.LifeForm;
 
 /**
+ * A MockState is used to do some test.
  * 
- * @author Jixiang
+ * @author Jixiang Lu
  *
  */
 public class MockState extends GenericState
 {
 
+	/**
+	 * Adds the LifeForm into its location
+	 */
 	@Override
 	public boolean addLifeForm(LifeForm life)
 	{
@@ -18,6 +22,9 @@ public class MockState extends GenericState
 		return true;
 	}
 
+	/**
+	 * Adds the Item into specific position.
+	 */
 	@Override
 	public boolean addItem(Item item, int position)
 	{

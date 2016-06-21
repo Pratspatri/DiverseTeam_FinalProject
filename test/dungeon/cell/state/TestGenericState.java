@@ -51,7 +51,9 @@ public class TestGenericState
 		
 		//test remove method.
 		assertEquals(life,state.removeLifeForm());
+		assertNull(state.getLifeForm());
 		assertEquals(item1,state.removeItem(0));
+		assertNull(state.getItem(0));
 		assertNull(state.removeItem(3));
 		
 		//test clear method.
