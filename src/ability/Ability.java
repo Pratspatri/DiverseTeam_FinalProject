@@ -22,5 +22,7 @@ public abstract class Ability extends Creature
 	// abstract method to get the description
 	public abstract String getDescription();
 	// abstract method to calculate damage
-	public abstract int calculateDamage(int damage);
+	public abstract int calculateDamage();
+	
+	
 }

@@ -140,11 +140,11 @@ public class TestDungeon
 		dungeon.addLifeForm(6, 3, remus);
 		
 		// If the lifeforms are in the same row.
-		assertEquals(10, dungeon.getDistance(james, sirius));
+		assertEquals(2, dungeon.getDistance(james, sirius));
 		// If the lifeforms are in the same column.
-		assertEquals(20, dungeon.getDistance(sirius, remus));
+		assertEquals(4, dungeon.getDistance(sirius, remus));
 		// If the lifeforms are in different row and different column.
-		assertEquals(22, dungeon.getDistance(james, remus));
+		assertEquals(4, dungeon.getDistance(james, remus));
 
 		dungeon.removeLifeForm(2, 1);
 		dungeon.removeLifeForm(6, 3);

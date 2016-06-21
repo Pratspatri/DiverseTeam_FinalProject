@@ -165,7 +165,7 @@ public class Player extends LifeForm
 			{
 				if(getArmor() instanceof ImmunePoison && creature instanceof Poison)
 				{
-					lifePoints -= damage;
+					return;
 				}
 				else 
 				{

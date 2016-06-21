@@ -277,7 +277,13 @@ public class Dungeon
 		}
 		
 	}
-	
+	/**
+	 * To make the lifeforms move
+	 * @author - Saad
+	 * @param row
+	 * @param col
+	 * @return
+	 */
 	
 	public boolean move (int row, int col)
 	{
