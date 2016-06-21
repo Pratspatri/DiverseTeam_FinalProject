@@ -5,6 +5,7 @@ package lifeform;
  */
 import dungeon.Dungeon;
 import gameplay.TimerObserver;
+import item.Gun;
 import item.Weapon;
 
 public abstract class LifeForm implements TimerObserver
@@ -157,6 +158,13 @@ public abstract class LifeForm implements TimerObserver
 	public void dropWeapon()
 	{
 		weapon = null;
+	}
+	
+	public void Reload()
+	{
+		
+		((Gun) weapon).reload();
+		
 	}
 	/**
 	 * Sets the locale with respect to coordinates
