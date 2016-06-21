@@ -127,14 +127,14 @@ public class TestPlayer
 		mario.setArmor(sharp);
 		Creature winky = new Goblin("Winky", 80, 5);
 		mario.takeHit(winky, 30);
-		assertEquals(93,mario.getLifePoints());
+		assertEquals(78,mario.getLifePoints());
 		// When armor is an instance of immune poison and creature is an instance of poison
 		Player mario1 = (Player) Player.getPlayerInstance();
 		Creature bella = new Goblin("Bella", 60, 5);
 		bella = new Poison(bella);
-		// Armor immpoi = new ImmunePoison(new SharpArmor());
-		// mario1.setArmor(immpoi);
+		Armor immpoi = new ImmunePoison(new SharpArmor());
+		mario1.setArmor(immpoi);
 		mario1.takeHit(bella, 20);
-		assertEquals(85,mario.getLifePoints());
+		assertEquals(58,mario.getLifePoints());
 	}
 }

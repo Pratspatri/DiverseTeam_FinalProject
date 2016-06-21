@@ -159,17 +159,20 @@ public class Player extends LifeForm
 			if(getArmor() == null)
 			{
 				lifePoints -= damage;
+				//System.out.println("This is some test life:inside null armour "+ lifePoints);
 			}
 			else 
 			{
 				if(getArmor() instanceof ImmunePoison && creature instanceof Poison)
 				{
-					return;
+					lifePoints -= damage;
 				}
 				else 
 				{
 					damage = getArmor().useArmor(damage);
+					//System.out.println("Before calculating the lifepoints in else:"+lifePoints);
 					lifePoints -= damage;
+					//System.out.println("After calculating the lifepoints in else:"+lifePoints);
 				}				
 			}
 		}
