@@ -28,8 +28,8 @@ public class Poison extends Ability
 	 * calculates damage
 	 */
 	@Override
-	public int calculateDamage(int damage) 
+	public int calculateDamage() 
 	{
-		return (damage+10);
+		return (creature.calculateDamage()+10);
 	}
 }

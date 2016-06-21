@@ -1,8 +1,15 @@
 package inventory;
 
+import item.Armor;
 import item.Item;
+import item.Keys;
+import item.Potions;
+import item.Weapon;
 
 import java.util.ArrayList;
+
+import lifeform.LifeForm;
+import lifeform.Player;
 
 public class PlayerInventory implements Inventory
 {
@@ -56,32 +63,54 @@ public class PlayerInventory implements Inventory
 	}
 
 	@Override
-	public boolean use(int index)
+	public boolean use(LifeForm life,int index)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		if(index>=items.size())
+			return false;
+		else 
+		{
+			Item item = items.get(index);
+			if(item instanceof Weapon)
+			{
+				Weapon temp = life.getWeapon();
+				life.dropWeapon();
+				life.pickUpWeapon((Weapon)item);
+				items.remove(index(item));
+				items.add(temp);
+				return true;
+			}
+			else if(item instanceof Armor)
+			{
+				Player pl = (Player)life;
+				Armor temp = pl.getArmor();
+				pl.setArmor((Armor)item);
+				items.remove(index(item));
+				items.add(temp);
+				return true;
+			}
+			else if(item instanceof Potions)
+			{
+				Potions ps = (Potions)item;
+				Player pl = (Player)life;
+				ps.taken(pl.getStrength());
+				pl.setStrength(ps.getAmount());
+				items.remove(index(item));
+				return true;
+				
+			}
+			else if(item instanceof Keys)
+			{
+				return false;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 
-	@Override
-	public boolean drop(int index)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean sell(int index)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean equip(int index)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public Iterator getIterator()
@@ -126,6 +155,19 @@ public class PlayerInventory implements Inventory
 	{
 
 		return items.indexOf(item);
+	}
+
+	@Override
+	public Item getItem(int index) 
+	{
+		try
+		{
+			return items.get(index);
+		}
+		catch(IndexOutOfBoundsException ex)
+		{
+			return null;
+		}
 	}
 
 

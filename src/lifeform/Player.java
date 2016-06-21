@@ -145,7 +145,7 @@ public class Player extends LifeForm
 	 */
 	public boolean useItem(int index)
 	{
-		return bag.use(index);
+		return bag.use(this,index);
 	}
 	/**
 	 * Take hit method to calculate how much damage it takes
@@ -165,7 +165,7 @@ public class Player extends LifeForm
 			{
 				if(getArmor() instanceof ImmunePoison && creature instanceof Poison)
 				{
-					lifePoints -= damage;
+					return;
 				}
 				else 
 				{

@@ -21,7 +21,7 @@ public class MockAbility extends Ability
 	 * Calculates the damage
 	 */
 	@Override
-	public int calculateDamage(int damage) 
+	public int calculateDamage() 
 	{
 		return 0;
 	}
