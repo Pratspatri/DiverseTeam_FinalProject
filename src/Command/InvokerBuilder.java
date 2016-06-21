@@ -28,7 +28,7 @@ public class InvokerBuilder {
 	Invoker invoker = new Invoker();
 
 	invoker.setRelaod(new ReloadCommand(life));
-	invoker.setAcquire(new AcquireCommand(life));
+	invoker.setAcquire(new AcquireCommand());
 	invoker.setDrop(new DropCommand(life));
 	invoker.setTurnEast(new TurnEastCommand(life));
 	invoker.setTurnNorth(new TurnNorthCommand(life));
