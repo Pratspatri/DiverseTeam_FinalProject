@@ -22,7 +22,7 @@ public class TestSpear
 	{
 		 Weapon spear= new Spear();
 		 equals(spear instanceof Spear );
-		 assertEquals(7,spear.getBaseDamge(),.1);
+		 assertEquals(15,spear.getBaseDamge(),.1);
 		 assertEquals(5,spear.getMaxrRange(),.1);
 		 assertEquals("spear",spear.getDescribtion());	 
 	}
@@ -37,10 +37,10 @@ public class TestSpear
 		Weapon spear= new Spear();
 		// 0<=distance between the range<=5
 		spear.calculateDamage(4);
-		assertEquals(98,spear.getDamage());
+		assertEquals(26,spear.getDamage());
 		//distance out of the range
 		spear.calculateDamage(10);
-		assertEquals(98,spear.getDamage());
+		assertEquals(26,spear.getDamage());
 		
 	}
 }

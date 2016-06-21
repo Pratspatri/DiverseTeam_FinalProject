@@ -7,24 +7,43 @@ import lifeform.Player;
  * @author Malak
  *
  */
-public class NoHealing extends Potions
+public class NoHealing implements AffectBehavior
 {
-    /**
-     * Constructor
+	/**
+     *Define the amount of potions 
      */
-	public NoHealing(int quantity) 
-	{
-		amount=quantity;
-	}
+	public int amount;
+
 	/**
 	 * override the taken to decrease the ability of player
-	 * Increase the ability of player by increasing the hitpoints and decreasing strength and Experience point by the amount which the player drinks
+	 * Increase the ability of player by decreasing strength and Experience point by the amount which the player drinks
+	 */
+
+	@Override
+	public int taken(int amounts) 
+	{
+		amount=amounts-3;
+		setAmount(amount);
+		return getAmount() ;
+	}
+	
+	/**
+	 * Implement set amount of potions
+	 * @return
 	 */
 	@Override
-	public void taken() 
+	public void setAmount(int amounts) 
 	{
-		Player.getPlayerInstance().setStrength(Player.getPlayerInstance().getStrength()+amount);
-		((Player) Player.getPlayerInstance()).setHealth("Not Healed");
+		amount=amounts;
 	}
-
+	
+	/**
+	 * Implement get the amount 
+	 */
+	@Override
+	public int getAmount() 
+	{
+		
+		return amount;
+	}
 }

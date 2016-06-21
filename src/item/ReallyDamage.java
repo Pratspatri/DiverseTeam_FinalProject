@@ -23,12 +23,12 @@ public class ReallyDamage extends DamageDecorator
 	{   
 		if(weapon.getDamage() == 0)
 	   {
-		 damage=weapon.calculateDamage(distance)*4;
+		 damage=weapon.calculateDamage(distance)+4;
 		 weapon.setDamage( damage);
 	   }
 	  else 
 	  {
-		    damage=weapon.getDamage()*4;
+		    damage=weapon.getDamage()+4;
 		    weapon.setDamage(damage);
 	  }
 		

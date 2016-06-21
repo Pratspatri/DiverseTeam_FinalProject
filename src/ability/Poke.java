@@ -1,4 +1,7 @@
 package ability;
+
+import lifeform.Creature;
+
 /**
  * Class for poke ability
  * @author Prathyusha Akshintala
@@ -6,10 +9,10 @@ package ability;
  */
 public class Poke extends Ability
 {
-
-	public Poke(String name, int life, int strength)
+	// Constructor for Poke - This extends Ability which in turn extends Creature. 
+	public Poke(Creature creature)
 	{
-		super(name, life, strength);
+		super(creature);
 	}
 
 	/**

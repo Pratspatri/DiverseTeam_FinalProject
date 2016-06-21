@@ -29,7 +29,9 @@ public class PlayerInventory implements Inventory
 	@Override
 	public boolean addItem(Item item)
 	{
-		if(actualSize < maxSize)
+		if(item == null)
+			return false;
+		else if(actualSize < maxSize)
 		{
 			items.add(item);
 			return true;

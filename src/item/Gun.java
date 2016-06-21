@@ -103,7 +103,7 @@ public class Gun extends Weapon
 	{   
 		if(distance<=maxRange && actual_ammo>0)
 		{
-			damage=baseDamage*(distance/maxRange);
+			damage=baseDamage+(distance/maxRange);
 			setDamage(damage);
 		}
 		fire();

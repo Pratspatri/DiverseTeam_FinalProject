@@ -22,7 +22,7 @@ public class TestSword
 	{
 		 Weapon sword =new Sword();
 		 equals(sword instanceof Sword );
-		 assertEquals(9,sword.getBaseDamge(),.1);
+		 assertEquals(10,sword.getBaseDamge(),.1);
 		 assertEquals(3,sword.getMaxrRange(),.1);
 		 assertEquals("sword",sword.getDescribtion());
 	}
@@ -37,10 +37,10 @@ public class TestSword
 		Weapon sword =new Sword();
 		// 0<=distance between the range<=3
 		sword.calculateDamage(2);
-		assertEquals(108,sword.getDamage());
+		assertEquals(22,sword.getDamage());
 		//distance out of the range
 		sword.calculateDamage(10);
-		assertEquals(108,sword.getDamage());
+		assertEquals(22,sword.getDamage());
 		
 	}
 }
