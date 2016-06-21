@@ -7,26 +7,43 @@ import lifeform.Player;
  * @author Malak
  *
  */
-public class Healing extends Potions 
-{
+public class Healing implements AffectBehavior
+{   
 	/**
-	 * Constructor
-	 * @param quantity
-	 */
-	public Healing(int quantity) 
-	{ 
-		amount=quantity;
-	}
+     *Define the amount of potions 
+     */
+	public int amount;
 
 	/**
-	 * Override the taken to increase the ability of player
-	 * Increase the ability of player by decreasing the hitpoints and increase strength and Experience point by the amount which the player drinks
+	 * Implement the taken to increase the ability of player
+	 * Increase the ability of player by increase strength by the amount which the player drinks
+	 */
+
+	@Override
+	public int taken(int amounts) 
+	{
+		amount=amounts+3;
+		setAmount(amount);
+		return getAmount() ;
+	}
+	
+	/**
+	 * Implement set amount of potions
+	 * @return
 	 */
 	@Override
-	public void taken() 
+	public void setAmount(int amounts) 
 	{
-		Player.getPlayerInstance().setStrength(Player.getPlayerInstance().getStrength()+amount);
-		((Player) Player.getPlayerInstance()).setHealth("Healed");
+		amount=amounts;
 	}
-
+	
+	/**
+	 * Implement get the amount 
+	 */
+	@Override
+	public int getAmount() 
+	{
+		
+		return amount;
+	}
 }

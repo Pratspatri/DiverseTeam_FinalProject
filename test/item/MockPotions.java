@@ -13,15 +13,9 @@ public class MockPotions extends Potions
 	public MockPotions(int amount) 
 	{
 		super.amount=amount;
+		affect = new Healing();
 	}
     /**
      * Implements taken method
      */
-	@Override
-	public void taken() 
-	{
-		// TODO Auto-generated method stub
-
-	}
-
 }
