@@ -8,6 +8,7 @@ import item.Armor;
 import item.ImmunePoison;
 import item.MockArmor;
 import item.SharpArmor;
+import item.Sword;
 
 import org.junit.After;
 import org.junit.Test;
@@ -100,12 +101,17 @@ public class TestPlayer
 		assertEquals(sharp,mario.removeFromInventory(sharp));
 	}
 	/**
+	 * TODO check for which index for what item
 	 * Test to use an item from the inventory
 	 */
 	@Test
 	public void testUseItem()
 	{
-		
+		Player mario = (Player) Player.getPlayerInstance();
+		Sword sword = new Sword();
+		mario.addToInventory(sword);
+		boolean success = mario.useItem(0);
+		assertTrue(success);
 	}
 	/**
 	 * Test for take hit method

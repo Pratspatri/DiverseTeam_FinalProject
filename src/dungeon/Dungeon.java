@@ -244,6 +244,7 @@ public class Dungeon
 	}
 	/**
 	 * To set the state of the dungeon
+	 * @author - Jixiang
 	 * @param row
 	 * @param col
 	 * @param state
@@ -261,6 +262,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the state of the dungeon
+	 * @author - Jixiang
 	 * @param row
 	 * @param col
 	 * @return state

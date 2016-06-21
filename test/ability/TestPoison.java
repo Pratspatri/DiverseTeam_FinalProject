@@ -1,5 +1,9 @@
 package ability;
 
+import static org.junit.Assert.*;
+import lifeform.Creature;
+import lifeform.Mummy;
+
 import org.junit.Test;
 
 /**
@@ -12,6 +16,9 @@ public class TestPoison
 	@Test
 	public void testInitialization()
 	{
-		
+		Creature mummy = new Mummy("Mummy", 50, 10);
+		Ability poi = new Poison(mummy);
+		assertEquals(20,poi.calculateDamage());
+		assertEquals("Poison",poi.getDescription());
 	}
 }

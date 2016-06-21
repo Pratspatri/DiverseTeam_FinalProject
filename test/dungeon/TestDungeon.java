@@ -16,6 +16,9 @@ import lifeform.MockLifeForm;
 import org.junit.After;
 import org.junit.Test;
 
+import dungeon.cell.state.GenericState;
+import dungeon.cell.state.State;
+
 public class TestDungeon 
 {
 	@After
@@ -239,7 +242,7 @@ public class TestDungeon
 		assertNull(dungeon.removeItem(8, 9, 0));
 		assertNull(dungeon.removeItem(9, 9, 1));
 	} 
-	//TODO tests for set and get states - check with jixiang
+	//TODO tests for set and get states - jixiang
 	/**
 	 * Test to set and get state of the dungeon
 	 */
