@@ -10,7 +10,6 @@ public interface Inventory
 	public Item removeItem(int index);
 	public Item getItem(int index);
 	public boolean use(LifeForm life,int index);
-	public boolean drop(int index);
 	public Iterator getIterator();
 	public int getMaxSize();
 	public int getActualSize();
