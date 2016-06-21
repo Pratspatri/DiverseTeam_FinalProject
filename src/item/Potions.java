@@ -10,7 +10,12 @@ public abstract class Potions extends GenericItem
     /**
      * define amount of potions which how much the player takes
      */
-	public int amount;
+	 public int amount;
+	 
+	 /**
+	  * Define an object using AffectBehavior
+	  */
+	  protected AffectBehavior affect;
 	
 	/**
 	 * set the amount of potions
@@ -20,6 +25,7 @@ public abstract class Potions extends GenericItem
 	{
 	    this.amount=amount;	
 	}
+	
 	/**
 	 * get amount of potions
 	 * @return
@@ -28,5 +34,14 @@ public abstract class Potions extends GenericItem
 	{
 		return amount;
 	}
-	public abstract void taken();
+	
+	/**
+	 * Taken potions will be based on the behavior either healing or not healing 
+	 * @param amounts
+	 */
+	public void taken(int amounts) 
+	{   
+		amount=affect.taken(amounts);
+		setAmount(amount);
+	}
 }
