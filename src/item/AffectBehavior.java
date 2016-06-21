@@ -22,5 +22,9 @@ public interface AffectBehavior
 	 * getAmount
 	 */
 	public int getAmount();
+	/**
+	 * display the affect behavior
+	 */
+	public abstract String display();
 
 }

@@ -46,4 +46,13 @@ public class NoHealing implements AffectBehavior
 		
 		return amount;
 	}
+     /**
+      * display the beavior 
+      */
+	@Override
+	public String display()
+	{
+		
+		return "NoHealing";
+	}
 }

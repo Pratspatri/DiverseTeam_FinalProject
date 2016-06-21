@@ -44,4 +44,6 @@ public abstract class Potions extends GenericItem
 		amount=affect.taken(amounts);
 		setAmount(amount);
 	}
+	
+	
 }

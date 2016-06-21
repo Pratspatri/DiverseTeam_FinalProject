@@ -3,9 +3,9 @@ import item.TestArmor;
 import item.TestGenericItem;
 import item.TestGun;
 import item.TestIgnoreDamage;
-import item.TestMega;
+import item.TestAntiParalysis;
 import item.TestNormalArmor;
-import item.TestPokemon;
+import item.TestAntiPoison;
 import item.TestPotions;
 import item.TestPowerArmor;
 import item.TestReallyDamage;
@@ -13,7 +13,7 @@ import item.TestSharpArmor;
 import item.TestSpear;
 import item.TestSpecialArmor;
 import item.TestSword;
-import item.TestUltra;
+import item.TestAlihotsyDraught;
 import item.TestWeapon;
 import lifeform.TestCreature;
 import lifeform.TestGoblin;
@@ -40,11 +40,11 @@ import dungeon.TestDungeon;
 @SuiteClasses({TestRecoveryNone.class, TestRecoveryLinear.class, TestDungeon.class, TestCreature.class, TestLifeForm.class,
 	TestPlayer.class, TestMummy.class, TestGoblin.class, TestPoison.class, TestPoke.class,
 	TestAlittleDamage.class, TestArmor.class, TestGenericItem.class,
-    TestGun.class, TestIgnoreDamage.class, TestMega.class, 
-    TestNormalArmor.class, TestPokemon.class, TestPotions.class, 
+    TestGun.class, TestIgnoreDamage.class, TestAntiParalysis.class, 
+    TestNormalArmor.class, TestAntiPoison.class, TestPotions.class, 
     TestPowerArmor.class,TestReallyDamage.class, TestSharpArmor.class,
     TestSpear.class, TestSpecialArmor.class, TestSword.class,
-    TestUltra.class, TestWeapon.class	
+    TestAlihotsyDraught.class, TestWeapon.class	
 })
 public class AllGameTests 
 {

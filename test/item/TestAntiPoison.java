@@ -9,7 +9,7 @@ import org.junit.Test;
  * @author Malak
  *
  */
-public class TestPokemon 
+public class TestAntiPoison 
 {
     /**
      * Test Initialize
@@ -17,8 +17,9 @@ public class TestPokemon
 	@Test
 	public void TestInitialization()  
 	{
-		Pokemon pokemon=new Pokemon();
-		equals(pokemon.affect instanceof Healing );
+		AntiPoison poison=new AntiPoison();
+		assertTrue(poison.affect instanceof Healing );
+		assertEquals("Healing",poison.affect.display());
 	}
 	
 	 /**
@@ -27,9 +28,9 @@ public class TestPokemon
 	@Test
 	public void TestTakenMethod()  
 	{
-		Pokemon pokemon=new Pokemon();
-		pokemon.taken(10);
-		assertEquals(13,pokemon.getAmount());
+		AntiPoison poison=new AntiPoison();
+		poison.taken(10);
+		assertEquals(13,poison.getAmount());
 	}
 
 }
