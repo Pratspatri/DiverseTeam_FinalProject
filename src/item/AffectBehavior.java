@@ -25,6 +25,6 @@ public interface AffectBehavior
 	/**
 	 * display the affect behavior
 	 */
-	public abstract String display();
+	public  String display();
 
 }
