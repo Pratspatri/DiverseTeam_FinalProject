@@ -1,16 +1,16 @@
 package inventory;
 
 import item.Item;
+import lifeform.LifeForm;
 
 public interface Inventory 
 {
 
 	public boolean addItem(Item item);
 	public Item removeItem(int index);
-	public boolean use(int index);
+	public Item getItem(int index);
+	public boolean use(LifeForm life,int index);
 	public boolean drop(int index);
-	public boolean sell(int index);
-	public boolean equip(int index);
 	public Iterator getIterator();
 	public int getMaxSize();
 	public int getActualSize();

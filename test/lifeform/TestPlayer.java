@@ -77,7 +77,7 @@ public class TestPlayer
 		Player mario = (Player) Player.getPlayerInstance();
 		Armor sharp = new MockArmor("SharpArmor");
 		mario.addToInventory(sharp);
-		mario.removeFromInventory(sharp);
+		assertEquals(sharp,mario.removeFromInventory(sharp));
 		// TODO how to check if that is being returned?
 		assertNull(mario.getItem());
 	}

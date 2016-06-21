@@ -1,8 +1,11 @@
 package inventory;
 
 import item.Item;
+import item.Weapon;
 
 import java.util.ArrayList;
+
+import lifeform.LifeForm;
 
 public class PlayerInventory implements Inventory
 {
@@ -54,10 +57,19 @@ public class PlayerInventory implements Inventory
 	}
 
 	@Override
-	public boolean use(int index)
+	public boolean use(LifeForm life,int index)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		if(index>=items.size())
+			return false;
+		else 
+		{
+			Item item = items.get(index);
+			if(item instanceof Weapon)
+			{
+				Weapon temp = life.getWeapon();
+				life.
+			}
+		}
 	}
 
 	@Override
@@ -67,19 +79,7 @@ public class PlayerInventory implements Inventory
 		return false;
 	}
 
-	@Override
-	public boolean sell(int index)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean equip(int index)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public Iterator getIterator()

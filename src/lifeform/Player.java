@@ -141,7 +141,7 @@ public class Player extends LifeForm
 	 */
 	public boolean useItem(int index)
 	{
-		return bag.use(index);
+		return bag.use(this,index);
 	}
 	/**
 	 * Take hit method to calculate how much damage it takes
