@@ -1,5 +1,7 @@
 package dungeon.cell;
 
+import item.Item;
+import item.Keys;
 import dungeon.cell.state.CanWalkThroughState;
 import dungeon.cell.state.DoorState;
 import dungeon.cell.state.NoWalkThroughState;
@@ -61,5 +63,23 @@ public class CellFactory
 			return new Cell();
 		}
 			
+	}
+	
+	/**
+	 * Create a Cell with DoorState and specific Key.
+	 * 
+	 * @param key the key is used to open the DoorState.
+	 * @return the Cell Created.
+	 */
+	public Cell getCellWithDoorState(Item key)
+	{
+		if(key instanceof Keys)
+		{
+			return new Cell(new DoorState(key));
+		}
+		else
+		{
+			return new Cell(new DoorState());
+		}
 	}
 }
