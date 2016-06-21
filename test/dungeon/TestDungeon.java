@@ -58,7 +58,21 @@ public class TestDungeon
 		boolean success = dungeon.addLifeForm(1, 2, mon);
 		assertTrue(success);
 		assertEquals(mon, dungeon.getLifeForm(1, 2));
-
+		
+		// If row and column is -ve
+		success = dungeon.addLifeForm(-1, -2, mon);
+		assertFalse(success);
+		assertNull(dungeon.getLifeForm(-1, -2));
+		// If row is -ve 
+		assertNull(dungeon.getLifeForm(-1, 2));
+		// If col is -ve 
+		assertNull(dungeon.getLifeForm(1, -2));
+		// If row is and column out of range
+		assertNull(dungeon.getLifeForm(10, 10));
+		// If row is out of range
+		assertNull(dungeon.getLifeForm(10, 0));
+		// If col is out of range
+		assertNull(dungeon.getLifeForm(1, 10));
 		// The cell is not empty so this should fail.
 		success = dungeon.addLifeForm(1, 2, mon);
 		assertFalse(success);
@@ -114,6 +128,15 @@ public class TestDungeon
 		
 		// LifeForm is not added to (0,0) so it should return null 
 		assertNull(dungeon.removeLifeForm(0, 0));
+		
+		// Negative rows and columns
+		assertNull(dungeon.removeLifeForm(-5, -4));
+		
+		// Negative row 
+		assertNull(dungeon.removeLifeForm(-5, 4));
+		
+		// Negative col
+		assertNull(dungeon.removeLifeForm(5, -4));
 	}
 	/**
 	 * Test to get row and column numbers
@@ -145,11 +168,27 @@ public class TestDungeon
 		assertEquals(4, dungeon.getDistance(sirius, remus));
 		// If the lifeforms are in different row and different column.
 		assertEquals(4, dungeon.getDistance(james, remus));
-
+		// Boundary conditions
 		dungeon.removeLifeForm(2, 1);
 		dungeon.removeLifeForm(6, 3);
 		assertEquals(-1, dungeon.getDistance(james, sirius));
 		assertEquals(-1, dungeon.getDistance(sirius, remus));
+		
+		dungeon.addLifeForm(9, 3, james);
+		dungeon.addLifeForm(6, 9, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
+		dungeon.addLifeForm(3, 9, james);
+		dungeon.addLifeForm(9, 6, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
+		dungeon.addLifeForm(9, 4, james);
+		dungeon.addLifeForm(9, 5, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
+		dungeon.addLifeForm(8, 9, james);
+		dungeon.addLifeForm(7, 9, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
 	}
 	/**
 	 * Test for get item from the dungeon from a particular cell and position
@@ -176,7 +215,7 @@ public class TestDungeon
 		Armor a2 = new MockArmor("ImmunePoison");
 		assertTrue(dungeon.addItem(1, 2, w1, 0));
 		assertTrue(dungeon.addItem(1, 2, a2, 1));
-
+		// Boundary conditions
 		assertFalse(dungeon.addItem(9, 8, w1, 1));
 		assertFalse(dungeon.addItem(8, 9, a2, 0));
 		assertFalse(dungeon.addItem(9, 9, w1, 1));
@@ -195,10 +234,18 @@ public class TestDungeon
 		dungeon.addItem(1, 2, a2, 1);
 		assertEquals(w1, dungeon.removeItem(1, 2, 0));
 		assertEquals(a2, dungeon.removeItem(1, 2, 1));
-		
+		// Boundary conditions
 		assertNull(dungeon.removeItem(9, 8, 1));
 		assertNull(dungeon.removeItem(8, 9, 0));
 		assertNull(dungeon.removeItem(9, 9, 1));
 	} 
 	//TODO tests for set and get states - check with jixiang
+	/**
+	 * Test to set and get state of the dungeon
+	 */
+	@Test
+	public void testSetAndGetState()
+	{
+		
+	}
 }

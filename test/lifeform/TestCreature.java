@@ -7,9 +7,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import ability.Ability;
+import ability.Poison;
 import exception.RecoveryException;
 import recovery.Recovery;
 import recovery.RecoveryLinear;
+import recovery.RecoveryNone;
 
 public class TestCreature 
 {
@@ -70,5 +73,31 @@ public class TestCreature
 		assertEquals(2, creature.getRecoveryRate());
 		creature.setRecoveryRate(0);
 		assertEquals(0, creature.getRecoveryRate());
+	}
+	/**
+	 * Test for the take hit method of creature
+	 * @throws RecoveryException 
+	 */
+	@Test
+	public void testTakeHit() throws RecoveryException
+	{
+		Recovery recN = new RecoveryNone();
+		Creature dobby = new MockCreature("Dobby", 60, 10, recN, 0);
+		Creature winky = new MockCreature("Winky", 50, 5, recN, 0);
+		winky.takeHit(dobby, dobby.calculateDamage());
+		assertEquals(40,winky.getLifePoints());
+		// Boundary conditions - negative damage points
+		winky.takeHit(dobby, -5);
+		assertEquals(40,winky.getLifePoints());
+		winky.takeHit(dobby, 40);
+		assertEquals(0,winky.getLifePoints());
+		winky.takeHit(dobby, 50);
+		assertEquals(0,winky.getLifePoints());
+		
+		// adding the abilities
+		Ability poi = new Poison(dobby);
+		Creature kreacher = new MockCreature("Kreacher", 40, 5, recN, 0);
+		kreacher.takeHit(dobby, poi.calculateDamage());
+		assertEquals(20, kreacher.getLifePoints());
 	}
 }
