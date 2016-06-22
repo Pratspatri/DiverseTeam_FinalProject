@@ -36,6 +36,7 @@ public abstract class LifeForm implements TimerObserver
 		trackCol = -1;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets the name 
 	 * @return name
 	 */
@@ -44,6 +45,7 @@ public abstract class LifeForm implements TimerObserver
 		return name;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets the life points
 	 * @return LifePoints
 	 */
@@ -51,7 +53,11 @@ public abstract class LifeForm implements TimerObserver
 	{
 		return lifePoints;
 	}
-	
+	/**
+	 * @author - Prathyusha Akshintala
+	 * Sets LifePoints
+	 * @param life
+	 */
 	public void setLifePoints(int life)
 	{
 		if(life > 0)
@@ -60,11 +66,13 @@ public abstract class LifeForm implements TimerObserver
 		}
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * How much damage can a lifeform take
 	 * @param damage
 	 */
 	public abstract void takeHit(LifeForm lifeform, int damage);
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets the hit points
 	 * @return
 	 */
@@ -73,6 +81,7 @@ public abstract class LifeForm implements TimerObserver
 		return hitPoints;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Set the hit points
 	 * @param hit
 	 */
@@ -85,6 +94,7 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * Get the strength
+	 * @author - Prathyusha Akshintala
 	 * @return
 	 */
 	public int getStrength()
@@ -93,6 +103,7 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * Sets the strength
+	 * @author - Prathyusha Akshintala
 	 * @param strength
 	 */
 	public void setStrength(int strength)
@@ -101,6 +112,7 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * When one LifeForm attacks another
+	 * @author - Prathyusha Akshintala
 	 * @param lifeForm2
 	 */
  	public void attack(LifeForm lifeForm2)
@@ -125,6 +137,7 @@ public abstract class LifeForm implements TimerObserver
 	/**
 	 * When the time is changed the timer notifies this method of the Observer.
 	 * It performs nothing in here.
+	 * @author - Prathyusha Akshintala
 	 * @param time : updated time
 	 */
 	@Override
@@ -134,6 +147,7 @@ public abstract class LifeForm implements TimerObserver
 
 	/**
 	 * Pickup the Weapon.
+	 * @author - Prathyusha Akshintala
 	 * @param weapon : The weapon to be picked up.
 	 */
 	public void pickUpWeapon(Weapon weapon)
@@ -146,6 +160,7 @@ public abstract class LifeForm implements TimerObserver
 		
 	/**
 	 * @return the weapon the LifeForm has.
+	 * @author - Prathyusha Akshintala
 	 */
 	public Weapon getWeapon()
 	{
@@ -154,6 +169,7 @@ public abstract class LifeForm implements TimerObserver
 
 	/**
 	 * Drops the weapon the LifeForm has.
+	 * @author - Prathyusha Akshintala
 	 */
 	public void dropWeapon()
 	{
@@ -168,6 +184,7 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * Sets the locale with respect to coordinates
+	 * @author - Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 */
@@ -178,6 +195,7 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * Removes and resets the location given with respect to coordinates
+	 * @author - Prathyusha Akshintala
 	 */
 	public void removeLocation() 
 	{
@@ -186,12 +204,14 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * @return - the row coordinate
+	 * @author - Prathyusha Akshintala
 	 */
 	public int getRow() 
 	{
 		return this.trackRow;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * @return - the col coordinate
 	 */
 	public int getCol() 
@@ -200,11 +220,12 @@ public abstract class LifeForm implements TimerObserver
 	}
 	/**
 	 * Gets the number of Cell that the LifeForm can attach other LifeForm through.
+	 * @author - Prathyusha Akshintala
 	 * @return
 	 */
 	public int getAttackDistance()
 	{
-		return (int) ((weapon==null)?0:weapon.getMaxrRange()/5);
+		return (int) ((weapon==null)?0:weapon.getMaxrRange());
 	}	
 	
 	public void SetDirection (String newDirection)

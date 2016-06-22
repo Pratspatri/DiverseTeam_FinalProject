@@ -18,6 +18,7 @@ public class Dungeon
 	private static Dungeon theDungeon;									// static variable
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Private constructor because we used Singleton Pattern
 	 * @param row
 	 * @param col
@@ -36,6 +37,7 @@ public class Dungeon
 	}
 	/**
 	 * Get lifeForm from the particular row and column
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @return lifeForm
@@ -59,6 +61,7 @@ public class Dungeon
 	}
 	/**
 	 * Add a lifeForm to the particular row and column
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @param entity
@@ -84,6 +87,7 @@ public class Dungeon
 	}
 	/**
 	 * Remove the lifeForm from the particular row and column
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @return lifeForm
@@ -113,6 +117,7 @@ public class Dungeon
 	}
 	/**
 	 * Get the dungeon instance (Singleton Pattern)
+	 * @author Prathyusha Akshintala
 	 * @return dungeon
 	 */
 	public static Dungeon getDungeonInstance() 
@@ -125,6 +130,7 @@ public class Dungeon
 	}
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Reset the instance of the dungeon
 	 */
 	public static void resetInstance() 
@@ -133,6 +139,7 @@ public class Dungeon
 	}
 	/**
 	 * To add the item into the particular position, row and column
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @param item
@@ -152,6 +159,7 @@ public class Dungeon
 	}
 	/**
 	 * This removes the item from that row, column and position
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @param position
@@ -170,6 +178,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the distance between two lifeForms
+	 * @author Prathyusha Akshintala
 	 * @param lifeform1
 	 * @param lifeform2
 	 * @return distance
@@ -189,6 +198,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the item present in that row and column of the dungeon
+	 * @author Prathyusha Akshintala
 	 * @param row
 	 * @param col
 	 * @param position
@@ -207,6 +217,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the number of rows in the dungeon or field
+	 * @author Prathyusha Akshintala
 	 * @return rows
 	 */
 	public int getNumberOfRow()
@@ -215,6 +226,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the number of columns in the dungeon or field
+	 * @author Prathyusha Akshintala
 	 * @return columns
 	 */
 	public int getNumberOfCol()
@@ -223,6 +235,7 @@ public class Dungeon
 	}
 	/**
 	 * To get the location of the given lifeForm
+	 * @author Prathyusha Akshintala
 	 * @param entity
 	 * @return location
 	 */

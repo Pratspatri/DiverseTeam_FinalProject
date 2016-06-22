@@ -199,6 +199,10 @@ public class TestDungeon
 		dungeon.addLifeForm(8, 9, james);
 		dungeon.addLifeForm(7, 9, sirius);
 		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
+		dungeon.addLifeForm(9, 9, james);
+		dungeon.addLifeForm(10, 9, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
 	}
 	/**
 	 * Test for get item from the dungeon from a particular cell and position

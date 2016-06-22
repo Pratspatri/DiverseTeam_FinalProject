@@ -32,6 +32,14 @@ public class TestLifeForm
 	    assertEquals("Robb", robb.getName()); 
 	    // LifeForm can not have negative life points so it should have 0.
 	    assertEquals(0, robb.getLifePoints()); 
+	    //Strength cannot be negative
+	    LifeForm arya = new MockLifeForm("Arya", 40, -10);
+	    assertEquals(0, arya.getStrength());
+	    arya.setLifePoints(50);
+	    assertEquals(50, arya.getLifePoints());
+	    // Cannot set life points to negative
+	    arya.setLifePoints(-5);
+	    assertEquals(50, arya.getLifePoints());
 	}
 	/**
 	 * Test to get and set strength
@@ -42,6 +50,9 @@ public class TestLifeForm
 		LifeForm sansa = new MockLifeForm("Sansa", 15, 5);
 		sansa.setStrength(10);
 		assertEquals(10,sansa.getStrength());
+		// Cannot have negative strength
+		sansa.setStrength(-10);
+		assertEquals(0,sansa.getStrength());
 	}
 	/**
 	 * Test to track time
@@ -85,6 +96,8 @@ public class TestLifeForm
 	    dungeon1.addLifeForm(2, 3, bran);
 	    dungeon1.addItem(1, 1, sword1, 1);
 	    bran.pickUpWeapon(sword1);
+	    assertEquals(3,bran.getAttackDistance());
+	    assertEquals(0,mario.getAttackDistance());
 	    Armor sharp = new SharpArmor();
 	    mario.setArmor(sharp);
 	    bran.attack(mario);
@@ -107,6 +120,16 @@ public class TestLifeForm
 	    mario.setArmor(power);
 	    bran.attack(mario);
 	    assertEquals(100,mario.getLifePoints());
+	    /**
+	     * Another case when weapon is null
+	     */
+	    Player.resetInstance();
+	    Player dave = (Player) Player.getPlayerInstance();
+	    dungeon1.addLifeForm(2, 9, dave);
+	    LifeForm jon = new Mummy("Jon", 40, 10);
+	    dungeon1.addLifeForm(2, 5, jon);
+	    jon.attack(dave);
+	    assertEquals(90,dave.getLifePoints());
 	} 
 	/**
 	 * Test to get and set hit points
@@ -116,6 +139,8 @@ public class TestLifeForm
 	{
 		LifeForm jamie = new MockLifeForm("Jamie", 30, 5);
 		jamie.setHitPoints(10);
+		assertEquals(10,jamie.getHitPoints());
+		jamie.setHitPoints(-10);
 		assertEquals(10,jamie.getHitPoints());
 	}
 	/**
@@ -127,6 +152,7 @@ public class TestLifeForm
 		Dungeon dungeon = Dungeon.getDungeonInstance();
 		LifeForm jamie = new MockLifeForm("Jamie", 30, 5);
 		Weapon sword = new MockWeapon("Sword");
+		Weapon spear = new MockWeapon("Spear");
 		dungeon.addItem(1, 1, sword, 1);
 		dungeon.addLifeForm(1, 1, jamie);
 		jamie.pickUpWeapon(sword);
@@ -134,5 +160,11 @@ public class TestLifeForm
 		
 		jamie.dropWeapon();
 		assertNull(jamie.getWeapon());
+		// Already when weapon is there it doesnt pick up another
+		dungeon.addItem(2, 2, sword, 0);
+		dungeon.addItem(2, 2, spear, 1);
+		jamie.pickUpWeapon(sword);
+		jamie.pickUpWeapon(spear);
+		assertEquals(sword,jamie.getWeapon());
 	}
 }
