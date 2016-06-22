@@ -149,7 +149,7 @@ public class Player extends LifeForm
 	}
 	
 	/**
-	 * Gets item from inventory.
+	 * Gets item from inventory. need to be test
 	 */
 	public Item getItemFromInventory(int index)
 	{
