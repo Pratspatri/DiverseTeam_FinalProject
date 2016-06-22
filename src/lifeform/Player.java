@@ -33,6 +33,7 @@ public class Player extends LifeForm
 		bag = factory.getPlayerInventory();
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets the instance of the player
 	 * @return thePlayer
 	 */
@@ -45,6 +46,7 @@ public class Player extends LifeForm
 		return thePlayer;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Resets instance
 	 */
 	public static void resetInstance() 
@@ -52,6 +54,7 @@ public class Player extends LifeForm
 		thePlayer = null;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * sets the health parameter
 	 * @param myhealth
 	 */
@@ -60,6 +63,7 @@ public class Player extends LifeForm
 		this.health = myhealth;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * get the health status
 	 * @return
 	 */
@@ -68,6 +72,7 @@ public class Player extends LifeForm
 		return health;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets exp points
 	 * @return
 	 */
@@ -76,6 +81,7 @@ public class Player extends LifeForm
 		return expPoints;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Sets exp points
 	 * @param exp
 	 */
@@ -91,6 +97,7 @@ public class Player extends LifeForm
 		}
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Gets the armor
 	 * @return
 	 */
@@ -99,6 +106,7 @@ public class Player extends LifeForm
 		return armor;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Sets the armor from different types
 	 * @param armor
 	 */
@@ -107,6 +115,7 @@ public class Player extends LifeForm
 		this.armor = armor;
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Add to the inventory whatever item the player comes across
 	 * @param item
 	 */
@@ -124,6 +133,7 @@ public class Player extends LifeForm
 		
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Remove the item from inventory
 	 * @param item
 	 * @return
@@ -133,12 +143,17 @@ public class Player extends LifeForm
 		Item temp = bag.removeItem(bag.index(item));
 		return temp;
 	}
-	
+	/**
+	 * @author - Prathyusha Akshintala
+	 * Gets the item 
+	 * @return item
+	 */
 	public Item getItem()
 	{
 		return item; 
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Use the item
 	 * @param index
 	 * @return
@@ -161,6 +176,7 @@ public class Player extends LifeForm
 		return bag.index(item);
 	}
 	/**
+	 * @author - Prathyusha Akshintala
 	 * Take hit method to calculate how much damage it takes
 	 */
 	@Override

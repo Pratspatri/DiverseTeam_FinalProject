@@ -16,9 +16,6 @@ import lifeform.MockLifeForm;
 import org.junit.After;
 import org.junit.Test;
 
-import dungeon.cell.state.GenericState;
-import dungeon.cell.state.State;
-
 public class TestDungeon 
 {
 	@After
