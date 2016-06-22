@@ -42,8 +42,4 @@ public class AlittleDamage extends DamageDecorator
 		description="Alittle damage";
 		return description;
 	}
-
-
-
-
 }

@@ -7,7 +7,14 @@ package item;
  */
 public interface Item 
 {
-
+    /**
+     * set the type for each item
+     * @param name
+     */
 	public void setItem(String name);
+	/**
+	 * get type for each item
+	 * @return
+	 */
 	public String getItem();
 }

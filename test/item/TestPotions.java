@@ -17,7 +17,8 @@ public class TestPotions
 	@Test
 	public void TestInitialization() 
 	{
-		MockPotions mock=new MockPotions(5);
+		Potions mock=new MockPotions(5);
+		assertTrue(mock instanceof MockPotions);
 		assertEquals(5,mock.getAmount());
 		mock.setAmount(10);
 		assertEquals(10,mock.getAmount());

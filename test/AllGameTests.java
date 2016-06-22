@@ -1,5 +1,6 @@
 import inventory.TestInventory;
 import inventory.TestIterator;
+import item.TestAffectBehavior;
 import item.TestAlihotsyDraught;
 import item.TestAlittleDamage;
 import item.TestAntiParalysis;
@@ -51,7 +52,7 @@ import dungeon.cell.state.TestNoWalkThroughState;
     TestGun.class, TestIgnoreDamage.class, TestAntiParalysis.class, 
     TestNormalArmor.class, TestAntiPoison.class, TestPotions.class, 
     TestPowerArmor.class,TestReallyDamage.class, TestSharpArmor.class,
-    TestSpear.class, TestSpecialArmor.class, TestSword.class,
+    TestSpear.class, TestSpecialArmor.class, TestSword.class,TestAffectBehavior.class,
     TestAlihotsyDraught.class, TestWeapon.class, TestInventory.class,
     TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
     TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class

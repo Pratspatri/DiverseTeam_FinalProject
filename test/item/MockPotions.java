@@ -13,7 +13,7 @@ public class MockPotions extends Potions
 	public MockPotions(int amount) 
 	{
 		super.amount=amount;
-		affect = new Healing();
+		affect = new MockAffectBehavior();
 	}
     /**
      * Implements taken method
