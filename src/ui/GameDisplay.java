@@ -1,6 +1,7 @@
 package ui;
 
 import item.Armor;
+import item.Item;
 import item.Keys;
 import item.Potions;
 import item.Weapon;
@@ -8,6 +9,8 @@ import item.Weapon;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -18,6 +21,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import lifeform.Goblin;
+import lifeform.LifeForm;
 import lifeform.Mummy;
 import lifeform.Player;
 import dungeon.Dungeon;
@@ -25,7 +29,7 @@ import dungeon.cell.state.CanWalkThroughState;
 import dungeon.cell.state.DoorState;
 import dungeon.cell.state.NoWalkThroughState;
 
-public class GameDisplay extends JFrame
+public class GameDisplay extends JFrame implements MouseListener
 {
 	private JLabel envDisplay[][];//map
 	private JLabel playerInfro[][];//playerInfor
@@ -38,8 +42,8 @@ public class GameDisplay extends JFrame
 		super();
 		env = Dungeon.getDungeonInstance();
 		player =(Player)Player.getPlayerInstance();	
-		//this.setResizable(false);
-		this.setBounds(100, 100, 900, 473);
+		this.setResizable(false);
+		this.setBounds(100, 100, 1200,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(0,0));
 		this.add(this.getEastPanel(), BorderLayout.EAST);
@@ -73,6 +77,7 @@ public class GameDisplay extends JFrame
 				envDisplay[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
 				envDisplay[i][j].setHorizontalAlignment(JLabel.CENTER);
 				envDisplay[i][j].setText(this.getCellText(i, j));
+				envDisplay[i][j].addMouseListener(this);
 				map.add(envDisplay[i][j]);
 		
 			}
@@ -84,7 +89,7 @@ public class GameDisplay extends JFrame
 	
 	public String getCellText(int row, int col)
 	{
-		String text = "";
+		String text = "("+row+","+col+")";
 		if(env.getState(row, col) instanceof CanWalkThroughState)
 		{
 			text +="CW";
@@ -300,5 +305,73 @@ public class GameDisplay extends JFrame
 	public static void main(String[] argv)
 	{
 		JFrame jf = new GameDisplay();
+	}
+	
+	private String printCellInfor(int row, int col)
+	{
+		String text = "LifeForm--";
+		if(env.getLifeForm(row, col)!=null)
+		{
+			LifeForm temp = env.getLifeForm(row, col);
+			text += " Name:" + temp.getName()+" ";
+			text += " LifePoints:"+temp.getLifePoints()+" ";
+			text += " HitPoints:"+temp.getHitPoints()+" ";
+			text += " Strength:"+ temp.getStrength()+" ";
+			text += " AttackDistance:"+temp.getAttackDistance()+".";
+		}
+		else
+		{
+			text +="";
+		}
+		text+="\nItem1--";
+		if(env.getItem(row, col, 0)!=null)
+		{
+			Item item = env.getItem(row, col, 0);
+			//text +="Name:"+ item.
+		}
+		else
+		{
+			text +="";
+		}
+		text+="\nItem2--";
+		
+		return text;
+	}
+	@Override
+	public void mouseClicked(MouseEvent arg0)
+	{
+		JLabel temp = (JLabel)arg0.getSource();
+		String infor = temp.getText();
+		int end = infor.indexOf(',');
+		int row = Integer.parseInt(infor.substring(1, end));
+		int end2 = infor.indexOf(')');
+		int col = Integer.parseInt(infor.substring(end+1, end2));
+		selectInfor.setText(this.printCellInfor(row, col));
+		
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent arg0)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
