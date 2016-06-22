@@ -190,4 +190,22 @@ public class Player extends LifeForm
 			}
 		}
 	}
+	
+	/**
+	 * Gets the description about the Weapon which player hold.
+	 * @return the description of Weapon.
+	 */
+	public String getWeaponDescription()
+	{
+		return (getWeapon()==null)?"": this.getWeapon().getDescribtion();
+	}
+	
+	/**
+	 * Gets the description about the Armor which player hold.
+	 * @return the description of the Armor.
+	 */
+	public String getArmorDescription()
+	{
+		return (armor==null)?"":this.armor.getDescription();
+	}
 }
