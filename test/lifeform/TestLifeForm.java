@@ -14,6 +14,8 @@ import gameplay.TimerObserver;
 import org.junit.Test;
 
 import dungeon.Dungeon;
+import dungeon.cell.state.MockState;
+import dungeon.cell.state.State;
 
 public class TestLifeForm 
 {
@@ -70,9 +72,11 @@ public class TestLifeForm
 	  public void testAttack() 
 	  { 
 		Dungeon dungeon = Dungeon.getDungeonInstance();
+		State state = new MockState();
 	    LifeForm jamie = new Goblin("Jamie", 30, 5); 
 	    LifeForm cersei = new Mummy("Cersei", 40, 10); 
 	    Weapon sword = new Sword();
+	    dungeon.setState(1, 1, state);
 	    dungeon.addLifeForm(1, 1, jamie);
 	    dungeon.addLifeForm(1, 3, cersei);
 	    dungeon.addItem(1, 1, sword, 1);
@@ -130,6 +134,7 @@ public class TestLifeForm
 	    dungeon1.addLifeForm(2, 5, jon);
 	    jon.attack(dave);
 	    assertEquals(90,dave.getLifePoints());
+	    Dungeon.resetInstance();
 	} 
 	/**
 	 * Test to get and set hit points
@@ -166,5 +171,6 @@ public class TestLifeForm
 		jamie.pickUpWeapon(sword);
 		jamie.pickUpWeapon(spear);
 		assertEquals(sword,jamie.getWeapon());
+		Dungeon.resetInstance();
 	}
 }

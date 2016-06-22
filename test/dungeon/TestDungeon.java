@@ -23,7 +23,9 @@ import org.junit.After;
 import org.junit.Test;
 
 import dungeon.cell.state.DoorState;
+import dungeon.cell.state.MockState;
 import dungeon.cell.state.NoWalkThroughState;
+import dungeon.cell.state.State;
 
 public class TestDungeon 
 {
@@ -54,6 +56,7 @@ public class TestDungeon
 
 		Dungeon dungeon2 = Dungeon.getDungeonInstance();
 		assertEquals(dungeon1, dungeon2);
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Test for adding a life form
@@ -68,46 +71,55 @@ public class TestDungeon
 		boolean success = dungeon.addLifeForm(1, 2, mon);
 		assertTrue(success);
 		assertEquals(mon, dungeon.getLifeForm(1, 2));
-		
+		Dungeon.resetInstance();
 		// If row and column is -ve
 		success = dungeon.addLifeForm(-1, -2, mon);
 		assertFalse(success);
 		assertNull(dungeon.getLifeForm(-1, -2));
+		Dungeon.resetInstance();
 		// If row is -ve 
 		assertNull(dungeon.getLifeForm(-1, 2));
+		Dungeon.resetInstance();
 		// If col is -ve 
 		assertNull(dungeon.getLifeForm(1, -2));
+		Dungeon.resetInstance();
 		// If row is and column out of range
 		assertNull(dungeon.getLifeForm(10, 10));
+		Dungeon.resetInstance();
 		// If row is out of range
 		assertNull(dungeon.getLifeForm(10, 0));
+		Dungeon.resetInstance();
 		// If col is out of range
 		assertNull(dungeon.getLifeForm(1, 10));
+		Dungeon.resetInstance();
 		// The cell is not empty so this should fail.
 		success = dungeon.addLifeForm(1, 2, mon);
 		assertFalse(success);
+		Dungeon.resetInstance();
 
 		// The cell in empty we should get null
 		assertNull(dungeon.getLifeForm(0, 0));
-
+		Dungeon.resetInstance();
 		// The cell location is invalid we should get null
 		assertNull(dungeon.getLifeForm(0, 9));
-		
+		Dungeon.resetInstance();
 		// Another cell location which is invalid as given # of rows is more than range so this should fail
 		success = dungeon.addLifeForm(9, 2, mon);
 		assertFalse(success);
-		
+		Dungeon.resetInstance();
 		// Another cell location which is invalid as given # of cols is more than range so this should fail
 		success = dungeon.addLifeForm(2, 10, mon);
 		assertFalse(success);
+		Dungeon.resetInstance();
 		
 		//Another location which is invalid because of -ve number of rows
 		success = dungeon.addLifeForm(-9, 2, mon);
 		assertFalse(success);
-		
+		Dungeon.resetInstance();
 		//Another location which is invalid because of -ve number of cols
 		success = dungeon.addLifeForm(8, -2, mon);
 		assertFalse(success);
+		Dungeon.resetInstance();
 	}
 	/**
 	 * tests to remove lifeform
@@ -123,7 +135,7 @@ public class TestDungeon
 		assertTrue(success);
 		// Life form is not added at location 1,1 so it should fail.
 		assertNull(dungeon.removeLifeForm(1, 1));
-
+		
 		// Location out of range so it should return null
 		assertNull(dungeon.removeLifeForm(2, 9));
 
@@ -147,6 +159,7 @@ public class TestDungeon
 		
 		// Negative col
 		assertNull(dungeon.removeLifeForm(5, -4));
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Test to get row and column numbers
@@ -157,6 +170,7 @@ public class TestDungeon
 		Dungeon dungeon = Dungeon.getDungeonInstance();
 		assertEquals(8,dungeon.getNumberOfRow());
 		assertEquals(8,dungeon.getNumberOfCol());
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Test for getting distance between two lifeforms.
@@ -203,6 +217,7 @@ public class TestDungeon
 		dungeon.addLifeForm(9, 9, james);
 		dungeon.addLifeForm(10, 9, sirius);
 		assertEquals(-1, dungeon.getDistance(james, sirius));
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Test for get item from the dungeon from a particular cell and position
@@ -217,6 +232,7 @@ public class TestDungeon
 		dungeon.addItem(1, 1, p2, 1);
 		assertEquals(a1, dungeon.getItem(1, 1, 0));
 		assertEquals(p2, dungeon.getItem(1, 1, 1));
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Test to add item to dungeon to a particular cell and position
@@ -233,6 +249,7 @@ public class TestDungeon
 		assertFalse(dungeon.addItem(9, 8, w1, 1));
 		assertFalse(dungeon.addItem(8, 9, a2, 0));
 		assertFalse(dungeon.addItem(9, 9, w1, 1));
+		Dungeon.resetInstance();
 	}
 
 	/**
@@ -252,15 +269,19 @@ public class TestDungeon
 		assertNull(dungeon.removeItem(9, 8, 1));
 		assertNull(dungeon.removeItem(8, 9, 0));
 		assertNull(dungeon.removeItem(9, 9, 1));
+		Dungeon.resetInstance();
 	} 
-	//TODO tests for set and get states - jixiang
 	/**
 	 * Test to set and get state of the dungeon
 	 */
 	@Test
 	public void testSetAndGetState()
 	{
-		
+		Dungeon dungeon = Dungeon.getDungeonInstance();
+		State state = new MockState();
+		dungeon.setState(1, 2, state);
+		assertEquals(state,dungeon.getState(1, 2));
+		Dungeon.resetInstance();
 	}
 	
 	@Test
@@ -289,5 +310,7 @@ public class TestDungeon
 		assertTrue(dungeon.move(2, 2));
 		assertEquals(player,dungeon.getLifeForm(3, 2));
 		assertNull(dungeon.getItem(2, 2, 0));
+		Dungeon.resetInstance();
+		Player.resetInstance();
 	}
 }

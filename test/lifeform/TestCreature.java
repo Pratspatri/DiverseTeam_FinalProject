@@ -40,6 +40,7 @@ public class TestCreature
 		creature.recover();
 		// Test with RecoveryLinear.
 		assertEquals(15, creature.getLifePoints());
+		Player.resetInstance();
 	}
 	/**
 	 * Test to set current life points

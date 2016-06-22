@@ -13,6 +13,7 @@ import item.Sword;
 import org.junit.After;
 import org.junit.Test;
 
+import dungeon.Dungeon;
 import ability.Ability;
 import ability.Poison;
 import ability.Poke;
@@ -23,6 +24,7 @@ public class TestPlayer
 	public void after() 
 	{
 		Player.resetInstance();
+		Dungeon.resetInstance();
 	}
 	/**
 	 * Resets the player
@@ -41,6 +43,7 @@ public class TestPlayer
 
 		LifeForm elyse = Player.getPlayerInstance();
 		assertEquals(mario, elyse);
+		Player.resetInstance();
 	}
 	/**
 	 * Test for set and get health status
@@ -62,7 +65,8 @@ public class TestPlayer
 		mario.setExpPoints(100);
 		assertEquals(100, mario.getExpPoints());
 		mario.setExpPoints(-5);
-		assertEquals(0,mario.getExpPoints());  
+		assertEquals(0,mario.getExpPoints());
+		Player.resetInstance();
 	}
 	/**
 	 * Test for set and get armor to the player
@@ -74,6 +78,7 @@ public class TestPlayer
 		Armor sharp = new MockArmor("SharpArmor");
 		mario.setArmor(sharp);
 		assertEquals(sharp,mario.getArmor());
+		Player.resetInstance();
 	}
 	/**
 	 * Test to add an item to the inventory
@@ -88,6 +93,7 @@ public class TestPlayer
 		
 		boolean fail = mario.addToInventory(null);
 		assertFalse(fail);
+		Player.resetInstance();
 	}
 	/**
 	 * Test to remove an item from the inventory
@@ -100,6 +106,7 @@ public class TestPlayer
 		mario.addToInventory(sharp);
 		mario.removeFromInventory(sharp);
 		assertNull(mario.getItem());
+		Player.resetInstance();
 	}
 	/**
 	 * Test to use an item from the inventory
@@ -112,6 +119,7 @@ public class TestPlayer
 		mario.addToInventory(sword);
 		boolean success = mario.useItem(0);
 		assertTrue(success);
+		Player.resetInstance();
 	}
 	/**
 	 * Test for take hit method
@@ -119,6 +127,7 @@ public class TestPlayer
 	@Test
 	public void testTakeHit()
 	{
+		Player.resetInstance();
 		Player mario = (Player) Player.getPlayerInstance();
 		Creature creature = new MockCreature("dobby", 80, 5); 
 		mario.takeHit(creature, 15);
@@ -148,5 +157,6 @@ public class TestPlayer
 	    mario2.setArmor(poiimm);  
 	    mario2.takeHit(taylor, taylor1.calculateDamage());  
 	    assertEquals(71,mario.getLifePoints());
+	    Player.resetInstance();
 	}
 }
