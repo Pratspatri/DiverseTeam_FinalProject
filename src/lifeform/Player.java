@@ -147,6 +147,19 @@ public class Player extends LifeForm
 	{
 		return bag.use(this,index);
 	}
+	
+	/**
+	 * Gets item from inventory.
+	 */
+	public Item getItemFromInventory(int index)
+	{
+		return bag.getItem(index);
+	}
+	
+	public int getIndexOfItemFromInventory(Item item)
+	{
+		return bag.index(item);
+	}
 	/**
 	 * Take hit method to calculate how much damage it takes
 	 */
