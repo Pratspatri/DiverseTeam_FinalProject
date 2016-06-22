@@ -26,7 +26,7 @@ public class IgnoreDamage extends AbilityArmor
 	{
 		damage=specialArmor.useArmor(hit_damage);
 		setDamageArmor(damage);
-		setHealthState("Protected");
+		setHealthState("Immune");
 		return damage;
 
 	}

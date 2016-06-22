@@ -5,25 +5,25 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * Test all methods in IgnoreDamage class which is one of the Ability
+ * Test all methods in ImmunePoison class which is one of the Ability
  * @author Malak
  *
  */
-public class TestIgnoreDamage
+public class TestImmunePoison 
 {
 
 	/**
-     * Create an object form PowerArmor  class then wrap with ignoreDamage
+     * Create an object form PowerArmor  class then wrap with ImmunePoison
      * Test description
      */
 	@Test
 	public void TestInitialization()
 	{
 		SpecialArmor power=new PowerArmor();
-		AbilityArmor  ignore=new IgnoreDamage(power);
+		AbilityArmor  poison=new ImmunePoison(power);
 		assertTrue(power instanceof PowerArmor );
-		assertTrue(ignore instanceof IgnoreDamage);
-		assertEquals("ignore",ignore.getDescription());
+		assertTrue(poison instanceof ImmunePoison);
+		assertEquals("immunepoison",poison.getDescription());
 	}
 
 	/**
@@ -35,14 +35,14 @@ public class TestIgnoreDamage
 	 public void TestUseArmor()
 	 {
 		 SpecialArmor power=new PowerArmor();
-		AbilityArmor  ignore=new IgnoreDamage(power);
+		AbilityArmor  poison=new ImmunePoison(power);
         //take hit<=15(Armor points)
-		 ignore.useArmor(10);
+		 poison.useArmor(10);
 		assertEquals(0,power.getDamageArmor());
-		assertEquals("Protected",ignore.getHealthState());
+		assertEquals("Immune",poison.getHealthState());
 		//take hit<=15(Armor points)
-		 ignore.useArmor(40);
+		 poison.useArmor(40);
 		assertEquals(7,power.getDamageArmor());	
-		assertEquals("Protected",ignore.getHealthState());
+		assertEquals("Immune",poison.getHealthState());
 	 }
 }

@@ -9,6 +9,7 @@ import item.TestArmor;
 import item.TestGenericItem;
 import item.TestGun;
 import item.TestIgnoreDamage;
+import item.TestImmunePoison;
 import item.TestNormalArmor;
 import item.TestPotions;
 import item.TestPowerArmor;
@@ -53,7 +54,7 @@ import dungeon.cell.state.TestNoWalkThroughState;
     TestNormalArmor.class, TestAntiPoison.class, TestPotions.class, 
     TestPowerArmor.class,TestReallyDamage.class, TestSharpArmor.class,
     TestSpear.class, TestSpecialArmor.class, TestSword.class,TestAffectBehavior.class,
-    TestAlihotsyDraught.class, TestWeapon.class, TestInventory.class,
+    TestAlihotsyDraught.class, TestWeapon.class,TestImmunePoison.class, TestInventory.class,
     TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
     TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class
 })
