@@ -313,11 +313,11 @@ public class GameDisplay extends JFrame implements MouseListener
 		if(env.getLifeForm(row, col)!=null)
 		{
 			LifeForm temp = env.getLifeForm(row, col);
-			text += " Name:" + temp.getName()+" ";
-			text += " LifePoints:"+temp.getLifePoints()+" ";
-			text += " HitPoints:"+temp.getHitPoints()+" ";
-			text += " Strength:"+ temp.getStrength()+" ";
-			text += " AttackDistance:"+temp.getAttackDistance()+".";
+			text += " Name: " + temp.getName()+" ";
+			text += " LifePoints: "+temp.getLifePoints()+" ";
+			text += " HitPoints: "+temp.getHitPoints()+" ";
+			text += " Strength: "+ temp.getStrength()+" ";
+			text += " AttackDistance: "+temp.getAttackDistance()+".";
 		}
 		else
 		{
@@ -327,15 +327,86 @@ public class GameDisplay extends JFrame implements MouseListener
 		if(env.getItem(row, col, 0)!=null)
 		{
 			Item item = env.getItem(row, col, 0);
-			//text +="Name:"+ item.
+			if(item instanceof Weapon)
+			{
+				Weapon it = (Weapon)item;
+				text +=" Weapon: "+it.getDescribtion();
+				text +=" BaseDamage: "+it.getBaseDamge();
+				text +=" Max Range: "+it.getMaxrRange();
+			}
+			else if(item instanceof Armor)
+			{
+				Armor am = (Armor)item;
+				text +=" Armor: "+ am.getDescription();
+				text +=" ArmorPoint: "+am.getArmorPoints();
+			}
+			else if(item instanceof Potions)
+			{
+				Potions po = (Potions)item;
+				text += " Potion: ";
+				text += " Amount: "+ po.getAmount();
+			}
+			else if(item instanceof Keys)
+			{
+				Keys key = (Keys) item;
+				text += " Key: ";
+				text += "Keyid: "+key.getKey();
+			}
+			else
+			{
+				text += " Unknow Item ";
+			}
+			
 		}
 		else
 		{
 			text +="";
 		}
 		text+="\nItem2--";
+		if(env.getItem(row, col, 1)!=null)
+		{
+			Item item = env.getItem(row, col, 1);
+			if(item instanceof Weapon)
+			{
+				Weapon it = (Weapon)item;
+				text +=" Weapon: "+it.getDescribtion();
+				text +=" BaseDamage: "+it.getBaseDamge();
+				text +=" Max Range: "+it.getMaxrRange();
+			}
+			else if(item instanceof Armor)
+			{
+				Armor am = (Armor)item;
+				text +=" Armor: "+ am.getDescription();
+				text +=" ArmorPoint: "+am.getArmorPoints();
+			}
+			else if(item instanceof Potions)
+			{
+				Potions po = (Potions)item;
+				text += " Potion: ";
+				text += " Amount: "+ po.getAmount();
+			}
+			else if(item instanceof Keys)
+			{
+				Keys key = (Keys) item;
+				text += " Key: ";
+				text += "Keyid: "+key.getKey();
+			}
+			else
+			{
+				text += " Unknow Item ";
+			}
+			
+		}
+		else
+		{
+			text +="";
+		}
 		
 		return text;
+	}
+	private void SimpleSetForDungeon()
+	{
+		
 	}
 	@Override
 	public void mouseClicked(MouseEvent arg0)
