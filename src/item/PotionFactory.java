@@ -9,18 +9,18 @@ public class PotionFactory {
 			return null ; 
 		}
 		
-		if(type=="Pokimon")
+		if(type=="AntiParalysis")
 		{
-			return new Pokemon();
+			return new AntiParalysis();
 		}
-		else if (type=="Mega")
+		else if (type=="AntiPoison")
 		{
-			return new Mega();
+			return new AntiPoison();
 		}
 		
-		else if (type=="Ultra")
+		else if (type=="AlihotsyDraught")
 		{
-			return new Ultra();
+			return new AlihotsyDraught();
 		}
 		
 		return null ; 
