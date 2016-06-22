@@ -9,7 +9,7 @@ import org.junit.Test;
  * @author Malak
  *
  */
-public class TestMockAbilityArmor 
+public class TestAbilityArmor 
 {
 	/**
      * Test Initialization to create an object from MockAbilityArmor 

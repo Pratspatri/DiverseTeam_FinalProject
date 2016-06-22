@@ -1,15 +1,25 @@
 import inventory.TestInventory;
 import inventory.TestIterator;
+import item.TestAbilityArmor;
 import item.TestAffectBehavior;
 import item.TestAlihotsyDraught;
 import item.TestAlittleDamage;
 import item.TestAntiParalysis;
 import item.TestAntiPoison;
 import item.TestArmor;
+import item.TestDamageDecorator;
+import item.TestFactoryArmor;
+import item.TestFactoryWeapon;
 import item.TestGenericItem;
 import item.TestGun;
+import item.TestHealing;
 import item.TestIgnoreDamage;
+import item.TestImmunePoison;
+import item.TestKeys;
+import item.TestKeysFactory;
+import item.TestNoHealing;
 import item.TestNormalArmor;
+import item.TestPotionFactory;
 import item.TestPotions;
 import item.TestPowerArmor;
 import item.TestReallyDamage;
@@ -48,13 +58,13 @@ import dungeon.cell.state.TestNoWalkThroughState;
 @RunWith(Suite.class)
 @SuiteClasses({TestRecoveryNone.class, TestRecoveryLinear.class, TestDungeon.class, TestCreature.class, TestLifeForm.class,
 	TestPlayer.class, TestMummy.class, TestGoblin.class, TestPoison.class, TestPoke.class,
-	TestAlittleDamage.class, TestArmor.class, TestGenericItem.class,
-    TestGun.class, TestIgnoreDamage.class, TestAntiParalysis.class, 
-    TestNormalArmor.class, TestAntiPoison.class, TestPotions.class, 
-    TestPowerArmor.class,TestReallyDamage.class, TestSharpArmor.class,
-    TestSpear.class, TestSpecialArmor.class, TestSword.class,TestAffectBehavior.class,
-    TestAlihotsyDraught.class, TestWeapon.class, TestInventory.class,
-    TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
+	TestAbilityArmor.class, TestAffectBehavior.class, TestAlihotsyDraught.class, TestAlittleDamage.class,
+	TestAntiParalysis.class, TestAntiPoison.class, TestArmor.class, TestDamageDecorator.class,
+	TestFactoryArmor.class, TestFactoryWeapon.class, TestGenericItem.class, TestGun.class, TestHealing.class,
+	TestIgnoreDamage.class, TestImmunePoison.class, TestKeys.class, TestKeysFactory.class, TestNoHealing.class,
+	TestNormalArmor.class, TestPotionFactory.class, TestPotions.class, TestPowerArmor.class, TestReallyDamage.class,
+	TestSharpArmor.class, TestSpear.class, TestSpecialArmor.class, TestSword.class, TestWeapon.class,
+    TestInventory.class,TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
     TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class
 })
 public class AllGameTests 

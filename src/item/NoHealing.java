@@ -51,7 +51,7 @@ public class NoHealing implements AffectBehavior
 	}
 
 	/**
-	 * display the beavior
+	 * display the behavior
 	 */
 	@Override
 	public String display() 

@@ -9,7 +9,7 @@ import org.junit.Test;
  * @author Malak
  *
  */
-public class TestMockDamageDecorator 
+public class TestDamageDecorator 
 {
 	/**
      * Test Initialization to create an object from DamageDecorator 
