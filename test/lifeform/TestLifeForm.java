@@ -7,6 +7,7 @@ import item.Armor;
 import item.MockWeapon;
 import item.PowerArmor;
 import item.SharpArmor;
+import item.Spear;
 import item.Sword;
 import item.Weapon;
 import gameplay.TimerObserver;
@@ -134,6 +135,18 @@ public class TestLifeForm
 	    dungeon1.addLifeForm(2, 5, jon);
 	    jon.attack(dave);
 	    assertEquals(90,dave.getLifePoints());
+	    /**
+	     * Another case with Spear weapon
+	     */
+	    Player.resetInstance();
+	    Player dave1 = (Player) Player.getPlayerInstance();
+	    dungeon1.addLifeForm(5, 5, dave1);
+	    LifeForm ghost = new Goblin("Ghost", 50, 20);
+	    dungeon1.addLifeForm(5, 7, ghost);
+	    Spear spear = new Spear();
+	    dave1.pickUpWeapon(spear);
+	    dave1.attack(ghost);
+	    assertEquals(26,ghost.getLifePoints());
 	    Dungeon.resetInstance();
 	} 
 	/**
