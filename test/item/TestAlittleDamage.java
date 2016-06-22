@@ -19,7 +19,8 @@ public class TestAlittleDamage
 	public void TestInitialization() 
 	{
 		Weapon spear = new Spear();
-		AlittleDamage damage= new AlittleDamage(spear);
+		DamageDecorator  damage= new AlittleDamage(spear);
+		assertTrue(damage instanceof AlittleDamage );
 		damage.calculateDamage(2);
 		assertEquals(26,damage.getDamage());
 	}

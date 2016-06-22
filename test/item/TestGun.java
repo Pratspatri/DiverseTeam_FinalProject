@@ -21,7 +21,7 @@ public class TestGun
 	public void TestInitialization()
 	{
 		 Weapon gun = new Gun();
-		 equals(gun instanceof Gun );
+		 assertTrue(gun instanceof Gun );
 		 assertEquals(15,gun.getBaseDamge(),.1);
 		 assertEquals(30,gun.getMaxrRange(),.1);
 		 assertEquals(15,gun.getBaseDamge(),.1);
