@@ -32,8 +32,4 @@ public class Sword extends Weapon
 		
 		return (int) damage;
 	}
-
-
-
-
 }

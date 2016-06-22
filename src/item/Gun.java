@@ -7,9 +7,17 @@ package item;
  */
 public class Gun extends Weapon 
 {
-
+    /**
+     * the number of rate for the gun
+     */
 	float rate_of_Fire;
+	/**
+	 * Maximum Ammo for the gun
+	 */
 	float max_Ammo;
+	/**
+	 * the actual ammo for the gun
+	 */
 	float actual_ammo;
 	
 	/**
@@ -109,7 +117,4 @@ public class Gun extends Weapon
 		fire();
 		return (int) damage;
 	}
-    
-
-
 }

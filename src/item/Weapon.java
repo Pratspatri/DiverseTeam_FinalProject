@@ -1,7 +1,7 @@
 package item;
 
 /**
- * This class which is an abstract is related to the weapon item which include
+ * This class which is an abstract is related to the weapon item which includes
  * common methods and variables in all weapon type
  * @author Malak
  *

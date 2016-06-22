@@ -34,8 +34,7 @@ public class NormalArmor extends Armor
 		    	{
 		    	  damage=0;
 		    	  setDamageArmor(damage);
-		    	}
-		      
+		    	}     
 		}
 		return damage;
 	}
