@@ -3,8 +3,13 @@ package dungeon;
  * Test for dungeon class
  * @author - Prathyusha Akshintala
  */
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import item.Armor;
+import item.Item;
+import item.Keys;
 import item.MockArmor;
 import item.MockPotions;
 import item.MockWeapon;
@@ -12,12 +17,13 @@ import item.Potions;
 import item.Weapon;
 import lifeform.LifeForm;
 import lifeform.MockLifeForm;
+import lifeform.Player;
 
 import org.junit.After;
 import org.junit.Test;
 
-import dungeon.cell.state.GenericState;
-import dungeon.cell.state.State;
+import dungeon.cell.state.DoorState;
+import dungeon.cell.state.NoWalkThroughState;
 
 public class TestDungeon 
 {
@@ -25,6 +31,7 @@ public class TestDungeon
 	public void after() 
 	{
 		Dungeon.resetInstance();
+		Player.resetInstance();
 	}
 	/**
 	 * Resets the dungeon
@@ -250,5 +257,33 @@ public class TestDungeon
 	public void testSetAndGetState()
 	{
 		
+	}
+	
+	@Test
+	public void testMoveMethod()
+	{
+		Dungeon dungeon = Dungeon.getDungeonInstance();
+		Player player =(Player) Player.getPlayerInstance();
+		player.SetDirection("north");
+		dungeon.addLifeForm(2, 2, player);
+		//wall state can't be move
+		dungeon.setState(1, 2, new NoWalkThroughState());
+		assertFalse(dungeon.move(2, 2));
+		assertEquals(player,dungeon.getLifeForm(2, 2));
+		assertNull(dungeon.getLifeForm(1, 2));
+		
+		//Door state can't be move.
+		player.SetDirection("south");
+		Item key = new Keys(1);
+		dungeon.setState(3, 2, new DoorState(key));
+		assertFalse(dungeon.move(2, 2));
+		assertEquals(player,dungeon.getLifeForm(2, 2));
+		assertNull(dungeon.getLifeForm(3, 2));
+		//use key, can move
+		player.addToInventory(key);
+		assertTrue(player.useItem(0));
+		assertTrue(dungeon.move(2, 2));
+		assertEquals(player,dungeon.getLifeForm(3, 2));
+		assertNull(dungeon.getItem(2, 2, 0));
 	}
 }

@@ -70,8 +70,10 @@ public class Dungeon
 		{
 			if (row < cells.length && col < cells[row].length) 
 			{
-				entity.setLocation(row, col);
-				return cells[row][col].addLifeForm(entity);
+				boolean signal = cells[row][col].addLifeForm(entity);
+				if(signal)
+					entity.setLocation(row, col);
+				return signal ;
 			} 
 			else 
 			{
@@ -301,11 +303,13 @@ public class Dungeon
 				
 					if (aboveRow >= 0 && cells[aboveRow][col].getLifeForm() == null) 
 					{
-						removeLifeForm(currentRow, col);
-						addLifeForm(aboveRow, col, movedLife);
-						currentRow = aboveRow;
+						if(addLifeForm(aboveRow, col, movedLife))
+						{
+							removeLifeForm(currentRow, col);
+							currentRow = aboveRow;
+						}
+						
 					}
-					aboveRow -= 1;
 				
 				return !(currentRow == row);
 			} else if (movedLife.getDirection().compareToIgnoreCase("South") == 0) 
@@ -315,11 +319,13 @@ public class Dungeon
 				
 					if (underRow >= 0 && cells[underRow][col].getLifeForm() == null) 
 					{
-						removeLifeForm(currentRow, col);
-						addLifeForm(underRow, col, movedLife);
-						currentRow = underRow;
+						
+						if(addLifeForm(underRow, col, movedLife))
+						{
+							removeLifeForm(currentRow, col);
+							currentRow = underRow;
+						}
 					}
-					underRow += 1;
 				
 				return !(currentRow == row);
 			} 
@@ -330,11 +336,12 @@ public class Dungeon
 				
 					if (rightCol >= 0 && cells[row][rightCol].getLifeForm() == null) 
 					{
-						removeLifeForm(row, currentCol);
-						addLifeForm(row, rightCol, movedLife);
-						currentCol = rightCol;
+						if(addLifeForm(row, rightCol, movedLife))
+						{
+							removeLifeForm(row, currentCol);
+							currentCol = rightCol;
+						}
 					}
-					rightCol += 1;
 				
 				return !(currentCol == col);
 			} 
@@ -345,11 +352,12 @@ public class Dungeon
 				
 					if (leftCol >= 0 && cells[row][leftCol].getLifeForm() == null) 
 					{
-						removeLifeForm(row, currentCol);
-						addLifeForm(row, leftCol, movedLife);
-						currentCol = leftCol;
+						if(addLifeForm(row, leftCol, movedLife))
+						{
+							removeLifeForm(row, currentCol);
+							currentCol = leftCol;
+						}
 					}
-					leftCol -= 1;
 				
 				return !(currentCol == col);
 			} 
