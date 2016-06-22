@@ -3,6 +3,6 @@ package gameplay;
 public interface TimerObserver 
 {
 
-	void updateTime(int time);
+	public void updateTime(int time);
 
 }

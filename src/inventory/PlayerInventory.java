@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 import lifeform.LifeForm;
 import lifeform.Player;
+import dungeon.Dungeon;
+import dungeon.cell.state.DoorState;
+import dungeon.cell.state.StateFactory;
 
 public class PlayerInventory implements Inventory
 {
@@ -38,6 +41,7 @@ public class PlayerInventory implements Inventory
 		else if(actualSize < maxSize)
 		{
 			items.add(item);
+			actualSize += 1;
 			return true;
 		}
 		else
@@ -53,6 +57,7 @@ public class PlayerInventory implements Inventory
 		try
 		{
 			Item it = items.remove(index);
+			this.actualSize -= 1;
 			return it;
 		}
 		catch(IndexOutOfBoundsException ex)
@@ -100,7 +105,74 @@ public class PlayerInventory implements Inventory
 			}
 			else if(item instanceof Keys)
 			{
-				return false;
+				int x = life.getRow();
+				int y = life.getCol();
+				String direction = life.getDirection();
+				Dungeon env = Dungeon.getDungeonInstance();
+				StateFactory fa =new StateFactory();
+				if(x>-1&&y>-1)
+				{
+					if(direction.compareToIgnoreCase("North") == 0)
+					{
+						if(env.getState(x-1, y) instanceof DoorState)
+						{
+							if(env.addItem(x-1, y, item, 0))
+							{
+								items.remove(index(item));
+								env.setState(x-1, y, fa.getState(StateFactory.NO_WALL));
+								return true;
+							}
+						}
+						return false;
+					}
+					else if(direction.compareToIgnoreCase("South") == 0)
+					{
+						if(env.getState(x+1, y) instanceof DoorState)
+						{
+							if(env.addItem(x+1, y, item, 0))
+							{
+								items.remove(index(item));
+								env.setState(x+1, y, fa.getState(StateFactory.NO_WALL));
+								return true;
+							}
+						}
+						return false;
+					}
+					else if(direction.compareToIgnoreCase("West") == 0)
+					{
+						if(env.getState(x, y-1) instanceof DoorState)
+						{
+							if(env.addItem(x, y-1, item, 0))
+							{
+								items.remove(index(item));
+								env.setState(x, y-1, fa.getState(StateFactory.NO_WALL));
+								return true;
+							}
+						}
+						return false;
+					}
+					else if(direction.compareToIgnoreCase("East") == 0)
+					{
+						if(env.getState(x, y+1) instanceof DoorState)
+						{
+							if(env.addItem(x, y+1, item, 0))
+							{
+								items.remove(index(item));
+								env.setState(x, y+1, fa.getState(StateFactory.NO_WALL));
+								return true;
+							}
+						}
+						return false;
+					}
+					else
+					{
+						return false;
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			else
 			{

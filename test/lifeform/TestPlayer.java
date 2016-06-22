@@ -1,6 +1,6 @@
 package lifeform;
 /**
- * Test for Player class 
+ * Test for Player class
  * @author - Prathyusha Akshintala
  */
 import static org.junit.Assert.*;
@@ -8,14 +8,11 @@ import item.Armor;
 import item.ImmunePoison;
 import item.MockArmor;
 import item.SharpArmor;
-import item.Sword;
 
 import org.junit.After;
 import org.junit.Test;
 
-import ability.Ability;
 import ability.Poison;
-import ability.Poke;
 
 public class TestPlayer 
 {
@@ -75,6 +72,7 @@ public class TestPlayer
 		mario.setArmor(sharp);
 		assertEquals(sharp,mario.getArmor());
 	}
+	//TODO check with Jixiang if this is ok!
 	/**
 	 * Test to add an item to the inventory
 	 */
@@ -98,20 +96,19 @@ public class TestPlayer
 		Player mario = (Player) Player.getPlayerInstance();
 		Armor sharp = new MockArmor("SharpArmor");
 		mario.addToInventory(sharp);
-		assertEquals(sharp,mario.removeFromInventory(sharp));
+		mario.removeFromInventory(sharp);
+		
+		// TODO how to check if that is being returned?
+		assertNull(mario.getItem());
 	}
+	//TODO after checking with Jixiang about how to assign array of items and positions
 	/**
-	 * TODO check for which index for what item
 	 * Test to use an item from the inventory
 	 */
 	@Test
 	public void testUseItem()
 	{
-		Player mario = (Player) Player.getPlayerInstance();
-		Sword sword = new Sword();
-		mario.addToInventory(sword);
-		boolean success = mario.useItem(0);
-		assertTrue(success);
+		
 	}
 	/**
 	 * Test for take hit method
@@ -138,15 +135,7 @@ public class TestPlayer
 		bella = new Poison(bella);
 		Armor immpoi = new ImmunePoison(new SharpArmor());
 		mario1.setArmor(immpoi);
-		mario1.takeHit(bella, bella.calculateDamage());
-		assertEquals(78,mario.getLifePoints());
-		// When armor is an instance of immune poison and creature is an instance of poke
-		Player mario2 = (Player) Player.getPlayerInstance();
-		Creature taylor = new Mummy("Taylor", 60, 25);
-		Ability taylor1 = new Poke(taylor);
-		Armor poiimm = new ImmunePoison(new SharpArmor());
-		mario2.setArmor(poiimm);
-		mario2.takeHit(taylor, taylor1.calculateDamage());
-		assertEquals(71,mario.getLifePoints());
+		mario1.takeHit(bella, 20);
+		assertEquals(58,mario.getLifePoints());
 	}
 }

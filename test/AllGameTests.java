@@ -1,11 +1,14 @@
+import inventory.TestInventory;
+import inventory.TestIterator;
+import item.TestAlihotsyDraught;
 import item.TestAlittleDamage;
+import item.TestAntiParalysis;
+import item.TestAntiPoison;
 import item.TestArmor;
 import item.TestGenericItem;
 import item.TestGun;
 import item.TestIgnoreDamage;
-import item.TestAntiParalysis;
 import item.TestNormalArmor;
-import item.TestAntiPoison;
 import item.TestPotions;
 import item.TestPowerArmor;
 import item.TestReallyDamage;
@@ -13,7 +16,6 @@ import item.TestSharpArmor;
 import item.TestSpear;
 import item.TestSpecialArmor;
 import item.TestSword;
-import item.TestAlihotsyDraught;
 import item.TestWeapon;
 import lifeform.TestCreature;
 import lifeform.TestGoblin;
@@ -30,11 +32,17 @@ import recovery.TestRecoveryNone;
 import ability.TestPoison;
 import ability.TestPoke;
 import dungeon.TestDungeon;
+import dungeon.cell.TestCell;
+import dungeon.cell.TestCellFactory;
+import dungeon.cell.state.TestCanWalkThroughState;
 /**
  * Test Suite for all tests
  * @author Prathyusha Akshintala
  *
  */
+import dungeon.cell.state.TestDoorState;
+import dungeon.cell.state.TestGenericState;
+import dungeon.cell.state.TestNoWalkThroughState;
 
 @RunWith(Suite.class)
 @SuiteClasses({TestRecoveryNone.class, TestRecoveryLinear.class, TestDungeon.class, TestCreature.class, TestLifeForm.class,
@@ -44,7 +52,9 @@ import dungeon.TestDungeon;
     TestNormalArmor.class, TestAntiPoison.class, TestPotions.class, 
     TestPowerArmor.class,TestReallyDamage.class, TestSharpArmor.class,
     TestSpear.class, TestSpecialArmor.class, TestSword.class,
-    TestAlihotsyDraught.class, TestWeapon.class	
+    TestAlihotsyDraught.class, TestWeapon.class, TestInventory.class,
+    TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
+    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class
 })
 public class AllGameTests 
 {
