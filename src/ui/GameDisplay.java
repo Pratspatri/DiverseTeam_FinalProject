@@ -50,14 +50,12 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	private Dungeon env;
 	private Player player;
 	private int inforRow;
-	private boolean whichFrame;
 	public GameDisplay()
 	{
 		super();
 		SimpleSetForDungeon();
 		env = Dungeon.getDungeonInstance();
 		player =(Player)Player.getPlayerInstance();
-		this.whichFrame = true;
 		InvokerBuilder invokerFactory = new InvokerBuilder();
 		invoker = invokerFactory.getInvoker(player);
 		inventoryFrame = new JFrame("Inventory");
@@ -342,7 +340,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		}
 		for(int i =0;i<this.inventoryLabel.size();i++)
 		{
-			
+			inventoryLabel.get(i).setText(inventoryInFor(i));
 		}
 	}
 	
@@ -546,7 +544,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			return  "Key: "+ key.idKey;
 		}
 		else
-			return "Nothing";
+			return "Nothing.";
 	}
 	private void SimpleSetForDungeon()
 	{
@@ -658,20 +656,14 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	@Override
 	public void mouseExited(MouseEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void mousePressed(MouseEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void mouseReleased(MouseEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void keyPressed(KeyEvent arg0)
@@ -744,16 +736,10 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	@Override
 	public void keyReleased(KeyEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
-		
 	}
 	@Override
 	public void keyTyped(KeyEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
-		
 	}
 	
 	public static void main(String[] argv)
