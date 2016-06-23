@@ -9,6 +9,12 @@ import recovery.Recovery;
  */
 public class Goblin extends Creature 
 {
+	/**
+	 * @author Prathyusha Akshintala
+	 * @param name
+	 * @param life
+	 * @param strength
+	 */
 	// Goblin extends creature. Therefore its constructors have to be implemented.
 	public Goblin(String name, int life, int strength) 
 	{
@@ -25,6 +31,7 @@ public class Goblin extends Creature
 		super(name, life, strength, rec, rateOfRecovery);
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * gets the description of creature
 	 */
 	@Override

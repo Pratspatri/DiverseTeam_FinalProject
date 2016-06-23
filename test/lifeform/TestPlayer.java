@@ -27,6 +27,7 @@ public class TestPlayer
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Resets the player
 	 */
 	public static void resetPlayer()
@@ -34,6 +35,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Initialization test
 	 */
 	@Test
@@ -46,6 +48,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for set and get health status
 	 */
 	@Test
@@ -56,6 +59,7 @@ public class TestPlayer
 		assertEquals("safe",mario.getHealth());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for set and get exp points
 	 */
 	@Test
@@ -69,6 +73,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for set and get armor to the player
 	 */
 	@Test
@@ -81,6 +86,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to add an item to the inventory
 	 */
 	@Test
@@ -96,6 +102,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to remove an item from the inventory
 	 */
 	@Test
@@ -109,6 +116,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to use an item from the inventory
 	 */
 	@Test
@@ -122,6 +130,7 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for take hit method
 	 */
 	@Test

@@ -170,7 +170,7 @@ public class Player extends LifeForm
 	{
 		return bag.getItem(index);
 	}
-	
+	//
 	public int getIndexOfItemFromInventory(Item item)
 	{
 		return bag.index(item);

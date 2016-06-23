@@ -10,6 +10,10 @@ import org.junit.Test;
 public class TestRecoveryLinear 
 {
 
+	/**
+	 * @author Prathyusha Akshintala
+	 * Test for checking calculate recovery method
+	 */
 	@Test
 	public void test() 
 	{

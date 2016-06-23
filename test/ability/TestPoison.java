@@ -13,6 +13,10 @@ import org.junit.Test;
  */
 public class TestPoison 
 {
+	/**
+	 * Test for Initialization
+	 * @author Prathyusha Akshintala
+	 */
 	@Test
 	public void testInitialization()
 	{

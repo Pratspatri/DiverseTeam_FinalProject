@@ -16,6 +16,7 @@ public class Poke extends Ability
 	}
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * gets the description
 	 */
 	@Override
@@ -25,6 +26,7 @@ public class Poke extends Ability
 	}
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * calculates damage
 	 */
 	@Override

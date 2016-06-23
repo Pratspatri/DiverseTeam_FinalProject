@@ -11,6 +11,10 @@ import org.junit.Test;
  */
 public class TestGoblin 
 {
+	/**
+	 * Test for Initialization
+	 * @author Prathyusha Akshintala
+	 */
 	@Test
 	public void testInitialization()
 	{

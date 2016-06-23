@@ -17,6 +17,7 @@ public abstract class Ability extends Creature
 		this(creature.getName(),creature.getLifePoints(),creature.getStrength());
 		this.creature=creature;
 	}
+	// @author Prathyusha Akshintala
 	// This follows decorator pattern - so we need to make this variable protected
 	protected Creature creature;
 	// abstract method to get the description

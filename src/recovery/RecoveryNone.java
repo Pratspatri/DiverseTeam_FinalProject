@@ -7,6 +7,7 @@ package recovery;
 public class RecoveryNone implements Recovery
 {
 	/**
+	 * @author Prathyusha Akshintala
 	 * Calculates recovery and returns the lifePoints
 	 */
 	@Override

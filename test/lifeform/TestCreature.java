@@ -18,6 +18,7 @@ public class TestCreature
 {
 	/**
 	 * Initialization Test
+	 * @author Prathyusha Akshintala
 	 */
 	@Test
 	public void testInitialization() 
@@ -43,6 +44,7 @@ public class TestCreature
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to set current life points
 	 */
 	@Test
@@ -60,6 +62,7 @@ public class TestCreature
 		assertEquals(40,creature.getLifePoints());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for recovery rate
 	 * @throws RecoveryException
 	 */
@@ -76,6 +79,7 @@ public class TestCreature
 		assertEquals(0, creature.getRecoveryRate());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for the take hit method of creature
 	 * @throws RecoveryException 
 	 */

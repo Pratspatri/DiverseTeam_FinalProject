@@ -22,6 +22,7 @@ public class TestLifeForm
 {
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Initialization test
 	 */
 	@Test
@@ -45,6 +46,7 @@ public class TestLifeForm
 	    assertEquals(50, arya.getLifePoints());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to get and set strength
 	 */
 	@Test
@@ -58,6 +60,7 @@ public class TestLifeForm
 		assertEquals(0,sansa.getStrength());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to track time
 	 */
 	@Test 
@@ -67,7 +70,8 @@ public class TestLifeForm
 	    assertTrue(cedric instanceof TimerObserver); 
 	}
 	/**
-	 *	Test for attach method and its various cases 
+	 * @author Prathyusha Akshintala
+	 *	Test for attack method and its various cases 
 	 */
 	@Test 
 	  public void testAttack() 
@@ -150,6 +154,7 @@ public class TestLifeForm
 	    Dungeon.resetInstance();
 	} 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to get and set hit points
 	 */
 	@Test
@@ -162,6 +167,7 @@ public class TestLifeForm
 		assertEquals(10,jamie.getHitPoints());
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for pick and drop of a weapon
 	 */
 	@Test

@@ -175,7 +175,7 @@ public abstract class LifeForm implements TimerObserver
 	{
 		weapon = null;
 	}
-	
+	//
 	public void Reload()
 	{
 		
@@ -227,12 +227,12 @@ public abstract class LifeForm implements TimerObserver
 	{
 		return (int) ((weapon==null)?0:weapon.getMaxrRange());
 	}	
-	
+	//
 	public void SetDirection (String newDirection)
 	{
 		this.Direction = newDirection ; 
 	}
-	
+	//
 	public String getDirection ()
 	{
 		return Direction ; 

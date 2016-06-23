@@ -48,6 +48,7 @@ public abstract class Creature extends LifeForm
 	// Abstract method for subclasses to implement and get description
 	public abstract String getDescription();
 	/**
+	 * @author Prathyusha Akshintala
 	 * Sets current life points
 	 * @param lifePoints
 	 */
@@ -71,6 +72,7 @@ public abstract class Creature extends LifeForm
 		
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * gets Max life points
 	 * @return
 	 */
@@ -79,6 +81,7 @@ public abstract class Creature extends LifeForm
 		return maxLife;
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * sets max life points
 	 * @param maxLife
 	 */
@@ -87,6 +90,7 @@ public abstract class Creature extends LifeForm
 		this.maxLife = maxLife;
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * recover method for creature 
 	 */
 	public void recover()
@@ -98,6 +102,7 @@ public abstract class Creature extends LifeForm
 		}
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * gets recovery rate
 	 * @return
 	 */
@@ -106,6 +111,7 @@ public abstract class Creature extends LifeForm
 		return rateOfRecovery;
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * sets recovery rate - none or linear
 	 * @param recoveryRate
 	 * @throws RecoveryException
@@ -122,6 +128,7 @@ public abstract class Creature extends LifeForm
 		}
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * take hit method for creature
 	 */
 	@Override
@@ -134,6 +141,7 @@ public abstract class Creature extends LifeForm
 		}
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * When the time is changed the timer notifies this method.
 	 * @param time : updated time
 	 */
@@ -146,6 +154,7 @@ public abstract class Creature extends LifeForm
 		}
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * calculates damage for the creature
 	 * @return
 	 */

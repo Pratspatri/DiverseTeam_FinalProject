@@ -36,6 +36,7 @@ public class TestDungeon
 		Player.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Resets the dungeon
 	 */
 	public static void resetDungeon()
@@ -43,6 +44,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Initialization tests
 	 */
 	@Test
@@ -59,6 +61,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for adding a life form
 	 */
 	@Test
@@ -122,6 +125,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * tests to remove lifeform
 	 */
 	@Test
@@ -162,6 +166,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to get row and column numbers
 	 */
 	@Test
@@ -173,6 +178,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for getting distance between two lifeforms.
 	 */
 	@Test
@@ -220,6 +226,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test for get item from the dungeon from a particular cell and position
 	 */
 	@Test
@@ -235,6 +242,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	}
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to add item to dungeon to a particular cell and position
 	 */
 	@Test
@@ -253,6 +261,7 @@ public class TestDungeon
 	}
 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to remove item from dungeon from a particular cell and position
 	 */
 	@Test
@@ -272,6 +281,7 @@ public class TestDungeon
 		Dungeon.resetInstance();
 	} 
 	/**
+	 * @author Prathyusha Akshintala
 	 * Test to set and get state of the dungeon
 	 */
 	@Test
