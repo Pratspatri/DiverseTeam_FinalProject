@@ -1,7 +1,7 @@
 package item;
 
 /**
- * Describe the behavior for Gun weapon 
+ * This class to decorate the weapon to do mor damage 
  * @author Malak
  *
  */

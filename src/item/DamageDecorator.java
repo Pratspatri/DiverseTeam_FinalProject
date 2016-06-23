@@ -17,12 +17,10 @@ public abstract class DamageDecorator extends Weapon
 	 * Describe the type of decorator
 	 */
 	String description;
-
-	/**
-	 * Calculate damage for each weapon
-	 */
-	public abstract int calculateDamage(int distance);
-
+    /**
+     * Get describe type for decorator a lot or little damage for the weapon
+     * @return
+     */
 	public abstract String getDescription();
 
 }

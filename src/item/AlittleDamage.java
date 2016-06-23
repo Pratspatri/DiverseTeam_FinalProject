@@ -1,7 +1,7 @@
 package item;
 
 /**
- * Describe the behavior for Sword and Spear weapon 
+ * Decorate the weapon to do a little damage 
  * @author Malak
  *
  */
