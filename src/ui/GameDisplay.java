@@ -270,7 +270,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener,Ti
 	private JPanel getWestPanel()
 	{
 		JPanel west = new JPanel();
-		west.setLayout(new GridLayout(1, 2, 1, 0));
+		west.setLayout(new GridLayout(1, 2, 1, 0)); 
 
 		JPanel left = new JPanel();
 		left.setLayout(new GridLayout(7, 1));
@@ -663,7 +663,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener,Ti
 		KeyFactory kf = new KeyFactory();
 		Weapon holdwp = wf.buildWeapon("gun");
 		Armor holdam = af.buildArmor("normalarmor");
-		Item potion = pf.PotionFactory("AntiPoison");
+		Item potion = pf.PotionsFactory("AntiPoison");
 		Item key = kf.KeysFactory(1);
 		LifeForm gublin = new Goblin("Goblin", 30, 10);
 		LifeForm mummy = new Mummy("Mummy", 50, 40);
@@ -681,7 +681,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener,Ti
 		// add something to inventory.
 		Weapon inwp = wf.buildWeapon("sword");
 		Armor inam = af.buildArmor("sharparmor");
-		Item inpotion = pf.PotionFactory("AlihotsyDraught");
+		Item inpotion = pf.PotionsFactory("AlihotsyDraught");
 		Item inkey = kf.KeysFactory(2);
 		player.addToInventory(inwp);
 		player.addToInventory(inam);
@@ -811,7 +811,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener,Ti
 		} else if (k == KeyEvent.VK_1)
 		{
 			inventoryFrame.setVisible(true);
-			inventoryFrame.setBounds(500, 500, 600, 400);
+			inventoryFrame.setBounds(500, 500, 600, 400); 
 		}
 		else if(k == KeyEvent.VK_Q)
 		{

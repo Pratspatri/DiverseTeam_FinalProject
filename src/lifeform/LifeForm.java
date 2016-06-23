@@ -117,14 +117,14 @@ public abstract class LifeForm implements TimerObserver
 	 */
  	public void attack(LifeForm lifeForm2)
 	{
-		Dungeon dun = Dungeon.getDungeonInstance();
+		Dungeon dun = Dungeon.getDungeonInstance(); 
 		int distance = dun.getDistance(this, lifeForm2);
 		
 		if (getLifePoints() > 0)
 		{
 			if (weapon != null)
 			{
-				int damage = weapon.calculateDamage(distance);
+				int damage = weapon.calculateDamage(distance); 
 				lifeForm2.takeHit(this,damage);
 			}
 			else

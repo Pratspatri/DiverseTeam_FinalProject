@@ -1,4 +1,4 @@
-package Command;
+ package Command;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -12,7 +12,14 @@ import javax.swing.JPanel;
 import Command.Command;
 import Command.Invoker;
 
-
+/**
+ * The class represents a Invoker commands. It is a user interface class and dispaly the 
+ * buttons for each command (Acquire , reload , move , turn east ,turn west , turn south
+ * turn north,  and attack).this class implements ActionListener   
+ * 
+ * @author Saad
+ *
+ */
 
 public class Invoker implements ActionListener {
 	
@@ -46,12 +53,18 @@ public class Invoker implements ActionListener {
 		window.frame.setVisible(true);
 	}
 	
+	/**
+	 * Construct the invoker 
+	 */
 	public Invoker() 
 	{
 		initialize();
 	}
 	
-	
+	/**
+	 * Create panel and buttons for each command .add action listiner is add for
+	 * each command 
+	 */
 	private void initialize() 
 	{
 		frame = new JFrame();
@@ -59,9 +72,8 @@ public class Invoker implements ActionListener {
 		frame.setBounds(100, 100, 629, 151);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		/**
-		 * Create the panel and the buttons For Each command 
-		 */
+
+		//Create the panel and the buttons For Each command 
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -106,42 +118,74 @@ public class Invoker implements ActionListener {
 	
 	
 	/**
-	 * Set Methods to set Commands 
-	 * 
+	 * set the reload Command 
+	 * @param reload the command 
 	 */
 	
 	public void setRelaod(Command reload)
 	{
 		reloadCm = reload ; 
 	}
+	/**
+	 * set the Acquire Command 
+	 * @param aquire the command 
+	 */
 	public void setAcquire(Command aquire)
 	{
 		AcquireCm = aquire ; 
 	}
+	/**
+	 * set the drop Command 
+	 * @param drop the command 
+	 */
 	public void setDrop(Command drop)
 	{
 		DropCm = drop ; 
 	}
+	/**
+	 * set the turn east Command 
+	 * @param drop the command 
+	 */
 	public void setTurnEast(Command east)
 	{
 		TurnEastCm = east ; 
 	}
+	/**
+	 * set the turn west Command 
+	 * @param west the command 
+	 */
 	public void setTurnWest(Command west)
 	{
 		TurnWestCm = west ; 
 	}
+	/**
+	 * set the turn north Command 
+	 * @param north the command 
+	 */
 	public void setTurnNorth(Command north)
 	{
 		TurnNourthCm = north ; 
 	}
+	/**
+	 * set the turn south Command 
+	 * @param south the command 
+	 */
 	public void setTurnSouth(Command south)
 	{
 		TurnSouthCm = south ; 
 	}
+	/**
+	 * set the move Command 
+	 * @param move the command 
+	 */
 	public void setMove(Command move)
 	{
 		MoveCm = move ; 
 	}
+	/**
+	 * set the turn move Command 
+	 * @param move the command 
+	 */
 	public void setAttack(Command attack)
 	{
 		AttackCm = attack ; 
@@ -192,6 +236,13 @@ public class Invoker implements ActionListener {
      * got clicked 
      * 
      */
+
+   /**
+    * Make each button interactive and based on the event parameter will call the correct
+    * command
+    * @param event form actionEvent type 
+    */
+
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource()== reload)

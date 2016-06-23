@@ -40,6 +40,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import Command.TestAcquireCommand;
+import Command.TestAttackCommand;
+import Command.TestDropCommand;
+import Command.TestInvoker;
+import Command.TestInvokerBuilder;
+import Command.TestMoveCommand;
+import Command.TestReloadCommand;
+import Command.TestSouthCommand;
+import Command.TestTurnEastComand;
+import Command.TestTurnNorthCommand;
+import Command.TestTurnWest;
+import Command.TurnSouthCommand;
 import recovery.TestRecoveryLinear;
 import recovery.TestRecoveryNone;
 import ui.TestGameDisplay;
@@ -69,8 +81,11 @@ import dungeon.cell.state.TestStateFactory;
 	TestNormalArmor.class, TestPotionFactory.class, TestPotions.class, TestPowerArmor.class, TestReallyDamage.class,
 	TestSharpArmor.class, TestSpear.class, TestSpecialArmor.class, TestSword.class, TestWeapon.class,
     TestInventory.class,TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
-    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class,TestStateFactory.class,
-    TestInventoryFactory.class,TestGameDisplay.class, TestSimpleTimer.class
+    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class,TestStateFactory.class,TestInventoryFactory.class , 
+    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class , TestAcquireCommand.class,
+    TestAttackCommand.class , TestDropCommand.class , TestInvoker.class , TestInvokerBuilder.class , TestMoveCommand.class , 
+    TestReloadCommand.class , TestSouthCommand.class , TestTurnNorthCommand.class , TestTurnEastComand.class , TestTurnWest.class , 
+
     
 })
 public class AllGameTests 

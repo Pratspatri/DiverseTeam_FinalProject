@@ -1,24 +1,33 @@
 package item;
 
+/**
+ * The class represent the factory pattern . in this class the potions will be created  
+ * @author Saad
+ *
+ */
 public class PotionFactory { 
 	
-	public Potions PotionFactory(String type)
+	
+	/**
+	 * create  objects based on the parameter type 
+	 * @param type type of the potions object 
+	 * @return
+	 */
+	public static Potions PotionsFactory(String type)
 	{
-		if (type == null)
+		//for AntiParalysis class 
+		if(type.compareToIgnoreCase("AntiParalysis") == 0)
 		{
-			return null ; 
+			return new AntiParalysis(); 
 		}
 		
-		if(type=="AntiParalysis")
-		{
-			return new AntiParalysis();
-		}
-		else if (type=="AntiPoison")
+		//for AntiPoison class 
+		else if (type.compareToIgnoreCase("AntiPoison") == 0)
 		{
 			return new AntiPoison();
 		}
-		
-		else if (type=="AlihotsyDraught")
+		//for AlihotsyDraught class
+		else if (type.compareToIgnoreCase("AlihotsyDraught") == 0) 
 		{
 			return new AlihotsyDraught();
 		}

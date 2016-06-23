@@ -42,7 +42,7 @@ public class TestReloadCommand {
 		/**
 		 * the excepted result is 40
 		 */
-		assertEquals(40, ((Gun) wp).getActualAmmo(),.1);
+		assertEquals(40, ((Gun) wp).getActualAmmo(),.1); 
 		
 		
 		

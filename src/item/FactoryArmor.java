@@ -13,7 +13,7 @@ public class FactoryArmor
 	 */
 	public static Armor buildArmor(String type)
 	{   
-		if(type.compareToIgnoreCase("normalarmor") == 0)
+		if(type.compareToIgnoreCase("normalarmor") == 0) 
 		{
 			return new NormalArmor();
 		}

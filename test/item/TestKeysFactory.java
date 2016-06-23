@@ -12,28 +12,17 @@ import org.junit.Test;
 public class TestKeysFactory {
 
 	/**
-	 * Test the Key Factory and make sure to ceate the key 
+	 * Test the Key Factory and make sure to create the key and it will pass positive number only 
+	 * as numbers for keys 
 	 */
 	@Test
 	public void testKeyFactory() {
-		KeyFactory facotr = new KeyFactory();
-		//Create the key with key number 
-		Keys key = facotr.KeysFactory(4);
-		// check if the key is ceated 
-		assertEquals(key.getKey() , 4);
 		
-		KeyFactory facotr2 = new KeyFactory();
-		//Create the key with key number 
-		Keys key2 = facotr.KeysFactory(5);
-		// check if the key is ceated 
-		assertEquals(key2.getKey() , 5);
 		
-		/**
-		 * Check if it is smaller than Zero . it will return null 
-		 */
+		equals(KeyFactory.KeysFactory(1) instanceof Keys);
 		
-		KeyFactory facotr3 = new KeyFactory();
-		assertNull(facotr3.KeysFactory(-3));
+		// to check if negative number is passed ,  and the expected method is null
+		assertNull(KeyFactory.KeysFactory(-1));
 		
 		
 		

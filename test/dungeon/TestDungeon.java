@@ -318,7 +318,7 @@ public class TestDungeon
 		player.addToInventory(key);
 		assertTrue(player.useItem(0));
 		assertTrue(dungeon.move(2, 2));
-		assertEquals(player,dungeon.getLifeForm(3, 2));
+		assertEquals(player,dungeon.getLifeForm(3, 2)); 
 		assertNull(dungeon.getItem(2, 2, 0));
 		Dungeon.resetInstance();
 		Player.resetInstance();

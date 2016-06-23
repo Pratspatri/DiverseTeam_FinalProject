@@ -23,7 +23,7 @@ public class TestFactoryArmor
 	public void TestInitialization()
 	{   
 		//create an object from Gun
-		equals(FactoryArmor.buildArmor("normalarmor") instanceof NormalArmor);
+		equals(FactoryArmor.buildArmor("normalarmor") instanceof NormalArmor); 
 		//create an object from Spear
 		equals(FactoryArmor.buildArmor("SharpArmor") instanceof SharpArmor);
 		//create an object from Sword
