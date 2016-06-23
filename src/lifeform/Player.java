@@ -5,7 +5,7 @@ package lifeform;
  */
 import ability.Poison;
 import inventory.Inventory;
-import inventory.PlayerInventoryFactory;
+import inventory.InventoryFactory;
 import item.Armor;
 import item.ImmunePoison;
 import item.Item;
@@ -29,7 +29,7 @@ public class Player extends LifeForm
 	private Player(String name, int life, int strength) 				
 	{
 		super(name, life, strength);
-		PlayerInventoryFactory factory = new PlayerInventoryFactory();
+		InventoryFactory factory = new InventoryFactory();
 		bag = factory.getPlayerInventory();
 	}
 	/**

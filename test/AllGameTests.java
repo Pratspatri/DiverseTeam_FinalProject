@@ -1,4 +1,5 @@
 import inventory.TestInventory;
+import inventory.TestInventoryFactory;
 import inventory.TestIterator;
 import item.TestAbilityArmor;
 import item.TestAffectBehavior;
@@ -54,6 +55,7 @@ import dungeon.cell.state.TestCanWalkThroughState;
 import dungeon.cell.state.TestDoorState;
 import dungeon.cell.state.TestGenericState;
 import dungeon.cell.state.TestNoWalkThroughState;
+import dungeon.cell.state.TestStateFactory;
 
 @RunWith(Suite.class)
 @SuiteClasses({TestRecoveryNone.class, TestRecoveryLinear.class, TestDungeon.class, TestCreature.class, TestLifeForm.class,
@@ -65,7 +67,9 @@ import dungeon.cell.state.TestNoWalkThroughState;
 	TestNormalArmor.class, TestPotionFactory.class, TestPotions.class, TestPowerArmor.class, TestReallyDamage.class,
 	TestSharpArmor.class, TestSpear.class, TestSpecialArmor.class, TestSword.class, TestWeapon.class,
     TestInventory.class,TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
-    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class
+    TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class,TestStateFactory.class,
+    TestInventoryFactory.class
+    
 })
 public class AllGameTests 
 {
