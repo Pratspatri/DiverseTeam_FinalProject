@@ -18,7 +18,8 @@ public class TestArmor
 	@Test
 	public void TestInitialization() 
 	{
-      MockArmor armor=new MockArmor("normalArmor");
+      Armor armor=new MockArmor("normalArmor");
+      assertTrue(armor instanceof MockArmor );
       armor.setArmorPoints(15);
       assertEquals("normalArmor",armor.getDescription());
       assertEquals(15,armor.getArmorPoints());

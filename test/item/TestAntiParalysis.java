@@ -17,7 +17,8 @@ public class TestAntiParalysis
 	@Test
 	public void TestInitialization()  
 	{
-		AntiParalysis anti=new AntiParalysis();
+		Potions anti=new AntiParalysis();
+		assertTrue(anti instanceof AntiParalysis );
 		assertTrue(anti.affect instanceof Healing );
 		assertEquals("Healing",anti.affect.display());
 	}

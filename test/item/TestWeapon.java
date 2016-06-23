@@ -31,7 +31,8 @@ public class TestWeapon
 	@Test
 	public void TestConcertMethods() 
 	{
-		MockWeapon mock=new MockWeapon("Spear");
+		Weapon mock=new MockWeapon("Spear");
+		assertTrue(mock instanceof MockWeapon);
 		mock.setDescribtion("Gun");
 		mock.setBaseDamge(15);
         mock.setMaxrRange(40);
@@ -39,9 +40,7 @@ public class TestWeapon
         assertEquals("Gun",mock.getDescribtion());
         assertEquals(15,mock.getBaseDamge(),.1);
         assertEquals(40,mock.getMaxrRange(),.1);
-        assertEquals(5,mock.getDamage());
-      
-		
+        assertEquals(5,mock.getDamage());	
 	}
 	
 

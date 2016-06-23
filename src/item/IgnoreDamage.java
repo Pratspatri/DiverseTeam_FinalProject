@@ -1,7 +1,5 @@
 package item;
 
-import lifeform.Player;
-
 /**
  * This class will decorator the armor, so player can ignore damage,so
  * playe's armor points will remain unchanged

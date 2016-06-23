@@ -21,7 +21,7 @@ public class TestSword
 	public void TestInitialization()  
 	{
 		 Weapon sword =new Sword();
-		 equals(sword instanceof Sword );
+		 assertTrue(sword instanceof Sword );
 		 assertEquals(10,sword.getBaseDamge(),.1);
 		 assertEquals(3,sword.getMaxrRange(),.1);
 		 assertEquals("sword",sword.getDescribtion());

@@ -18,7 +18,8 @@ public class TestReallyDamage
 	public void TestInitialization() 
 	{
 		Weapon gun = new Gun();
-		ReallyDamage damage= new ReallyDamage(gun);
+		DamageDecorator damage= new ReallyDamage(gun);
+		assertTrue(damage instanceof ReallyDamage);
 		damage.calculateDamage(10);
 		assertEquals(19,damage.getDamage());
 	}

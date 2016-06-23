@@ -17,7 +17,8 @@ public class TestDamageDecorator
 	@Test
 	public void TestInitialization()  
 	{
-		MockDamageDecorator  mock=new MockDamageDecorator (new Spear());
+		DamageDecorator  mock=new MockDamageDecorator (new Spear());
+		assertTrue(mock instanceof MockDamageDecorator);
 		mock.setDescribtion("spear");
 		assertEquals("spear",mock.getDescribtion());
 	}

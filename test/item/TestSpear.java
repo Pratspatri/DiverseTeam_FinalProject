@@ -21,7 +21,7 @@ public class TestSpear
 	public void TestInitialization() 
 	{
 		 Weapon spear= new Spear();
-		 equals(spear instanceof Spear );
+		 assertTrue(spear instanceof Spear );
 		 assertEquals(15,spear.getBaseDamge(),.1);
 		 assertEquals(5,spear.getMaxrRange(),.1);
 		 assertEquals("spear",spear.getDescribtion());	 
