@@ -304,82 +304,92 @@ public class Dungeon
 	
 	public boolean move (int row, int col)
 	{
-		LifeForm movedLife = cells[row][col].getLifeForm();
-		if (movedLife != null) 
-		{
-
-			if (movedLife.getDirection().compareToIgnoreCase("North") == 0) 
+		try{
+			LifeForm movedLife = cells[row][col].getLifeForm();
+			if (movedLife != null) 
 			{
-
-				int currentRow = row;
-				int aboveRow = currentRow - 1;
-				
-					if (aboveRow >= 0 && cells[aboveRow][col].getLifeForm() == null) 
-					{
-						if(addLifeForm(aboveRow, col, movedLife))
+	
+				if (movedLife.getDirection().compareToIgnoreCase("North") == 0) 
+				{
+	
+					int currentRow = row;
+					int aboveRow = currentRow - 1;
+					
+						if (aboveRow >= 0 && cells[aboveRow][col].getLifeForm() == null) 
 						{
-							removeLifeForm(currentRow, col);
-							currentRow = aboveRow;
+							if(addLifeForm(aboveRow, col, movedLife))
+							{
+								removeLifeForm(currentRow, col);
+								movedLife.setLocation(aboveRow, col);
+								currentRow = aboveRow;
+							}
+							
 						}
-						
-					}
-				
-				return !(currentRow == row);
-			} else if (movedLife.getDirection().compareToIgnoreCase("South") == 0) 
-			{
-				int currentRow = row;
-				int underRow = currentRow + 1;
-				
-					if (underRow >= 0 && cells[underRow][col].getLifeForm() == null) 
-					{
-						
-						if(addLifeForm(underRow, col, movedLife))
+					
+					return !(currentRow == row);
+				} else if (movedLife.getDirection().compareToIgnoreCase("South") == 0) 
+				{
+					int currentRow = row;
+					int underRow = currentRow + 1;
+					
+						if (underRow >= 0 && cells[underRow][col].getLifeForm() == null) 
 						{
-							removeLifeForm(currentRow, col);
-							currentRow = underRow;
+							
+							if(addLifeForm(underRow, col, movedLife))
+							{
+								removeLifeForm(currentRow, col);
+								movedLife.setLocation(underRow, col);
+								currentRow = underRow;
+							}
 						}
-					}
-				
-				return !(currentRow == row);
+					
+					return !(currentRow == row);
+				} 
+				else if (movedLife.getDirection().compareToIgnoreCase("East") == 0) 
+				{
+					int currentCol = col;
+					int rightCol = currentCol + 1;
+					
+						if (rightCol >= 0 && cells[row][rightCol].getLifeForm() == null) 
+						{
+							if(addLifeForm(row, rightCol, movedLife))
+							{
+								removeLifeForm(row, currentCol);
+								movedLife.setLocation(row, rightCol);
+								currentCol = rightCol;
+							}
+						}
+					
+					return !(currentCol == col);
+				} 
+				else if (movedLife.getDirection().compareToIgnoreCase("West") == 0) 
+				{
+					int currentCol = col;
+					int leftCol = currentCol - 1;
+					
+						if (leftCol >= 0 && cells[row][leftCol].getLifeForm() == null) 
+						{
+							if(addLifeForm(row, leftCol, movedLife))
+							{
+								removeLifeForm(row, currentCol);
+								movedLife.setLocation(row, leftCol);
+								currentCol = leftCol;
+							}
+						}
+					
+					return !(currentCol == col);
+				} 
+				else 
+				{
+					return false;
+				}
 			} 
-			else if (movedLife.getDirection().compareToIgnoreCase("East") == 0) 
-			{
-				int currentCol = col;
-				int rightCol = currentCol + 1;
-				
-					if (rightCol >= 0 && cells[row][rightCol].getLifeForm() == null) 
-					{
-						if(addLifeForm(row, rightCol, movedLife))
-						{
-							removeLifeForm(row, currentCol);
-							currentCol = rightCol;
-						}
-					}
-				
-				return !(currentCol == col);
-			} 
-			else if (movedLife.getDirection().compareToIgnoreCase("West") == 0) 
-			{
-				int currentCol = col;
-				int leftCol = currentCol - 1;
-				
-					if (leftCol >= 0 && cells[row][leftCol].getLifeForm() == null) 
-					{
-						if(addLifeForm(row, leftCol, movedLife))
-						{
-							removeLifeForm(row, currentCol);
-							currentCol = leftCol;
-						}
-					}
-				
-				return !(currentCol == col);
-			} 
-			else 
-			{
+			else
 				return false;
-			}
-		} 
-		else
+		}
+		catch(ArrayIndexOutOfBoundsException ex)
+		{
 			return false;
+		}
 	}
 }

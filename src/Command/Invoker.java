@@ -147,6 +147,32 @@ public class Invoker implements ActionListener {
 		AttackCm = attack ; 
 	}
 	
+	public void move()
+	{
+		this.MoveCm.execute();
+	}
+	public void TurnNorth()
+	{
+		this.TurnNourthCm.execute();
+	}
+	public void TurnSouth()
+	{
+		this.TurnSouthCm.execute();
+	}
+	public void TurnEast()
+	{
+		this.TurnEastCm.execute();
+	}
+	public void TurnWest()
+	{
+		this.TurnWestCm.execute();
+	}
+	public void attackCm()
+	{
+		this.AttackCm.execute();
+	}
+	
+	
     /**
      * Action Listener method to do the action.When the button go clicked it should call the
      * execute method for the right command .We used (event.getSource()) to check when the right button

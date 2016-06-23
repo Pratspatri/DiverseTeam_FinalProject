@@ -224,4 +224,11 @@ public class Player extends LifeForm
 	{
 		return (armor==null)?"":this.armor.getDescription();
 	}
+	/**
+	 * Gets the size of Inventory
+	 */
+	public int getInventorySize()
+	{
+		return this.bag.getMaxSize();
+	}
 }
