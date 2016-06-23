@@ -41,6 +41,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import recovery.TestRecoveryLinear;
 import recovery.TestRecoveryNone;
+import ui.TestGameDisplay;
 import ability.TestPoison;
 import ability.TestPoke;
 import dungeon.TestDungeon;
@@ -68,7 +69,7 @@ import dungeon.cell.state.TestStateFactory;
 	TestSharpArmor.class, TestSpear.class, TestSpecialArmor.class, TestSword.class, TestWeapon.class,
     TestInventory.class,TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
     TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class,TestStateFactory.class,
-    TestInventoryFactory.class
+    TestInventoryFactory.class,TestGameDisplay.class
     
 })
 public class AllGameTests 

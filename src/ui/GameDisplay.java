@@ -39,22 +39,36 @@ import dungeon.cell.state.DoorState;
 import dungeon.cell.state.NoWalkThroughState;
 import dungeon.cell.state.StateFactory;
 
+/**
+ * Game Display class for the Graphical User Interface(GUI).
+ * @author Jixiang Lu
+ *
+ */
 public class GameDisplay extends JFrame implements MouseListener, KeyListener
 {
 	private JLabel envDisplay[][];// map
-	private JLabel playerInfro[][];// playerInfor
-	private JTextArea selectInfor, selectInventory;
-	private JFrame inventoryFrame;
-	private ArrayList<JLabel> inventoryLabel;
-	private Invoker invoker;
-	private Dungeon env;
-	private Player player;
-	private int inforRow;
+	private JLabel playerInfro[][];// playerInformation
+	private JTextArea selectInfor, selectInventory;//Detail displayer
+	private JFrame inventoryFrame;//Inventory Frame
+	private ArrayList<JLabel> inventoryLabel;//Inventory contents
+	private Invoker invoker; // The invoker
+	private Dungeon env; // The Dungeon
+	private Player player; // The Player/
+	private int inforRow;//how many rows are used to show player's information.
 
+	/**
+	 * Create a GameDisplay Frame.
+	 */
 	public GameDisplay()
 	{
 		super();
-		SimpleSetForDungeon();
+	}
+	
+	/**
+	 * Assemble a base interface with its components.
+	 */
+	public void CreateBaseDisplayer()
+	{
 		env = Dungeon.getDungeonInstance();
 		player = (Player) Player.getPlayerInstance();
 		InvokerBuilder invokerFactory = new InvokerBuilder();
@@ -65,7 +79,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		inventoryFrame.add(GetsInventory(), BorderLayout.CENTER);
 
 		this.setResizable(false);
-		this.setBounds(100, 100, 1200, 600);
+		this.setBounds(100, 100, 1300, 700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(0, 0));
 		this.add(this.getEastPanel(), BorderLayout.EAST);
@@ -79,10 +93,13 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		this.setVisible(true);
 		setFocusable(true);
 		addKeyListener(this);
-
 	}
 
-	public JPanel getCenterPanel()
+	/**
+	 * Gets Map Component.
+	 * @return the Map Component.
+	 */
+	private JPanel getCenterPanel()
 	{
 		JPanel map = new JPanel();
 		map.setLayout(new GridLayout(env.getNumberOfRow(),
@@ -106,7 +123,13 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		return map;
 	}
 
-	public String getCellText(int row, int col)
+	/**
+	 * Gets the information of the Cell at row and column.
+	 * @param row the specific row.
+	 * @param col the specific column.
+	 * @return the information of the Cell. Format: Cellstate|LifeForm|item1|item2
+	 */
+	private String getCellText(int row, int col)
 	{
 		String text = "(" + row + "," + col + ")";
 		if (env.getState(row, col) instanceof CanWalkThroughState)
@@ -156,7 +179,12 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 
 	}
 
-	public JPanel getEastPanel()
+	/**
+	 * Legend details with respect to adding the labels and the layout. 
+	 * This is tells us what represents what in the map.
+	 * @return the Legend Component.
+	 */
+	private JPanel getEastPanel()
 	{
 		JPanel legend = new JPanel();
 		legend.setLayout(new GridLayout(18, 1));
@@ -202,14 +230,34 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		JLabel L15 = new JLabel(" w = face west");
 		legend.add(L15);
 
-		JLabel L16 = new JLabel(" 0 = face error");
+		JLabel L16 = new JLabel(" upKey: Move up");
 		legend.add(L16);
+		JLabel L17 = new JLabel(" downKey: Move down");
+		legend.add(L17);
+		JLabel L18 = new JLabel(" rightKey: Move Right");
+		legend.add(L18);
+		JLabel L19 = new JLabel(" LeftKey: Move Left");
+		legend.add(L19);
+		JLabel L20 = new JLabel("D key: Drop");
+		legend.add(L20);
+		JLabel L21 = new JLabel("A key: Attack");
+		legend.add(L21);
+		JLabel L22 = new JLabel("Q key: Acquire");
+		legend.add(L22);
+		JLabel L23 = new JLabel("R key: Reload");
+		legend.add(L23);
+		JLabel L24 = new JLabel("1 key: Open Inventory");
+		legend.add(L24);
 		legend.setBorder(new TitledBorder(new EtchedBorder(), "Legend"));
 
 		return legend;
 	}
 
-	public JPanel getWestPanel()
+	/**
+	 * Gets the component which is used to display player's information
+	 * @return the Component
+	 */
+	private JPanel getWestPanel()
 	{
 		JPanel west = new JPanel();
 		west.setLayout(new GridLayout(1, 2, 1, 0));
@@ -272,7 +320,12 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		return west;
 	}
 
-	public String setPlayInfor(int inforRow)
+	/**
+	 * Gets the newest player's information which will be displayed at the "inforRow".
+	 * @param inforRow specific row at the player's information component.
+	 * @return the player's information according to the "inforRow".
+	 */
+	private String setPlayInfor(int inforRow)
 	{
 		if (inforRow == 0)
 		{
@@ -300,7 +353,11 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 
 	}
 
-	public JPanel getSouthPanel()
+	/**
+	 * Gets the component which used to display the selected Cell's information.
+	 * @return the component.
+	 */
+	private JPanel getSouthPanel()
 	{
 		JPanel south = new JPanel();
 		south.setLayout(new BorderLayout(0, 0));
@@ -313,6 +370,9 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		return south;
 	}
 
+	/**
+	 * Update the interface base on the newest situation.
+	 */
 	public void update()
 	{
 		for (int i = 0; i < env.getNumberOfRow(); i++)
@@ -332,6 +392,12 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		}
 	}
 
+	/**
+	 * Gets String which is used to describe the Cell at the row and column.
+	 * @param row the number of row.
+	 * @param col the number of column.
+	 * @return String
+	 */
 	private String printCellInfor(int row, int col)
 	{
 		String text = "LifeForm--";
@@ -419,6 +485,11 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		return text;
 	}
 
+	/**
+	 * A tool is used to change the direction to one Char.
+	 * @param direction the full direction
+	 * @return the one char.n-north,s-south,e-east,w-west
+	 */
 	private String exchangDirection(String direction)
 	{
 		if (direction == null)
@@ -440,10 +511,24 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			return "0";
 	}
 
+	/**
+	 * Gets the component which is is used to display the Inventory.
+	 * @return the component.
+	 */
 	private JPanel GetsInventory()
 	{
 		JPanel inventory = new JPanel();
 		inventory.setLayout(new BorderLayout(0, 0));
+		JPanel north = new JPanel();
+		north.setLayout(new BorderLayout(0, 0));
+		north.setBorder(new TitledBorder(new EtchedBorder(), "Instruction"));
+		JTextArea infor = new JTextArea("Put the mouse on the item, it will display the detail of item.\n"
+				+ "Click mouse on the item, it will use the item.");
+		infor.setRows(2);
+		infor.setEditable(false);
+		north.add(infor,BorderLayout.CENTER);
+		
+		
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(player.getInventorySize() / 5, 5, 0, 0));
 		center.setBorder(new TitledBorder(new EtchedBorder(), "Inventory"));
@@ -464,12 +549,17 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		selectInventory.setEditable(false);
 		selectInventory
 				.setBorder(new TitledBorder(new EtchedBorder(), "Detial"));
-
+		inventory.add(north , BorderLayout.NORTH);
 		inventory.add(center, BorderLayout.CENTER);
 		inventory.add(selectInventory, BorderLayout.SOUTH);
 		return inventory;
 	}
 
+	/**
+	 * Gets the String which is used to describe what is at the location of inventory.
+	 * @param index the location of inventory.
+	 * @return the String.
+	 */
 	private String inventoryInFor(int index)
 	{
 		if (player.getItemFromInventory(index) instanceof Weapon)
@@ -488,6 +578,11 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			return "";
 	}
 
+	/**
+	 * Gets the String which is used to describe the detail of item at the location of inventory.
+	 * @param index the location
+	 * @return the String
+	 */
 	private String printItemDetailInInventory(int index)
 	{
 		Item temp = player.getItemFromInventory(index);
@@ -515,7 +610,10 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			return "Nothing.";
 	}
 
-	private void SimpleSetForDungeon()
+	/**
+	 * Load a simple dungeon.
+	 */
+	public void SimpleSetForDungeon()
 	{
 		Dungeon dun = Dungeon.getDungeonInstance();
 		Player player = (Player) Player.getPlayerInstance();
@@ -580,6 +678,9 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		player.addToInventory(inkey);
 	}
 
+	/**
+	 * MouseClicked event
+	 */
 	@Override
 	public void mouseClicked(MouseEvent arg0)
 	{
@@ -607,6 +708,9 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 
 	}
 
+	/**
+	 * mouseEntered Event
+	 */
 	@Override
 	public void mouseEntered(MouseEvent arg0)
 	{
@@ -638,6 +742,9 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	{
 	}
 
+	/**
+	 * keyPressed Event.
+	 */
 	@Override
 	public void keyPressed(KeyEvent arg0)
 	{
@@ -686,14 +793,22 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			this.update();
 		} else if (k == KeyEvent.VK_A)
 		{
-			invoker.attackCm();
+			invoker.attack();
 		} else if (k == KeyEvent.VK_D)
 		{
-			// invoker;
+			invoker.drop();
 		} else if (k == KeyEvent.VK_1)
 		{
 			inventoryFrame.setVisible(true);
 			inventoryFrame.setBounds(500, 500, 600, 400);
+		}
+		else if(k == KeyEvent.VK_Q)
+		{
+			invoker.acquire();
+		}
+		else if(k ==KeyEvent.VK_R)
+		{
+			invoker.reload();
 		}
 	}
 
@@ -707,9 +822,15 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	{
 	}
 
+	/**
+	 * Main method
+	 * @param argv
+	 */
 	public static void main(String[] argv)
 	{
-		JFrame jf = new GameDisplay();
-
+		GameDisplay jf = new GameDisplay();
+		jf.CreateBaseDisplayer();
+		jf.SimpleSetForDungeon();
+		jf.update();
 	}
 }
