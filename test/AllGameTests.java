@@ -1,3 +1,4 @@
+import gameplay.TestSimpleTimer;
 import inventory.TestInventory;
 import inventory.TestInventoryFactory;
 import inventory.TestIterator;
@@ -69,7 +70,7 @@ import dungeon.cell.state.TestStateFactory;
 	TestSharpArmor.class, TestSpear.class, TestSpecialArmor.class, TestSword.class, TestWeapon.class,
     TestInventory.class,TestIterator.class,TestCanWalkThroughState.class, TestDoorState.class,
     TestGenericState.class,TestNoWalkThroughState.class,TestCell.class,TestCellFactory.class,TestStateFactory.class,
-    TestInventoryFactory.class,TestGameDisplay.class
+    TestInventoryFactory.class,TestGameDisplay.class, TestSimpleTimer.class
     
 })
 public class AllGameTests 

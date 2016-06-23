@@ -120,7 +120,7 @@ public class TestGameDisplay
 		
 		GameDisplay gm = new GameDisplay();
 		gm.CreateBaseDisplayer();
-		gm.update();
+		gm.updateTime(0);
 		
 		assertEquals(JOptionPane.YES_OPTION,JOptionPane.showConfirmDialog(null, "Created Player(4,4) and "
 				+ "Goblin(3,6) and Mummy(6,6)\nDoes it look right?"));

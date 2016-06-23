@@ -3,20 +3,25 @@ package lifeform;
  * Test for Player class
  * @author - Prathyusha Akshintala
  */
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import item.Armor;
 import item.ImmunePoison;
+import item.Item;
 import item.MockArmor;
+import item.MockItem;
 import item.SharpArmor;
 import item.Sword;
 
 import org.junit.After;
 import org.junit.Test;
 
-import dungeon.Dungeon;
 import ability.Ability;
 import ability.Poison;
 import ability.Poke;
+import dungeon.Dungeon;
 
 public class TestPlayer 
 {
@@ -167,5 +172,19 @@ public class TestPlayer
 	    mario2.takeHit(taylor, taylor1.calculateDamage());  
 	    assertEquals(71,mario.getLifePoints());
 	    Player.resetInstance();
+	}
+	
+	/**
+	 * Test getItemFromInventory and etIndexOfItemFromInventory method
+	 * @author Jixiang Lu
+	 */
+	@Test
+	public void testInventory()
+	{
+		Player player = (Player) Player.getPlayerInstance();
+		Item item = new MockItem("w");
+		assertEquals(-1,player.getIndexOfItemFromInventory(item));
+		player.addToInventory(item);
+		assertEquals(item,player.getItemFromInventory(player.getIndexOfItemFromInventory(item)));
 	}
 }

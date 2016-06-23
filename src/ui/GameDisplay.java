@@ -1,5 +1,8 @@
 package ui;
 
+import gameplay.SimpleTimer;
+import gameplay.Timer;
+import gameplay.TimerObserver;
 import item.Armor;
 import item.FactoryArmor;
 import item.FactoryWeapon;
@@ -44,7 +47,7 @@ import dungeon.cell.state.StateFactory;
  * @author Jixiang Lu
  *
  */
-public class GameDisplay extends JFrame implements MouseListener, KeyListener
+public class GameDisplay extends JFrame implements MouseListener, KeyListener,TimerObserver
 {
 	private JLabel envDisplay[][];// map
 	private JLabel playerInfro[][];// playerInformation
@@ -55,6 +58,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	private Dungeon env; // The Dungeon
 	private Player player; // The Player/
 	private int inforRow;//how many rows are used to show player's information.
+	private SimpleTimer timer;//Timer
 
 	/**
 	 * Create a GameDisplay Frame.
@@ -71,13 +75,18 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	{
 		env = Dungeon.getDungeonInstance();
 		player = (Player) Player.getPlayerInstance();
+		timer = new SimpleTimer();
+		timer.addTimeObserver(env);
+		timer.addTimeObserver(this);
+		
 		InvokerBuilder invokerFactory = new InvokerBuilder();
 		invoker = invokerFactory.getInvoker(player);
 		inventoryFrame = new JFrame("Inventory");
 		inventoryFrame.setLayout(new BorderLayout(0, 0));
 		inventoryLabel = new ArrayList<JLabel>();
 		inventoryFrame.add(GetsInventory(), BorderLayout.CENTER);
-
+		
+		
 		this.setResizable(false);
 		this.setBounds(100, 100, 1300, 700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,6 +102,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		this.setVisible(true);
 		setFocusable(true);
 		addKeyListener(this);
+		timer.start();
 	}
 
 	/**
@@ -373,7 +383,8 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 	/**
 	 * Update the interface base on the newest situation.
 	 */
-	public void update()
+	@Override
+	public void updateTime(int time)
 	{
 		for (int i = 0; i < env.getNumberOfRow(); i++)
 		{
@@ -693,7 +704,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 				int end = infor.indexOf('.');
 				int index = Integer.parseInt(infor.substring(0, end));
 				player.useItem(index);
-				update();
+				updateTime(0);
 			}
 		} else
 		{
@@ -759,7 +770,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			{
 				invoker.TurnNorth();
 			}
-			this.update();
+			this.updateTime(0);
 
 		} else if (k == KeyEvent.VK_DOWN)
 		{
@@ -770,7 +781,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			{
 				invoker.TurnSouth();
 			}
-			this.update();
+			this.updateTime(0);
 		} else if (k == KeyEvent.VK_RIGHT)
 		{
 			if (player.getDirection().compareToIgnoreCase("East") == 0)
@@ -780,7 +791,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			{
 				invoker.TurnEast();
 			}
-			this.update();
+			this.updateTime(0);
 		} else if (k == KeyEvent.VK_LEFT)
 		{
 			if (player.getDirection().compareToIgnoreCase("West") == 0)
@@ -790,7 +801,7 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 			{
 				invoker.TurnWest();
 			}
-			this.update();
+			this.updateTime(0);
 		} else if (k == KeyEvent.VK_A)
 		{
 			invoker.attack();
@@ -831,6 +842,6 @@ public class GameDisplay extends JFrame implements MouseListener, KeyListener
 		GameDisplay jf = new GameDisplay();
 		jf.CreateBaseDisplayer();
 		jf.SimpleSetForDungeon();
-		jf.update();
+		jf.updateTime(0);
 	}
 }

@@ -164,13 +164,18 @@ public class Player extends LifeForm
 	}
 	
 	/**
-	 * Gets item from inventory. need to be test
+	 * Gets item from inventory.
+	 * @author Jixiang Lu
 	 */
 	public Item getItemFromInventory(int index)
 	{
 		return bag.getItem(index);
 	}
-	//
+	/**
+	 * Gets index of item if it exist in inventory.
+	 * @param item the item 
+	 * @return index of item or -1
+	 */
 	public int getIndexOfItemFromInventory(Item item)
 	{
 		return bag.index(item);

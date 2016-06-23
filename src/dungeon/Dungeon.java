@@ -1,17 +1,19 @@
 package dungeon;
 
+import gameplay.TimerObserver;
+import item.Item;
+import lifeform.LifeForm;
+import lifeform.Player;
 import dungeon.cell.Cell;
 import dungeon.cell.CellFactory;
 import dungeon.cell.state.State;
-import lifeform.LifeForm;
-import item.Item;
 
 /**
  * Singleton pattern for Dungeon as there is only one.
  * @author Prathyusha Akshintala
  *
  */
-public class Dungeon 
+public class Dungeon implements TimerObserver
 {
 
 	private Cell cells[][];												// cells which hold everything
@@ -391,5 +393,27 @@ public class Dungeon
 		{
 			return false;
 		}
+	}
+	
+	/**
+	 * Removes the dead LifeForm from Dungeon except player.
+	 * 
+	 * @author Jixiang Lu
+	 */
+	@Override
+	public void updateTime(int time)
+	{
+			for (int i = 0; i <  cells.length; i++) 
+			{
+				for (int j = 0; j < cells[0].length; j++) 
+				{
+					LifeForm life =cells[i][j].getLifeForm();
+					if(life!=null && life.getLifePoints()==0&&life!= Player.getPlayerInstance())
+					{
+						cells[i][j].removeLifeForm();
+					}
+				}
+			}
+		
 	}
 }
