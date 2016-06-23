@@ -5,7 +5,7 @@ package item;
  * @author Malak
  *
  */
-public class MockSpecialArmor extends Armor 
+public class MockSpecialArmor extends SpecialArmor 
 {
 
 	public MockSpecialArmor(String name) 

@@ -20,7 +20,7 @@ public class TestNormalArmor
 	public void TestInitialization()
 	{
 		Armor normal=new NormalArmor();
-		equals(normal instanceof NormalArmor );
+		assertTrue(normal instanceof NormalArmor );
 		assertEquals("normalArmor",normal.getDescription());
 		assertEquals(15,normal.getArmorPoints());	
 	}

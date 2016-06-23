@@ -17,7 +17,8 @@ public class TestAntiPoison
 	@Test
 	public void TestInitialization()  
 	{
-		AntiPoison poison=new AntiPoison();
+		Potions poison=new AntiPoison();
+		assertTrue(poison instanceof AntiPoison );
 		assertTrue(poison.affect instanceof Healing );
 		assertEquals("Healing",poison.affect.display());
 	}

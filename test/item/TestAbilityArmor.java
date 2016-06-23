@@ -17,7 +17,9 @@ public class TestAbilityArmor
 	@Test
 	public void TestInitialization() 
 	{
-		MockAbilityArmor mock=new MockAbilityArmor(new PowerArmor());
+		AbilityArmor mock=new MockAbilityArmor(new PowerArmor());
+		assertTrue(mock.specialArmor instanceof PowerArmor);
+		assertTrue(mock instanceof AbilityArmor);
 		assertEquals("powerArmor",mock.getDescription());
 		mock.setDescription("Power");
 		assertEquals("Power",mock.getDescription());

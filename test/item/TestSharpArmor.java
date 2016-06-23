@@ -19,7 +19,7 @@ public class TestSharpArmor
 	public void TestInitialization()
 	{
 		Armor sharp=new SharpArmor();
-		equals(sharp instanceof SharpArmor );
+		assertTrue(sharp instanceof SharpArmor );
 		assertEquals("sharpArmor",sharp.getDescription());
 		assertEquals(20,sharp.getArmorPoints());
 	}

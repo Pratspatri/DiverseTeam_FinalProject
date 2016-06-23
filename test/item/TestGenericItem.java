@@ -18,7 +18,8 @@ public class TestGenericItem
 	@Test
 	public void TestInitialization() 
 	{
-		MockItem item=new MockItem("Armor");
+		Item item=new MockItem("Armor");
+		assertTrue(item instanceof MockItem);
 		assertEquals("Armor",item.getItem());
 		item.setItem("Weapon");
 		assertEquals("Weapon",item.getItem());

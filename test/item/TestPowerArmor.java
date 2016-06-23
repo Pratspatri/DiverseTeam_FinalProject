@@ -21,7 +21,7 @@ public class TestPowerArmor
 	public void TestInitialization()
 	{
 		Armor power=new PowerArmor();
-		equals(power instanceof PowerArmor );
+		assertTrue(power instanceof PowerArmor );
 		assertEquals("powerArmor",power.getDescription());
 		assertEquals(30,power.getArmorPoints());
 	}

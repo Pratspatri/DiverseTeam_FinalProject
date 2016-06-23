@@ -17,7 +17,8 @@ public class TestSpecialArmor
 	@Test
 	public void TestInitialization() 
 	{
-		MockSpecialArmor specialarmor=new MockSpecialArmor("SharpArmor");
+		SpecialArmor specialarmor=new MockSpecialArmor("SharpArmor");
+		assertTrue(specialarmor instanceof MockSpecialArmor);
 		assertEquals("SharpArmor",specialarmor.getDescription());
 		specialarmor.setArmorPoints(10);
 		specialarmor.setDescription("PowerArmor");
