@@ -60,6 +60,9 @@ public class TestCreature
 		// life points cannot be more than max life
 		creature.setCurrentLife(50);
 		assertEquals(40,creature.getLifePoints());
+		// when lifePoints are 0
+		creature.setCurrentLife(0);
+		assertEquals(0, creature.getLifePoints());
 	}
 	/**
 	 * @author Prathyusha Akshintala

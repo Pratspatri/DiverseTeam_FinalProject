@@ -223,6 +223,11 @@ public class TestDungeon
 		dungeon.addLifeForm(9, 9, james);
 		dungeon.addLifeForm(10, 9, sirius);
 		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
+		dungeon.addLifeForm(-9, -9, james);
+		dungeon.addLifeForm(-10, -9, sirius);
+		assertEquals(-1, dungeon.getDistance(james, sirius));
+		
 		Dungeon.resetInstance();
 	}
 	/**
