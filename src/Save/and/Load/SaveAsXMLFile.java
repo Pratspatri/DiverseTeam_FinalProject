@@ -47,7 +47,7 @@ public class SaveAsXMLFile extends Save {
 	public void SavePlayerData() {
 		
 		Player player = (Player) Player.getPlayerInstance();
-		 String armor = player.getArmorDescription()
+		 String armor = player.getArmorDescription();
 		DocumentBuilderFactory factroy = DocumentBuilderFactory.newInstance();
 		try{
 		DocumentBuilder builder = factroy.newDocumentBuilder();

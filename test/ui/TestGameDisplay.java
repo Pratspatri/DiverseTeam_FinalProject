@@ -93,7 +93,7 @@ public class TestGameDisplay
 		KeyFactory kf = new KeyFactory();
 		Weapon holdwp = wf.buildWeapon("gun");
 		Armor holdam = af.buildArmor("normalarmor");
-		Item potion = pf.PotionFactory("AntiPoison");
+		Item potion = pf.PotionsFactory("AntiPoison");
 		Item key = kf.KeysFactory(1);
 		LifeForm gublin = new Goblin("Goblin", 30, 10);
 		LifeForm mummy = new Mummy("Mummy", 50, 40);
@@ -111,14 +111,14 @@ public class TestGameDisplay
 		// add something to inventory.
 		Weapon inwp = wf.buildWeapon("sword");
 		Armor inam = af.buildArmor("sharparmor");
-		Item inpotion = pf.PotionFactory("AlihotsyDraught");
+		Item inpotion = pf.PotionsFactory("AlihotsyDraught");
 		Item inkey = kf.KeysFactory(2);
 		player.addToInventory(inwp);
 		player.addToInventory(inam);
 		player.addToInventory(inpotion);
 		player.addToInventory(inkey);
 		
-		GameDisplay gm = new GameDisplay();
+		GameDisplay gm = new GameDisplay(); 
 		gm.CreateBaseDisplayer();
 		gm.updateTime(0);
 		
@@ -138,7 +138,7 @@ public class TestGameDisplay
 				+ "Door state \nDoes it look right?"));
 		
 	
-	}
+	} 
 
 
 }
